@@ -20,4 +20,17 @@
         </div>
     </div>
 </div>
+
+@foreach ($users as $user)
+<h2>{{$user->name}}</h2>
+@endforeach
+
+@foreach ($apartments as $apartment)
+<h3>{{$apartment->name}}</h3>
+@endforeach
+
+{{-- @foreach ($messagges as $message)
+<p>{{$message->subject}}</p>
+@endforeach --}}
+
 @endsection

@@ -22,13 +22,10 @@ class DashboardController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $user = User::where('id', $user_id)->get();
+        $users = User::where('id', $user_id)->get();
         $apartments = Apartment::where('user_id', $user_id)->get();
         $messages = Message::where('user_id', $user_id)->get();
 
-        return view('admin.dashboard', compact('user', 'apartments', 'messages'));
-
+        return view('admin.dashboard', compact('users', 'apartments', 'messages'));
     }
-
-
 }
