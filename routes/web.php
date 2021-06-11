@@ -20,7 +20,7 @@ Auth::routes();
 
 // rotte admin
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
-    Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     // Route::resource('posts', 'PostController');
     // Route::resource('tags', 'TagController');
     // Route::delete('comments/{comment}', 'CommentController@destroy')->name('comments.destroy');
