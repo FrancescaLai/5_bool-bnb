@@ -1,0 +1,64 @@
+// Variables
+@import "variables";
+
+// Media queries
+@mixin mq-large {
+    @media only screen and (min-width: $large * 1px) {
+        @content;
+    }
+}
+
+@mixin mq-medium {
+    @media only screen and (min-width: $medium * 1px) {
+        @content;
+    }
+}
+
+// Flexbox Toolkit
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-center-column {
+    @include flex-center;
+    flex-direction: column;
+}
+
+@mixin flex-center-vert {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-center-horiz {
+    display: flex;
+    justify-content: center;
+}
+
+// Absolute positioning
+@mixin abs-position($top, $right, $bottom, $left) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// Text shortening
+@mixin text-shorten {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Box
+@mixin box($width, $height: $width) {
+    width: $width;
+    height: $height;
+}

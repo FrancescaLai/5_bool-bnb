@@ -1,10 +1,21 @@
 // Body
-$body-bg: #f8fafc;
+$body-bg: #f4f7fe;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: "Mulish", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+$body-xs: 12px;
+$body-sm: 14px;
+$body-md: 16px;
+$body-lg: 18px;
+$body-xl: 20px;
+$title-xs: 24px;
+$title-sm: 34px;
+$title-md: 42px;
+$title-lg: 50px;
+$title-xl: 64px;
 
 // Colors
 $blue: #3490dc;
@@ -17,3 +28,23 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+$gray-100: #fafafa;
+$gray-200: #f4f4f5;
+$gray-300: #e4e4e7;
+$gray-400: #d4d4d8;
+$gray-500: #a1a1aa;
+$gray-600: #71717a;
+$gray-700: #52525b;
+$gray-800: #3f3f46;
+$gray-900: #27272a;
+
+$primaryDarker: #1b1b1b;
+$primaryDark: #09244f;
+$primary: #076cf9;
+$primaryLight: #c9d4ea;
+$primaryLighter: #f4f7fe;
+
+// Media queries
+$large: 1024;
+$medium: 768;
