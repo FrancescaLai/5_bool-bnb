@@ -33,8 +33,8 @@ class UsersTableSeeder extends Seeder
         $user_2->surname = 'Pisani';
         $user_2->birth_date = '1971-12-11';
         $user_2->phone_number = '3436459782';
-        $user_2->document_type = 'id';
-        $user_2->document_number = 'QK56905AA';
+        $user_2->document_type = 'passport';
+        $user_2->document_number = 'BC7844234';
         $user_2->save();
 
 
@@ -46,8 +46,8 @@ class UsersTableSeeder extends Seeder
         $user_3->surname = 'Marino';
         $user_3->birth_date = '1994-04-22';
         $user_3->phone_number = '3486552723';
-        $user_3->document_type = 'id';
-        $user_3->document_number = 'MV24801AA';
+        $user_3->document_type = 'lg';
+        $user_3->document_number = 'B64D2LJ9PW';
         $user_3->save();
     }
 }
