@@ -66,7 +66,7 @@ class ApartmentController extends Controller
 
         $services = Service::all();
 
-        return view('admin.edit', compact('post', 'services'));
+        return view('admin.edit', compact('apartment', 'services'));
     }
 
     /**
@@ -87,8 +87,17 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apartment $apartment)
     {
-        //
+        // Controllo se l'utente è autorizzato alla cancellazione
+        $user_id = Auth::id();
+
+        if( $apartment->user_id != $user_id ) {
+            abort('403');
+        }
+
+        $apartment->delete();
+
+        return redirect()->route('admin.index')->with('message', 'L\'appartamento è stato eliminato!');
     }
 }
