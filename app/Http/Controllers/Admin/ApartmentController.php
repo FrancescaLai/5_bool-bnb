@@ -7,9 +7,30 @@ use App\Service;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ApartmentController extends Controller
 {
+
+    protected $validation = [
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'num_room' => 'required|integer',
+        'num_bath' => 'required|integer',
+        'num_bed' => 'required|integer',
+        'mq' => 'required|integer',
+        'price_day' => 'required|numeric',
+        'country' => 'required|string|max:255',
+        'region' => 'required|string|max:255',
+        'city' => 'required|string|max:255',
+        'street' => 'required|string|max:255',
+        'zip_code' => 'required|string|max:255',
+        'floor' => 'required|integer',
+        'latitude' => 'required|numeric',
+        'longitude' => 'required|numeric'
+    ];
+
     /**
      * Show the form for creating a new resource.
      *
@@ -57,7 +78,6 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        // Controllo se l'utente è autorizzato alla modifica
         $user_id = Auth::id();
         
         if( $apartment->user_id != $user_id ) {
@@ -76,9 +96,42 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apartment $apartment)
     {
-        //
+        // Controllo se l'utente è autorizzato alla modifica
+        $user_id = Auth::id();
+
+        if( $apartment->user_id != $user_id ) {
+            abort('403');
+        }
+
+        $validation = $this->validation;
+        // validation
+        $request->validate($validation);
+
+        $data = $request->all();
+
+        // controllo checkbox
+        $data['visibility'] = !isset($data['visibility']) ? 0 : 1;
+        // imposto lo slug partendo dal title
+        $data['slug'] = Str::slug($data['name'], '-');
+        // upload file image
+        if ( isset($data['image']) ) {
+            $data['image'] = Storage::disk('public')->put('images', $data['image']);
+        }
+
+        // update
+        $apartment->update($data);
+
+        // aggiorno i service
+        if(!isset($data['services'])){
+            $data['services'] = [];
+        }
+
+        $apartment->services()->sync($data['services']);
+
+        return redirect()->route('admin.show', $apartment)->with('message', 'L\'appartamento ' . $apartment->name . ' è stato modificato!');
+        
     }
 
     /**
@@ -98,6 +151,6 @@ class ApartmentController extends Controller
 
         $apartment->delete();
 
-        return redirect()->route('admin.index')->with('message', 'L\'appartamento è stato eliminato!');
+        return redirect()->route('admin.dashboard')->with('message', 'L\'appartamento è stato eliminato!');
     }
 }
