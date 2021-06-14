@@ -38,7 +38,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        $services = Service::all();
+
+        return view('admin.create', compact('services'));
     }
 
     /**
@@ -47,9 +49,43 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Apartment $apartment)
     {
-        //
+        // Controllo se l'utente è autorizzato alla creazione
+        $user_id = Auth::id();
+
+        if( $apartment->user_id != $user_id ) {
+            abort('403');
+        }
+
+        $validation = $this->validation;
+        // validation
+        $request->validate($validation);
+
+        $data = $request->all();
+
+        // controllo checkbox
+        $data['visibility'] = !isset($data['visibility']) ? 0 : 1;
+        // imposto lo slug partendo dal title
+        $data['slug'] = Str::slug($data['name'], '-');
+        // imposto lo user_id
+        $data['user_id'] = Auth::id();
+        // upload file image
+        if ( isset($data['image']) ) {
+            $data['image'] = Storage::disk('public')->put('images', $data['image']);
+        }
+
+        // insert
+        $newApartment = Apartment::create($data);
+
+        // aggiungo i service
+        if(!isset($data['services'])){
+            $newApartment->services()->attach($data['services']);
+        }
+
+        // redirect
+        return redirect()->route('admin.dashboard')->with('message', 'L\'appartamento è stato correttamento inserito');
+        
     }
 
     /**
@@ -67,7 +103,7 @@ class ApartmentController extends Controller
             abort('403');
         }
 
-        return view('admin.show', compact('apartment'));
+        return view('admin.apartment', compact('apartment'));
     }
 
     /**
@@ -130,7 +166,7 @@ class ApartmentController extends Controller
 
         $apartment->services()->sync($data['services']);
 
-        return redirect()->route('admin.show', $apartment)->with('message', 'L\'appartamento ' . $apartment->name . ' è stato modificato!');
+        return redirect()->route('admin.apartment', $apartment)->with('message', 'L\'appartamento ' . $apartment->name . ' è stato modificato!');
         
     }
 
