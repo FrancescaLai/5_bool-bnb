@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ApartmentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,17 +14,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+// rotte guest
+Route::get('/', 'Guest\HomeController@index')->name('guest.home');
 
 Auth::routes();
 
 // rotte admin
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
-    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-    // Route::resource('posts', 'PostController');
-    // Route::resource('tags', 'TagController');
-    // Route::delete('comments/{comment}', 'CommentController@destroy')->name('comments.destroy');
-});
+    Route::get('/dashboard', 'DashboardController@index')->name('index');
+    
+    Route::get('create', 'ApartmentController@create')->name('create');
+    Route::post('/', 'ApartmentController@store')->name('store');
+    Route::get('{apartment}', 'ApartmentController@show')->name('show');
+    Route::get('{apartment}/edit', 'ApartmentController@edit')->name('edit');
+    Route::put('{apartment}', 'ApartmentController@update')->name('update');
+    Route::delete('{apartment}', 'ApartmentController@destroy')->name('desroy');
 
-//rotte guest
+});
