@@ -1,15 +1,11 @@
-// Variables
-@import "variables";
-
 // Media queries
 @mixin mq-large {
-    @media only screen and (min-width: $large * 1px) {
+    @media only screen and (max-width: $large * 1px) {
         @content;
     }
 }
-
 @mixin mq-medium {
-    @media only screen and (min-width: $medium * 1px) {
+    @media only screen and (max-width: $medium * 1px) {
         @content;
     }
 }
@@ -19,26 +15,29 @@
     display: flex;
     flex-direction: column;
 }
-
 @mixin flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 @mixin flex-center-column {
     @include flex-center;
     flex-direction: column;
 }
-
 @mixin flex-center-vert {
     display: flex;
     align-items: center;
 }
-
 @mixin flex-center-horiz {
     display: flex;
     justify-content: center;
+}
+
+// Pseudo Element
+@mixin pseudo {
+    $display: block;
+    $pos: absolute;
+    $content: "";
 }
 
 // Absolute positioning
@@ -50,11 +49,13 @@
     left: $left;
 }
 
-// Text shortening
-@mixin text-shorten {
-    overflow: hidden;
-    text-overflow: ellipsis;
+// Text truncate
+@mixin truncate($width-limit) {
+    max-width: $width-limit;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 // Box

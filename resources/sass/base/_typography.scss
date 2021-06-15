@@ -6,8 +6,10 @@ h5,
 h6 {
     font-family: "Lora", serif; // 'DM Sans', sans-serif;
     letter-spacing: -2;
+    margin: 0;
 }
-
-body {
+body,
+p {
     font-family: "Mulish", Arial, Helvetica, sans-serif;
+    margin: 0;
 }
