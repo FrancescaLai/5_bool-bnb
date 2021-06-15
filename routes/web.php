@@ -28,6 +28,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::get('{apartment}', 'ApartmentController@show')->name('show');
     Route::get('{apartment}/edit', 'ApartmentController@edit')->name('edit');
     Route::put('{apartment}', 'ApartmentController@update')->name('update');
-    Route::delete('{apartment}', 'ApartmentController@destroy')->name('desroy');
+    Route::delete('{apartment}', 'ApartmentController@destroy')->name('destroy');
 
 });

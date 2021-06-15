@@ -51,13 +51,6 @@ class ApartmentController extends Controller
      */
     public function store(Request $request, Apartment $apartment)
     {
-        // Controllo se l'utente è autorizzato alla creazione
-        $user_id = Auth::id();
-
-        if( $apartment->user_id != $user_id ) {
-            abort('403');
-        }
-
         $validation = $this->validation;
         // validation
         $request->validate($validation);
@@ -71,7 +64,7 @@ class ApartmentController extends Controller
         // imposto lo user_id
         $data['user_id'] = Auth::id();
         // upload file image
-        if ( isset($data['image']) ) {
+        if (isset($data['image']) ) {
             $data['image'] = Storage::disk('public')->put('images', $data['image']);
         }
 
@@ -79,12 +72,12 @@ class ApartmentController extends Controller
         $newApartment = Apartment::create($data);
 
         // aggiungo i service
-        if(!isset($data['services'])){
+        if(isset($data['services'])){
             $newApartment->services()->attach($data['services']);
         }
 
         // redirect
-        return redirect()->route('admin.dashboard')->with('message', 'L\'appartamento è stato correttamento inserito');
+        return redirect()->route('admin.index')->with('message', 'L\'appartamento è stato correttamente inserito');
         
     }
 
@@ -187,6 +180,6 @@ class ApartmentController extends Controller
 
         $apartment->delete();
 
-        return redirect()->route('admin.dashboard')->with('message', 'L\'appartamento è stato eliminato!');
+        return redirect()->route('admin.index')->with('message', 'L\'appartamento è stato eliminato!');
     }
 }
