@@ -27,3 +27,10 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 });
 
 //rotte guest
+
+
+// rotta di prova da cancellare
+
+Route::get('/', function () {
+    return view('welcome');
+});

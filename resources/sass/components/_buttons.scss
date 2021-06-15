@@ -1,0 +1,17 @@
+.btn-empty{
+    color: $primary;
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 3px solid $primary;
+    background-color: white;
+    border-style: solid;
+  }
+
+.btn-full{
+  color: white;
+  background-color: $primary;
+  border: 2px solid $primary;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border-style: solid;
+}  

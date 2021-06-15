@@ -8,6 +8,14 @@
    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
+
+   <main>
+      @include('partials.card')
+   </main>
+      
+
+
+
    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
    <script src="{{asset('js/app.js')}}"></script>
 </body>
