@@ -13,6 +13,21 @@
 			@endforeach
 		</ul>
 		@endif
+
+		<ul>
+			<li>
+				<a href="{{route('admin.edit', [ 'apartment' => $apartment->id ])}}">
+					<button type="button" class="btn btn-success"><i class="fas fa-pencil-alt"></i>edit</button>
+				</a>
+			</li>
+			<li>
+				<form action="{{route('admin.destroy', [ 'apartment' => $apartment->id ])}}" method="POST" class="d-inline">
+					@csrf
+					@method('DELETE')
+					<button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>delete</button>
+				</form>
+			</li>
+		</ul>
 		<h3>Aggiungi Servizio</h3>
 		{{-- <form action="{{route('guest.add-comment', ['post' => $post->id])}}" method="post">
 			@csrf
