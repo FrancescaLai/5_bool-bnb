@@ -1,0 +1,38 @@
+.hero{
+    background-color: $gray-500;
+    height: 500px;
+    border-radius: 15px;
+    position: relative;
+
+    .hero-content{
+        max-width: 30%;
+        position: absolute;
+        top: 160px;
+        left: 100px;
+
+        .content h2{
+            font-size: $title-xl;
+            color: $primaryDark;
+        }
+
+        p{
+            color: $primaryDark;
+        }
+    }
+}
+
+.form-wrapper{
+    background-color: lightcoral;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 80%;
+    margin: auto;
+    position: absolute;
+    bottom: -48%;
+    left: 20%;
+
+    input{
+        border-radius: 0.60rem;
+    }
+}
+  
