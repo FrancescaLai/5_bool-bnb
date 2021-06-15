@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Apartment extends Model
 {
-    protected $guarded = [];
+    protected $guarded = ['services'];
 
     //relazione con la tabella dei messages 
     public function messages()
