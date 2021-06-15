@@ -49,7 +49,7 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Apartment $apartment)
+    public function store(Request $request)
     {
         $validation = $this->validation;
         // validation
@@ -159,7 +159,7 @@ class ApartmentController extends Controller
 
         $apartment->services()->sync($data['services']);
 
-        return redirect()->route('admin.apartment', $apartment)->with('message', 'L\'appartamento ' . $apartment->name . ' è stato modificato!');
+        return redirect()->route('admin.show', $apartment)->with('message', 'L\'appartamento ' . $apartment->name . ' è stato modificato!');
         
     }
 
