@@ -14,6 +14,9 @@ section {
         }
     }
 }
+#hero {
+    margin-top: 90px;
+}
 
 #categories {
     .category-list {
@@ -23,15 +26,27 @@ section {
             flex-wrap: wrap;
         }
         .destination {
-            @include flex-center-vert;
+            @include flex-center;
             @include mq-large {
                 display: block;
+                text-align: center;
+            }
+            @include mq-medium {
+                margin-top: 25px;
             }
             &__rounded {
                 @include box(150px);
                 border-radius: 100vw;
-                background: #fff;
                 box-shadow: 0 4px 15px rgba($gray-500, 0.25);
+                @include mq-large {
+                    text-align: center;
+                    margin: auto;
+                }
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
             }
             &__title {
                 margin-left: 25px;
@@ -45,6 +60,9 @@ section {
                     p {
                         text-align: center;
                     }
+                }
+                @include mq-medium {
+                    margin-top: 25px;
                 }
             }
         }
@@ -95,6 +113,12 @@ section {
                         border: none;
                         background: transparent;
                     }
+                }
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 20px;
                 }
             }
             &__rewiews {
@@ -163,11 +187,37 @@ section {
             height: 100%;
             width: 350px;
             background: $primaryDarker;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            .text-wrapper {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 0 15px;
+                h4 {
+                    font-family: "Mulish", Arial, Helvetica, sans-serif;
+                    font-size: $title-sm;
+                    line-height: 2.5;
+                }
+                p {
+                    font-size: $body-md;
+                }
+                button {
+                    border: 1px solid #fff;
+                    color: #fff;
+                    background: transparent;
+                    padding: 15px 50px;
+                    border-radius: 50px;
+                    margin-top: 30px;
+                }
+            }
         }
         &__right {
             height: 100%;
             width: calc(100% - 350px);
-            background: $primaryLight;
+            background-image: url("/images/section-join.jpg");
+            background-size: cover;
         }
     }
 }
