@@ -14,11 +14,19 @@
    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-
+   {{-- Header --}}
    @include('layouts.partials.header')
-
-   @include('layouts.partials.footer')
+   {{-- /Header --}}
    
+   {{-- Main --}}
+   @yield('content')
+   {{-- /Main --}}
+
+   {{-- Footer --}}
+   @include('layouts.partials.footer')
+   {{-- /Footer --}}
+
+   {{-- Script --}}
    @yield('script')
 </body>
 </html>

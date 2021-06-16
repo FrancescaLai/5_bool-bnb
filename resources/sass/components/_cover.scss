@@ -1,38 +1,39 @@
-.hero{
-    background-color: $gray-500;
+.hero {
+    background-color: $primaryLight;
     height: 500px;
     border-radius: 15px;
     position: relative;
 
-    .hero-content{
+    .hero-content {
         max-width: 30%;
         position: absolute;
         top: 160px;
         left: 100px;
 
-        .content h2{
+        .content h2 {
             font-size: $title-xl;
             color: $primaryDark;
         }
 
-        p{
+        p {
             color: $primaryDark;
         }
     }
 }
 
-.form-wrapper{
-    background-color: lightcoral;
+.form-wrapper {
+    background-color: #fff;
     padding: 20px;
     border-radius: 15px;
     max-width: 80%;
     margin: auto;
     position: absolute;
-    bottom: -48%;
-    left: 20%;
+    bottom: 325px;
+    right: 50%;
+    transform: translateX(50%);
 
-    input{
-        border-radius: 0.60rem;
+    input {
+        background: $primaryLighter;
+        border-radius: 0.6rem;
     }
 }
-  
