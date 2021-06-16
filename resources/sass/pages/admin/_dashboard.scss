@@ -63,11 +63,13 @@
             overflow: hidden;
             border: 0;
         }
-        button {
+        .btn {
             position: absolute;
             right: 4px;
             top: 50%;
             transform: translateY(-50%);
+            padding: 5px 15px;
+            border-radius: 5px;
         }
     }
     .user-info {
@@ -104,28 +106,32 @@
     }
     .apartments {
         .table {
-            border-collapse: separate;
+            border-collapse: collapse;
             thead {
-                tr {
-                    border-top: 1px solid red;
-                    border-bottom: 1px solid red;
-                }
                 th,
                 td {
                     border: none;
                 }
-                th:first-child {
-                    border-radius: 5px 0px 0px 5px;
-                    border-left: 1px solid red;
-                }
-                th:last-child {
-                    border-radius: 0px 5px 5px 0px;
-                    border-right: 1px solid red;
+                th {
+                    border-top: 1px solid red;
+                    border-bottom: 1px solid red;
+                    &:first-child {
+                        border-radius: 5px 0px 0px 5px;
+                        border-left: 1px solid red;
+                    }
+                    &:last-child {
+                        border-radius: 0px 5px 5px 0px;
+                        border-right: 1px solid red;
+                    }
                 }
             }
             tbody {
                 td {
                     border: none;
+                }
+                img {
+                    height: 30px;
+                    width: 50px;
                 }
             }
         }

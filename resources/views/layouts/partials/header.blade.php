@@ -17,7 +17,7 @@
         <button type="button" class="btn btn-signup">Sign up</button>
       </div>
       {{-- Fine header xl/lg --}}
-
+  
       {{-- Header md/sm --}}
       <div class="col-md-2 col-sm-2 col-2 d-block d-lg-none text-center">
         <i class="fab fa-airbnb fa-2x"></i>
@@ -31,7 +31,7 @@
         </select>
       </div>
       <div class="col-md-2 col-sm-2 col-2 d-block d-lg-none text-center">
-
+  
         <div class="btn-group dropleft">
           <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="user">

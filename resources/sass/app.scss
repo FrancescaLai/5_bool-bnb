@@ -6,24 +6,24 @@
 
 // Variables
 @import "utility/variables";
-@import "utility/variables"; 
-@import "utility/mixins"; 
-@import "utility/helpers"; 
-@import "utility/functions"; 
-@import "base/reset"; 
-@import "base/typography"; 
-@import "themes/theme"; 
-@import "themes/admin"; 
-@import "components/buttons"; 
+@import "utility/variables";
+@import "utility/mixins";
+@import "utility/helpers";
+@import "utility/functions";
+@import "base/reset";
+@import "base/typography";
+@import "themes/theme";
+@import "themes/admin";
+@import "components/buttons";
 @import "components/cards";
-@import "components/carousel"; 
-@import "components/cover"; 
-@import "components/dropdown"; 
-@import "layout/footer"; 
-@import "layout/forms"; 
-@import "layout/grid"; 
-@import "layout/header"; 
-@import "layout/navigation"; 
+@import "components/carousel";
+@import "components/cover";
+@import "components/dropdown";
+@import "layout/footer";
+@import "layout/forms";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/navigation";
 @import "layout/sidebar";
 @import "utility/mixins";
 @import "utility/helpers";
@@ -43,5 +43,4 @@
 @import "layout/navigation";
 @import "layout/sidebar";
 @import "pages/admin/dashboard";
-
-
+@import "pages/guest/home";

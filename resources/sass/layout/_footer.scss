@@ -1,66 +1,65 @@
-footer{
-  background-color: $primaryLighter;
-  padding: 15px 30px 15px 30px;
+footer {
+    background-color: $primaryLighter;
+    padding: 15px 30px 15px 30px;
 
-  .col-xl-4{
-    margin-top: 15px;
-  }
-  span{
-    color: $primaryDark;
-    font-size: $title-sm;
-    font-weight: 700;
-  }
-
-  .column{
-    margin: 15px 0px;
-
-    .row{
-      height: 30px;
+    .col-xl-4 {
+        margin-top: 15px;
     }
-  }
-  
-  div[class^='col']{
-
-    a{
-      color: $primaryDark;
-      font-size: $body-sm;
-      font-weight: 600;
-      padding-left: 15px;
-
-      &.joinCommunity{
-        font-size: $body-xs;
-        font-weight: 800;
-      }
+    span {
+        color: $primaryDark;
+        font-size: $title-xs;
+        font-weight: 700;
     }
 
-    .email{
-      max-width: 188px;
-      position: relative;
+    .column {
+        margin: 15px 0px;
 
-      input{
-        all: unset;
-        border: 1px solid $primaryLight;
-        border-radius: 15px;
-        font-size: 12px;
-        padding: 5px 15px;
-        width: 90%;
-      }
-  
-      div{
-        height: 21px;
-        width: 21px;
-        border-radius: 50%;
-        background-color: $primary;
-        position: absolute;
-        right: 5px;
-
-        svg{
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+        .row {
+            height: 30px;
         }
-      }
     }
-  }
+
+    div[class^="col"] {
+        a {
+            color: $primaryDark;
+            font-size: $body-sm;
+            font-weight: 600;
+            padding-left: 15px;
+
+            &.joinCommunity {
+                font-size: $body-xs;
+                font-weight: 800;
+            }
+        }
+
+        .email {
+            max-width: 188px;
+            position: relative;
+
+            input {
+                all: unset;
+                border: 1px solid $primaryLight;
+                border-radius: 15px;
+                font-size: 12px;
+                padding: 5px 15px;
+                width: 90%;
+            }
+
+            div {
+                height: 21px;
+                width: 21px;
+                border-radius: 50%;
+                background-color: $primary;
+                position: absolute;
+                right: 5px;
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
 }
