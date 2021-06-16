@@ -19,7 +19,6 @@
 
    @include('layouts.partials.footer')
    
-   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-   <script src="{{asset('js/app.js')}}"></script>
+   @yield('script')
 </body>
 </html>
