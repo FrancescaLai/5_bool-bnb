@@ -1,12 +1,17 @@
-.hero {
-    background-color: $primaryLight;
-    height: 500px;
-    border-radius: 15px;
+.hero-wrapper {
+    height: 650px;
+    background-image: url("/images/hero-background.jpg");
+    background-size: cover;
+    background-position: left 65%;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    width: 95%;
+    margin: auto;
     position: relative;
 
-    .hero-content {
-        max-width: 30%;
+    .hero-title {
         position: absolute;
+        max-width: 300px;
         top: 160px;
         left: 100px;
 
@@ -19,21 +24,57 @@
             color: $primaryDark;
         }
     }
-}
 
-.form-wrapper {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    max-width: 80%;
-    margin: auto;
-    position: absolute;
-    bottom: 325px;
-    right: 50%;
-    transform: translateX(50%);
+    .hero-search {
+        position: absolute;
+        width: 85%;
+        padding: 25px;
+        border-radius: 15px;
+        background-color: #fff;
+        box-shadow: 0 4px 15px rgba($gray-500, 0.25);
+        bottom: -25px;
+        right: 50%;
+        transform: translateX(50%);
 
-    input {
-        background: $primaryLighter;
-        border-radius: 0.6rem;
+        form {
+            @include flex-center-vert;
+            flex-wrap: wrap;
+            gap: 25px;
+            input {
+                height: 50px;
+                display: inline-block;
+                border-radius: 12px;
+                padding: 0 25px;
+                color: $primaryDark;
+                &[type="search"] {
+                    flex-basis: calc(40% - 25px);
+                    border: none;
+                    background: #f2f4f8;
+                    @include mq-medium {
+                        order: -1;
+                    }
+                }
+                &[type="date"] {
+                    flex-basis: calc(25% - 25px);
+                    border: 1px solid #f2f4f8;
+                    background: transparent;
+                    order: 2;
+                }
+            }
+            button {
+                height: 50px;
+                width: 100;
+                flex-basis: calc(10% - 25px);
+                border-radius: 12px;
+                order: 3;
+                @include flex-center-vert;
+                @include mq-medium {
+                    order: 1;
+                }
+                svg {
+                    margin-right: 8px;
+                }
+            }
+        }
     }
 }

@@ -23,6 +23,7 @@
                <ul>
                   <li class="destination col-12 col-md-4">
                      <div class="destination__rounded">
+                        <img src="{{asset('images/pyramids.png')}}" alt="#">
                      </div>
                      <div class="destination__title">
                         <p>Luxury resort at the sea</p>
@@ -31,6 +32,7 @@
                   </li>
                   <li class="destination col-12 col-md-4">
                      <div class="destination__rounded">
+                        <img src="{{asset('images/torii-gate.png')}}" alt="#">
                      </div>
                      <div class="destination__title">
                         <p>Luxury resort at the sea</p>
@@ -39,6 +41,7 @@
                   </li>
                   <li class="destination col-12 col-md-4">
                      <div class="destination__rounded">
+                        <img src="{{asset('images/jeju.png')}}" alt="#">
                      </div>
                      <div class="destination__title">
                         <p>Luxury resort at the sea</p>
@@ -74,6 +77,7 @@
                </div>
                <div class="slider col-12 col-md-6">
                   <div class="slider__wrapper">
+                     <img src="{{asset('images/section-slider-1.jpg')}}" alt="#">
                      {{--  <img :src="sliderItem[imgIndex].url" :alt="sliderItem[imgIndex].name"> --}}
                      <div class="arrows">
                         <button>
@@ -197,11 +201,15 @@
          <div class="container">
             <div class="banner">
                <div class="banner__left">
-                  
+                  <div class="text-wrapper">
+                     <h4>Diventa Host</h4>
+                     <p>Condividi il tuo spazio per guadagnare qualcosa in più e cogliere nuove opportunità</p>
+                     <button>
+                        Scopri di più
+                     </button>
+                  </div>
                </div>
-               <div class="banner__right">
-
-               </div>
+               <div class="banner__right"></div>
             </div>
          </div>
       </section>
