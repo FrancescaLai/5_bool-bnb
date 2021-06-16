@@ -10050,6 +10050,27 @@ p {
   color: #f4f7fe;
 }
 
+.btn-link {
+  font-weight: 300;
+  font-size: 13px;
+  color: #007bff;
+  text-decoration: none;
+  float: right;
+  padding: 10px 0px;
+}
+
+.btn-link:hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  width: 100%;
+  border-radius: 30px;
+  border: none;
+  background: #076cf9;
+  color: white;
+}
+
 .card {
   border-radius: 20px;
   padding: 25px;
@@ -10276,6 +10297,27 @@ p {
   border: 1px solid #076cf9;
   background-color: #076cf9;
   color: #f4f7fe;
+}
+
+.btn-link {
+  font-weight: 300;
+  font-size: 13px;
+  color: #007bff;
+  text-decoration: none;
+  float: right;
+  padding: 10px 0px;
+}
+
+.btn-link:hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  width: 100%;
+  border-radius: 30px;
+  border: none;
+  background: #076cf9;
+  color: white;
 }
 
 .hero {
@@ -10549,4 +10591,64 @@ body {
 }
 .dashboard .apartments .table tbody td {
   border: none;
+}
+
+.card {
+  border-radius: 10px;
+  border: 0;
+  padding: 25px;
+}
+.card .card-header {
+  background-color: white;
+  text-align: center;
+  border-bottom: 0;
+}
+.card .card-header p {
+  color: #a1a1aa;
+}
+
+.small-container {
+  width: 70%;
+  margin: auto;
+}
+.small-container .card-body .form-group:first-of-type {
+  margin-bottom: 0;
+}
+.small-container .form-control {
+  border: 1px solid #d4d4d8;
+  padding: 1.375rem 1.75rem;
+  border-radius: 5px;
+  font-size: 12px;
+  position: relative;
+}
+.small-container .form-control:focus {
+  border: 1px solid black;
+  box-shadow: none;
+  font-size: 12px;
+}
+.small-container svg {
+  position: absolute;
+  bottom: 15px;
+  left: 23px;
+}
+.small-container .form-check {
+  display: flex;
+  align-items: center;
+}
+.small-container .form-check .form-check-input {
+  height: 15px;
+  width: 15px;
+  margin-top: 0;
+}
+.small-container .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media (min-width: 768px) {
+  .col-md-6 {
+    flex: none;
+    max-width: 100%;
+  }
 }
