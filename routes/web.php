@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ApartmentController;
+use App\Http\Controllers\Guest\SearchController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 // rotte guest
 Route::get('/', 'Guest\HomeController@index')->name('guest.home');
+Route::get('search/', 'Guest\SearchController@search')->name('guest.search');
 
 Auth::routes();
 
