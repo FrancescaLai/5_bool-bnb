@@ -1,7 +1,7 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-xl-4 col-lg-3 col-sm-6 column"><span>BoolB&B</span></div>
+      <div class="col-xl-4 col-lg-3 col-sm-6 column"><span>boolbnb</span></div>
 
         <div class="col-xl-2 col-lg-3 col-sm-3 column">
           <div class="row">

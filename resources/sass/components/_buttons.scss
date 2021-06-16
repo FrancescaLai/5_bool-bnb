@@ -13,26 +13,25 @@
 }
 
 .btn-link {
-  font-weight: 300;
-  font-size: 13px;
-  color: #007bff;
-  text-decoration: none;
-  float: right;
-  padding: 10px 0px;
+    font-weight: 300;
+    font-size: 13px;
+    color: #007bff;
+    text-decoration: none;
+    float: right;
+    padding: 10px 0px;
 }
 
-.btn-link:hover{
-  text-decoration: none;
+.btn-link:hover {
+    text-decoration: none;
 }
 
-.btn-primary{
-  width: 100%;
-  border-radius: 30px;
-  border: none;
-  background: $primary;
-  color: white;
+.btn-login-rounded {
+    width: 100%;
+    border-radius: 30px;
+    border: none;
+    background: $primary;
+    color: white;
 }
-
 
 .btn-full {
     color: white;

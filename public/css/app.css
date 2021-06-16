@@ -10080,7 +10080,7 @@ h3 {
   text-decoration: none;
 }
 
-.btn-primary {
+.btn-login-rounded {
   width: 100%;
   border-radius: 30px;
   border: none;
@@ -10375,7 +10375,7 @@ h3 {
   text-decoration: none;
 }
 
-.btn-primary {
+.btn-login-rounded {
   width: 100%;
   border-radius: 30px;
   border: none;
@@ -10662,25 +10662,6 @@ body {
   margin-right: 15px;
   border-radius: 50%;
 }
-.dashboard .apartments .table {
-  border-collapse: collapse;
-}
-.dashboard .apartments .table thead th,
-.dashboard .apartments .table thead td {
-  border: none;
-}
-.dashboard .apartments .table thead th {
-  border-top: 1px solid red;
-  border-bottom: 1px solid red;
-}
-.dashboard .apartments .table thead th:first-child {
-  border-radius: 5px 0px 0px 5px;
-  border-left: 1px solid red;
-}
-.dashboard .apartments .table thead th:last-child {
-  border-radius: 0px 5px 5px 0px;
-  border-right: 1px solid red;
-}
 .dashboard .apartments .table tbody td {
   border: none;
 }
@@ -10689,64 +10670,56 @@ body {
   width: 50px;
 }
 
-.card {
+.login-container {
+  width: 70%;
+  margin: auto;
+}
+.login-container .card {
   border-radius: 10px;
   border: 0;
   padding: 25px;
 }
-.card .card-header {
+.login-container .card .card-header {
   background-color: white;
   text-align: center;
   border-bottom: 0;
 }
-.card .card-header p {
+.login-container .card .card-header p {
   color: #a1a1aa;
 }
-
-.small-container {
-  width: 70%;
-  margin: auto;
-}
-.small-container .card-body .form-group:first-of-type {
+.login-container .card-body .form-group:first-of-type {
   margin-bottom: 0;
 }
-.small-container .form-control {
+.login-container .form-control {
   border: 1px solid #d4d4d8;
   padding: 1.375rem 1.75rem;
   border-radius: 5px;
   font-size: 12px;
   position: relative;
 }
-.small-container .form-control:focus {
+.login-container .form-control:focus {
   border: 1px solid black;
   box-shadow: none;
   font-size: 12px;
 }
-.small-container svg {
+.login-container svg {
   position: absolute;
   bottom: 15px;
   left: 23px;
 }
-.small-container .form-check {
+.login-container .form-check {
   display: flex;
   align-items: center;
 }
-.small-container .form-check .form-check-input {
+.login-container .form-check .form-check-input {
   height: 15px;
   width: 15px;
   margin-top: 0;
 }
-.small-container .clearfix::after {
+.login-container .clearfix::after {
   content: "";
   clear: both;
   display: table;
-}
-
-@media (min-width: 768px) {
-  .col-md-6 {
-    flex: none;
-    max-width: 100%;
-  }
 }
 
 section {

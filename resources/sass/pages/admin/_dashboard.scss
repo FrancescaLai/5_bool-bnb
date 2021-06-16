@@ -106,25 +106,6 @@
     }
     .apartments {
         .table {
-            border-collapse: collapse;
-            thead {
-                th,
-                td {
-                    border: none;
-                }
-                th {
-                    border-top: 1px solid red;
-                    border-bottom: 1px solid red;
-                    &:first-child {
-                        border-radius: 5px 0px 0px 5px;
-                        border-left: 1px solid red;
-                    }
-                    &:last-child {
-                        border-radius: 0px 5px 5px 0px;
-                        border-right: 1px solid red;
-                    }
-                }
-            }
             tbody {
                 td {
                     border: none;

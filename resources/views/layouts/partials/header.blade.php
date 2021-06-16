@@ -3,7 +3,7 @@
     <div class="row align-items-center">
       {{-- Header xl/lg --}}
       <div class="col-xl-3 col-lg-4 d-lg-block d-none">
-        <h1>BoolB&B</h1>
+        <h1>boolbnb</h1>
       </div>
       <div class="col-xl-6 col-lg-4 d-lg-block d-none text-center">
         <ul>
