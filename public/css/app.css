@@ -10117,6 +10117,146 @@ p {
   border-radius: 0.6rem;
 }
 
+.signup {
+  z-index: 1;
+  width: 50%;
+  height: 50vh;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 992px) {
+  .signup {
+    width: 75%;
+    height: 75vh;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .signup {
+    width: 90%;
+  }
+}
+.signup .container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.signup .container span {
+  color: #09244f;
+  font-size: 34px;
+  font-weight: 600;
+}
+@media only screen and (max-width: 992px) {
+  .signup .container span {
+    font-size: 42px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .signup .container span {
+    font-size: 50px;
+  }
+}
+.signup .container h5 {
+  color: #bec8de;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 45px;
+}
+@media only screen and (max-width: 992px) {
+  .signup .container h5 {
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 60px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .signup .container h5 {
+    font-size: 20px;
+    margin-top: 45px;
+    margin-bottom: 80px;
+  }
+}
+.signup .container .buttons .btn {
+  border-radius: 25px;
+  margin: 0px 10px;
+}
+.signup .container .buttons .signup-apple {
+  border: 1px solid #09244f;
+  background-color: #09244f;
+  color: #f4f7fe;
+}
+.signup .container h6 {
+  color: #bec8de;
+  font-size: 12px;
+  margin: 35px;
+}
+@media only screen and (max-width: 992px) {
+  .signup .container h6 {
+    font-size: 14px;
+    margin: 55px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .signup .container h6 {
+    font-size: 16px;
+    margin: 80px;
+  }
+}
+.signup .container h6:last-child {
+  color: #09244f;
+}
+.signup .container h6:last-child a {
+  color: #076cf9;
+}
+.signup .container .email {
+  width: 300px;
+  position: relative;
+}
+.signup .container .email input {
+  all: unset;
+  border: 1px solid #bec8de;
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 5px 15px;
+  width: 90%;
+}
+.signup .container .email div {
+  height: 21px;
+  width: 21px;
+  border-radius: 50%;
+  background-color: #076cf9;
+  position: absolute;
+  right: 5px;
+}
+.signup .container .email div svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.signup .cancel {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #bec8de;
+  background-color: white;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  overflow: hidden;
+}
+.signup .cancel span {
+  position: absolute;
+  inset: 0 0 0 0;
+  background-color: lightsteelblue;
+  text-align: center;
+  color: #1b1b1b;
+}
+
 footer {
   background-color: #f4f7fe;
   padding: 15px 30px 15px 30px;
@@ -10549,4 +10689,20 @@ body {
 }
 .dashboard .apartments .table tbody td {
   border: none;
+}
+
+.register .title-register {
+  background-color: white;
+  border-bottom: 0px;
+  text-align: center;
+}
+.register .title-register h2 {
+  color: #09244f;
+  font-size: 34px;
+}
+.register .title-register h5 {
+  color: #bec8de;
+}
+.register .body-register button {
+  width: 100%;
 }

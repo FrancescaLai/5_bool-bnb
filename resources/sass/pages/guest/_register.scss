@@ -1,0 +1,20 @@
+.register{
+  .title-register{
+    background-color: white;
+    border-bottom: 0px;
+    text-align: center;
+  
+    h2{
+      color: $primaryDark;
+      font-size: $title-sm;
+    }
+    h5{
+      color: $primaryLight;
+    }
+  }
+  .body-register{
+    button{
+      width: 100%;
+    }
+  }
+}

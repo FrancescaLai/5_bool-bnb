@@ -31,3 +31,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::delete('{apartment}', 'ApartmentController@destroy')->name('destroy');
 
 });
+
+Route::get('/base', function () {
+  return view('layouts/base');
+});
