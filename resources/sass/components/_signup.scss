@@ -1,0 +1,150 @@
+.signup{
+  z-index: 1;
+  width: 50%;
+  height: 50vh;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include mq-large{
+    width: 75%;
+    height: 75vh;
+  }
+
+  @include mq-medium{
+    width: 90%;
+  }
+
+    .container{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      span{
+        color: $primaryDark;
+        font-size: $title-sm;
+        font-weight: 600;
+
+        @include mq-large{
+          font-size: $title-md;
+        }
+      
+        @include mq-medium{
+          font-size: $title-lg;
+        }
+      }
+
+      h5{
+        color: $primaryLight;
+        font-size: $body-md;
+        margin-top: 15px;
+        margin-bottom: 45px;
+
+        @include mq-large{
+          font-size: $body-lg;
+          margin-top: 25px;
+          margin-bottom: 60px;
+        }
+      
+        @include mq-medium{
+          font-size: $body-xl;
+          margin-top: 45px;
+          margin-bottom: 80px;
+        }
+      }
+
+      .buttons{
+        .btn{
+          border-radius: 25px;
+          margin: 0px 10px;
+        }
+
+        .signup-apple{
+          border: 1px solid $primaryDark;
+          background-color: $primaryDark;
+          color: $primaryLighter;
+        }
+      }
+
+      h6{
+        color: $primaryLight;
+        font-size: $body-xs;
+        margin: 35px;
+
+        @include mq-large{
+          font-size: $body-sm;
+          margin: 55px;
+        }
+      
+        @include mq-medium{
+          font-size: $body-md;
+          margin: 80px;
+        }
+
+        &:last-child{
+          color: $primaryDark;
+
+          a{
+            color: $primary;
+          }
+        }
+      }
+
+      .email{
+        width: 300px;
+        position: relative;
+  
+        input{
+          all: unset;
+          border: 1px solid $primaryLight;
+          border-radius: 15px;
+          font-size: 12px;
+          padding: 5px 15px;
+          width: 90%;
+        }
+    
+        div{
+          height: 21px;
+          width: 21px;
+          border-radius: 50%;
+          background-color: $primary;
+          position: absolute;
+          right: 5px;
+  
+          svg{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+
+  .cancel{
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid $primaryLight;
+    background-color: white;
+    // background-color: orange;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    overflow: hidden;
+
+    span{
+      position: absolute;
+      inset: 0 0 0 0;
+      background-color: lightsteelblue;
+      text-align: center;
+      color: $primaryDarker;
+    }
+  }
+   
+}

@@ -1,4 +1,4 @@
-<header>
+<header id="signup">
   <div class="container">
     <div class="row align-items-center">
       {{-- Header xl/lg --}}
@@ -14,7 +14,7 @@
       </div>
       <div class="col-xl-3 col-lg-4 d-lg-block d-none buttons">
         <button type="button" class="btn btn-login">Log in</button>
-        <button type="button" class="btn btn-signup">Sign up</button>
+        <button type="button" class="btn btn-signup" v-on:click="changeSignupActive">Sign up</button>
       </div>
       {{-- Fine header xl/lg --}}
   
@@ -43,11 +43,36 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">Login</a>
-            <a class="dropdown-item" href="#">Signin</a>
+            <a class="dropdown-item" href="#" v-on:click="changeSignupActive">Signin</a>
           </div>
         </div>
       </div>
       {{-- Fine header md/sm --}}
     </div>
   </div>
+
+  @include('layouts.partials.signup')
+
 </header>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<script>
+  var app = new Vue(
+    {
+      el: "#signup",
+      data: {
+        isSignupActive: false
+      },
+      methods: {
+        changeSignupActive: function() {
+        if (this.isSignupActive == false) {
+          this.isSignupActive = true;
+        } else {
+          this.isSignupActive = false;
+        }
+      }
+      }
+    }
+  )
+</script>
