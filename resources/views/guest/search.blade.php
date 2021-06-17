@@ -5,17 +5,33 @@
 @endsection
 
 @section('content')
+<?php 
+    // $location = $_GET['location'];
+?>
     <main>
-        <div class="container">
+        <div class="container" style="margin-top: 150px">
             <div id="app">
                 <div>
-                    <input type="text" v-model="query"> 
+                    <div>
+                        <input type="text" class="search-form" placeholder="Location" v-model="query" v-on:keydown="radiusSearch">
+                        <ul>
+                            <li v-for="(item, index) in radiusResults" :class="isActive ? 'active' : 'none'">
+                                <a v-on:click="getPosition(index)">@{{item.address.freeformAddress}}, @{{item.address.countrySecondarySubdivision}}, @{{item.address.countrySubdivision}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <label>Distanza 1 - 50 Km:</label>
+                        <input type="range" min="1000" max="50000" v-model="radius">
+                        <span>@{{Number(radius / 1000).toFixed(1)}} Km</span>
+                    </div>
+                    {{-- <input type="number" v-model="radius"> --}}
                     <button class="search" v-on:click='apartmentsSearch'>cerca</button>
                 </div>
                 <div>
                     <div v-for="apartment in apartments">
-                        <div v-for="item in position">
-                            <div v-if="item.address.freeformAddress == apartment.city">
+                        <div v-for="item in apartmentsResults">
+                            <div v-if="item.position.lat == apartment.latitude">
                                 <h2>@{{apartment.name}}</h2>
                                 <p>@{{apartment.num_room}}</p>
                             </div>
@@ -27,40 +43,12 @@
     </main>
 @endsection
 
-{{-- AXIOS CDN --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @section('script')
+    {{-- AXIOS CDN --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    {{-- VUE CDN --}}
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                idApartment: '',
-                apiKey: 'Ftk43BCJTsswF7IOGeBv3bPKdUI84Hn4',
-                baseUrl: 'https://api.tomtom.com/',
-                query: '',
-                position: [],
-                apartments: [],
-            },
-            methods: {
-                apartmentsSearch: function() {
-                    axios.get(this.baseUrl + '/search/2/geocode/' + this.query + '.json',{
-                    params:{
-                        key: this.apiKey,
-                    }
-                })
-                .then((response) => {
-                    this.position = response.data.results;
-                })
-                }
-            },
-            mounted: function(){
-                let link = 'http://localhost:8000/api/guest'
-                axios.get(link).then((result)=>{
-                    this.apartments = result.data;
-                });
-            }
-        })
-    </script>
-    {{-- <script src="{{asset('js\app.js')}}" defer></script> --}}
+
+    <script src="{{asset('js\custom\search.js')}}"></script>
 @endsection

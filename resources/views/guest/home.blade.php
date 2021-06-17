@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<div id="app">
    <main>
       {{-- Hero --}}
       <section id="hero">
@@ -215,9 +216,15 @@
       </section>
       {{-- join section--}}
    </main>
+</div>
 @endsection
 
 @section('script')
-   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-   <script src="{{asset('js/app.js')}}" defer></script>
+{{-- AXIOS CDN --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{{-- VUE CDN --}}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+<script src="{{asset('js\custom\search.js')}}"></script>
 @endsection
