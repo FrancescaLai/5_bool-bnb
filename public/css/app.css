@@ -10022,7 +10022,10 @@ body {
   background-color: #f4f7fe;
 }
 
-input:focus,
+main {
+  margin-top: 90px;
+}
+
 button:focus {
   outline: none;
 }
@@ -10508,7 +10511,10 @@ body {
   background-color: #f4f7fe;
 }
 
-input:focus,
+main {
+  margin-top: 90px;
+}
+
 button:focus {
   outline: none;
 }

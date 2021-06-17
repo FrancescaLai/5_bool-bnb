@@ -4,23 +4,28 @@
     Ricerca avanzata
 @endsection
 
-
-<div id="app">
-    <div>
-        <input type="text" v-model="query"> 
-        <button class="search" v-on:click='apartmentsSearch'>cerca</button>
-    </div>
-    <div>
-        <div v-for="apartment in apartments">
-            <div v-for="item in position">
-                <div v-if="item.address.freeformAddress == apartment.city">
-                    <h2>@{{apartment.name}}</h2>
-                    <p>@{{apartment.num_room}}</p>
+@section('content')
+    <main>
+        <div class="container">
+            <div id="app">
+                <div>
+                    <input type="text" v-model="query"> 
+                    <button class="search" v-on:click='apartmentsSearch'>cerca</button>
+                </div>
+                <div>
+                    <div v-for="apartment in apartments">
+                        <div v-for="item in position">
+                            <div v-if="item.address.freeformAddress == apartment.city">
+                                <h2>@{{apartment.name}}</h2>
+                                <p>@{{apartment.num_room}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </main>
+@endsection
 
 {{-- AXIOS CDN --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -6,7 +6,9 @@
 body {
     background-color: $primaryLighter;
 }
-input:focus,
+main {
+    margin-top: 90px;
+}
 button:focus {
     outline: none;
 }
