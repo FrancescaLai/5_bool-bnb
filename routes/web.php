@@ -25,10 +25,10 @@ Auth::routes();
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('index');
     
-    Route::get('create', 'ApartmentController@create')->name('create');
+    Route::get('apartments/create', 'ApartmentController@create')->name('create');
     Route::post('/', 'ApartmentController@store')->name('store');
-    Route::get('{apartment}', 'ApartmentController@show')->name('show');
-    Route::get('{apartment}/edit', 'ApartmentController@edit')->name('edit');
+    Route::get('apartments/{apartment}', 'ApartmentController@show')->name('show');
+    Route::get('apartments/{apartment}/edit', 'ApartmentController@edit')->name('edit');
     Route::put('{apartment}', 'ApartmentController@update')->name('update');
     Route::delete('{apartment}', 'ApartmentController@destroy')->name('destroy');
 

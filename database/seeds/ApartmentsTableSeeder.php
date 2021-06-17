@@ -37,8 +37,8 @@ class ApartmentsTableSeeder extends Seeder
         $apartment_1->street = 'Via Madrigali, 10';
         $apartment_1->zip_code = '19015';
         $apartment_1->floor = 1;
-        $apartment_1->latitude = 44.17405634;
-        $apartment_1->longitude = 9.62696406;
+        $apartment_1->latitude = 44.17128000;
+        $apartment_1->longitude = 9.61346000;
         $apartment_1->save();
 
         $apartment_2 = new Apartment();
