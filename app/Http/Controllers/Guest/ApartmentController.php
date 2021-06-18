@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Message;
 use Illuminate\Http\Request;
 
-class ShowController extends Controller
+class ApartmentController extends Controller
 {
     public function showApartment(Apartment $apartment){
 

@@ -25,7 +25,6 @@
                         <input type="range" min="1000" max="50000" v-model="radius">
                         <span>@{{Number(radius / 1000).toFixed(1)}} Km</span>
                     </div>
-                    {{-- <input type="number" v-model="radius"> --}}
                     <button class="search" v-on:click='apartmentsSearch'>cerca</button>
                 </div>
                 <div>
@@ -34,7 +33,7 @@
                             <div v-if="item.position.lat == apartment.latitude">
                                 <h2>@{{apartment.name}}</h2>
                                 <p>@{{apartment.num_room}}</p>
-                                {{-- <a href="{{route('guest.show', ['apartment' => $apartment->id ])}}">Visualizza</a> --}}
+                                <a v-bind:href="'apartment/' + apartment.id">Visualizza</a>
                             </div>
                         </div>
                     </div>
