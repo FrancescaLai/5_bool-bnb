@@ -34,73 +34,75 @@
                         </ul>
                     </div>
                 @endif
+                
+                <h2>Crea un nuovo Appartamento</h2>
 
                 <form action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
-                    <div class="form-group">
-                        <label for="title">Nome</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
                     </div>
-                    <div class="form-group">
-                        <label for="image">Immagine</label>
-                        <input type="file" id="image" name="image">
+                    <div class="form-group form-create">
+                        <label for="image"></label>
+                        <input class="input-img" type="file" id="image" name="image">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Descrizione</label>
-                        <textarea class="form-control"  name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <textarea class="form-control"  name="description" id="description" cols="30" rows="10" placeholder="Descrizione"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="title">Numero Camere</label>
-                        <input type="number" class="form-control" id="num_room" name="num_room" placeholder="Num_room">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="number" class="form-control" id="num_room" name="num_room" placeholder="Numero stanze">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Numero Bagni</label>
-                        <input type="number" class="form-control" id="num_bath" name="num_bath" placeholder="Num_bath">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="number" class="form-control" id="num_bath" name="num_bath" placeholder="Numero bagni">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Numero Letti</label>
-                        <input type="number" class="form-control" id="num_bed" name="num_bed" placeholder="num_bed">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="number" class="form-control" id="num_bed" name="num_bed" placeholder="Numero letti">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Mq</label>
+                    <div class="form-group form-create">
+                        <label for="title"></label>
                         <input type="number" class="form-control" id="mq" name="mq" placeholder="Mq">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Prezzo giornaliero</label>
-                        <input type="number" class="form-control" id="price_day" name="price_day" placeholder="Price_day">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="number" class="form-control" id="price_day" name="price_day" placeholder="Prezzo">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Stato</label>
-                        <input type="text" class="form-control" id="country" name="country" placeholder="Country">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="text" class="form-control" id="country" name="country" placeholder="Paese">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Regione</label>
-                        <input type="text" class="form-control" id="region" name="region" placeholder="Region">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="text" class="form-control" id="region" name="region" placeholder="Regione">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Città</label>
-                        <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="Città">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Via</label>
-                        <input type="text" class="form-control" id="street" name="street" placeholder="Street">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="text" class="form-control" id="street" name="street" placeholder="Via">
                     </div>
-                     <div class="form-group">
-                        <label for="title">CAP</label>
-                        <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="Zip_code">
+                     <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="CAP">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Piano</label>
-                        <input type="number" class="form-control" id="floor" name="floor" placeholder="floor">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="number" class="form-control" id="floor" name="floor" placeholder="Piano">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Latitudine</label>
-                        <input type="numbert" class="form-control" id="latitude" name="latitude" placeholder="Latitude">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="numbert" class="form-control" id="latitude" name="latitude" placeholder="Latitudine">
                     </div>
-                    <div class="form-group">
-                        <label for="title">Longitudine</label>
-                        <input type="number" class="form-control" id="longitude" name="longitude" placeholder="Longitude">
+                    <div class="form-group form-create">
+                        <label for="title"></label>
+                        <input type="number" class="form-control" id="longitude" name="longitude" placeholder="Longitudine">
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="visibility" name="visibility">
@@ -108,6 +110,7 @@
                     </div>
                     <div class="mt-3">
                         <h3>Servizi</h3>
+                        <div class="prova" style="column-count: 2;">
                         @foreach ($services as $service)
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="{{$service->id}}" id="{{$service->name}}" name="services[]">
@@ -116,6 +119,7 @@
                                 </label>
                             </div>
                         @endforeach
+                        </div>
                     </div>
                     <div class="mt-3">
                         <button type="submit" class="btn btn-primary">Crea</button>

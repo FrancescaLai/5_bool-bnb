@@ -10920,3 +10920,29 @@ main .progress-container .progress-bar {
   height: 30px;
   width: 50px;
 }
+
+h2 {
+  margin-bottom: 50px;
+  font-size: 42px;
+  color: #09244f;
+}
+
+.form-create {
+  display: flex;
+  max-width: 700px;
+}
+.form-create .form-control {
+  padding: 1.375rem 0.75rem;
+}
+.form-create .form-control:focus {
+  box-shadow: none;
+  border-color: #52525b;
+}
+.form-create .input-img {
+  padding: 1.375rem 0rem;
+}
+
+.service-column {
+  -moz-column-count: 2;
+       column-count: 2;
+}
