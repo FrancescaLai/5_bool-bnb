@@ -37,6 +37,7 @@
         transform: translateX(50%);
 
         form {
+            position: relative;
             @include flex-center-vert;
             flex-wrap: wrap;
             gap: 25px;

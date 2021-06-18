@@ -6,6 +6,7 @@ header {
     z-index: 100;
     padding: 25px 30px;
     background-color: $primaryLighter;
+    transition: top 0.3s ease-in-out;
 
     .col-xl-3 {
         color: $primaryDark;

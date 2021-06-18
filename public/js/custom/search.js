@@ -6,7 +6,7 @@ var app = new Vue({
         apiKey: 'Ftk43BCJTsswF7IOGeBv3bPKdUI84Hn4',
         radius: '',
         query: '',
-        isActive: true,
+        dropdownResults: true,
         position: [],
         radiusResults: [],
         apartmentsResults: [],
@@ -55,7 +55,7 @@ var app = new Vue({
             this.position.splice(0);
             this.position.push(this.radiusResults[index].position.lat);
             this.position.push(this.radiusResults[index].position.lon);
-            this.isActive = false;
+            this.dropdownResults = false;
             console.log(this.position);
             return this.position;
         }

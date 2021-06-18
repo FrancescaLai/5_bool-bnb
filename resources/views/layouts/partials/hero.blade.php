@@ -9,8 +9,8 @@
     <div class="hero-search">
       <form method="GET" name="form" action="{{route('guest.search')}}">
         <input type="search" name="location" class="search-form" placeholder="Location" v-model="query" v-on:keydown="radiusSearch">
-        <ul>
-          <li v-for="(item, index) in radiusResults" :class="isActive ? 'active' : 'none'">
+        <ul :class="dropdownResults ? 'main-dropdwon-active' : 'main-dropdown'">
+          <li v-for="(item, index) in radiusResults">
             <a v-on:click="getPosition(index)">@{{item.address.freeformAddress}}, @{{item.address.countrySecondarySubdivision}}, @{{item.address.countrySubdivision}}</a>
           </li>
         </ul>
