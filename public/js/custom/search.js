@@ -4,7 +4,7 @@ var app = new Vue({
         idApartment: '',
         baseUrl: 'https://api.tomtom.com/',
         apiKey: 'Ftk43BCJTsswF7IOGeBv3bPKdUI84Hn4',
-        radius: '',
+        radius: '20000',
         query: '',
         dropdownResults: true,
         position: [],
