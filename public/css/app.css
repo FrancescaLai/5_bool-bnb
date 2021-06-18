@@ -10012,11 +10012,11 @@ h3 {
   margin: auto;
 }
 
-.active {
+.main-dropdwon-active {
   display: block;
 }
 
-.none {
+.main-dropdown {
   display: none;
 }
 
@@ -10194,6 +10194,7 @@ h3 {
   transform: translateX(50%);
 }
 .hero-wrapper .hero-search form {
+  position: relative;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -10443,6 +10444,7 @@ header {
   z-index: 100;
   padding: 25px 30px;
   background-color: #f4f7fe;
+  transition: top 0.3s ease-in-out;
 }
 header .col-xl-3 {
   color: #09244f;
@@ -10499,21 +10501,37 @@ body {
   background-color: #f4f7fe;
 }
 
-section {
+main section {
   margin-bottom: 90px;
 }
-section .title {
+main section .title {
   text-align: center;
   color: #09244f;
 }
-section .title h3 {
+main section .title h3 {
   font-size: 24px;
   font-weight: 700;
 }
-section .title p {
+main section .title p {
   color: #bec8de;
   font-size: 16px;
   font-weight: 300;
+}
+main .progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 101;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+main .progress-container .progress-bar {
+  width: 0%;
+  height: inherit;
+  background: #076cf9;
 }
 
 #categories .category-list {

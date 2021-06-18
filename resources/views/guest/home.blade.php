@@ -7,6 +7,12 @@
 @section('content')
 <div id="app">
    <main>
+      {{-- Page progress indicator --}}
+      <div class="progress-container">
+         <div class="progress-bar"></div>
+      </div>
+      {{-- /Page progress indicator --}}
+      
       {{-- Hero --}}
       <section id="hero">
          @include('layouts.partials.hero')
@@ -214,7 +220,7 @@
             </div>
          </div>
       </section>
-      {{-- join section--}}
+      {{-- /join section--}}
    </main>
 </div>
 @endsection
@@ -227,4 +233,5 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
 <script src="{{asset('js\custom\search.js')}}"></script>
+<script src="{{asset('js\custom\navigation.js')}}"></script>
 @endsection

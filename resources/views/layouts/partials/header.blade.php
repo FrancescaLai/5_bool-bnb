@@ -1,4 +1,5 @@
-<header id="signup">
+<header id="navbar">
+  {{-- Navbar --}}
   <div class="container">
     <div class="row align-items-center">
       {{-- Header xl/lg --}}
@@ -50,9 +51,11 @@
       {{-- Fine header md/sm --}}
     </div>
   </div>
+  {{-- /Navbar --}}
 
+  {{-- Signup form --}}
   @include('layouts.partials.signup')
-
+  {{-- /Signup form --}}
 </header>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
@@ -60,7 +63,7 @@
 <script>
   var app = new Vue(
     {
-      el: "#signup",
+      el: "#navbar",
       data: {
         isSignupActive: false
       },
