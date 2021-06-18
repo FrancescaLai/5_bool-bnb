@@ -15,7 +15,7 @@
                     <div>
                         <input type="text" class="search-form" placeholder="Location" v-model="query" v-on:keydown="radiusSearch">
                         <ul>
-                            <li v-for="(item, index) in radiusResults" :class="isActive ? 'active' : 'none'">
+                            <li v-for="(item, index) in radiusResults" :class="dropdownResults ? 'main-dropdwon-active' : 'main-dropdown'">
                                 <a v-on:click="getPosition(index)">@{{item.address.freeformAddress}}, @{{item.address.countrySecondarySubdivision}}, @{{item.address.countrySubdivision}}</a>
                             </li>
                         </ul>
@@ -34,6 +34,7 @@
                             <div v-if="item.position.lat == apartment.latitude">
                                 <h2>@{{apartment.name}}</h2>
                                 <p>@{{apartment.num_room}}</p>
+                                {{-- <a href="{{route('guest.show', ['apartment' => $apartment->id ])}}">Visualizza</a> --}}
                             </div>
                         </div>
                     </div>
