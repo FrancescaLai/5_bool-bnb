@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 // rotte guest
 Route::get('/', 'Guest\HomeController@index')->name('guest.home');
 Route::get('search/', 'Guest\SearchController@search')->name('guest.search');
+Route::get('apartment/{apartment}', 'Guest\ApartmentController@showApartment')->name('guest.show');
+Route::post('apartment/{apartment}', 'Guest\ApartmentController@addMessage')->name('guest.store');
 
 Auth::routes();
 

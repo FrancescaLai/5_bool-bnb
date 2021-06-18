@@ -222,16 +222,19 @@
                                     <th>Prezzo/Notte</th>
                                     <th>Località</th>
                                     <th>Prenotazioni</th>
+                                    <th>Messaggi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($apartments as $apartment)
-                                <tr>
-                                    <td>{{$apartment->name}}</td>
-                                    <td>{{$apartment->price_day}}</td>
-                                    <td>{{$apartment->city}} - {{$apartment->country}}</td>
-                                    <td>n</td>
-                                </tr>
+                                    <tr>
+                                        <td>{{$apartment->name}}</td>
+                                        <td>{{$apartment->price_day}}</td>
+                                        <td>{{$apartment->city}} - {{$apartment->country}}</td>
+                                        <td>n</td>
+                                        <td>{{count($apartment->messages)}}</td>
+                                        <td><a href="{{route('admin.show', ['apartment' => $apartment->id ])}}">Visualizza</a></td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
