@@ -84,13 +84,52 @@
     }
     .messages{
         .card__main{
-            button{
-                all:unset;
-                padding: 5px 10px;
-                border-radius: 10px;
-                border: 1px solid $primaryLight;
-                color: $primaryDark;
+            .table{
+                tbody{
+                    display: block;
+                    height: 300px;
+                    overflow: auto;
+                    button{
+                        all:unset;
+                        padding: 5px 10px;
+                        border-radius: 10px;
+                        border: 1px solid $primaryLight;
+                        color: $primaryDark;
+                    }
+                }
+                thead, tbody tr{
+                    display: table;
+                    width: 100%;
+                    table-layout: fixed;
+                }
             }
+            th, td{
+                vertical-align: middle;
+            }
+        }
+    }
+    .apartments {
+        .table {
+            tbody {
+                display: block;
+                height: 300px;
+                overflow: auto;
+                td {
+                    border: none;
+                    width: 100%;
+                }
+                img {
+                    height: 30px;
+                    width: 50px;
+                }
+            }
+
+            thead, tbody tr{
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
         }
     }
     .sponsorization {
@@ -111,19 +150,6 @@
                 img {
                     margin-right: 15px;
                     border-radius: 50%;
-                }
-            }
-        }
-    }
-    .apartments {
-        .table {
-            tbody {
-                td {
-                    border: none;
-                }
-                img {
-                    height: 30px;
-                    width: 50px;
                 }
             }
         }

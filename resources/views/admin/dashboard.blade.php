@@ -33,7 +33,7 @@
         {{-- /Welcome section --}}
 
         {{-- user-info section --}}
-        <section class="user-info col-lg-4">
+        <section class="user-info col-lg-5">
             <div class="card">
                 <div class="card__header">
                     <h3>Dettagli utente</h3>
@@ -85,7 +85,7 @@
         {{-- /user-info section --}}
 
         {{-- messages section --}}
-        <section class="messages col-lg-4">
+        <section class="messages col-lg-7">
             <div class="card">
                 <div class="card__header">
                     <div class="col-lg-7">
@@ -107,7 +107,8 @@
                             <thead>
                                 <tr>
                                     <th>Nome appartamento</th>
-                                    <th>Oggetto Messaggio</th>
+                                    <th>Oggetto <br> Messaggio</th>
+                                    <th>Messaggio</th>
                                     <th>Link</th>
                                 </tr>
                             </thead>
@@ -115,11 +116,10 @@
                                 @foreach ($apartments as $apartment)
                                     <tr>
                                         <td>{{$apartment->name}}</td>
-
                                         @foreach ($apartment->messages as $message)
                                         <td>{{$message->subject}}</td>
+                                        <td>{{$message->message}}</td>
                                         @endforeach
-                                        
                                         <td><button><a href="{{route('admin.show', ['apartment' => $apartment->id ])}}">Visualizza</a></button></td>
                                     </tr>
                                 @endforeach
@@ -130,8 +130,42 @@
         </section>
         {{-- /messages section --}}
 
+        
+
+        {{-- apartments section --}}
+        <section class="apartments col-lg-7">
+            <div class="card">
+                <div class="card__header">
+                    <h3>I tuoi Appartamenti</h3>
+                </div>
+                <div class="card__main">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Prezzo/Notte</th>
+                                    <th>Località</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($apartments as $apartment)
+                                    <tr>
+                                        <td>{{$apartment->name}}</td>
+                                        <td>{{$apartment->price_day}}</td>
+                                        <td>{{$apartment->city}} - {{$apartment->country}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{-- /apartments section --}}
+
         {{-- sponsorization --}}
-        <section class="sponsorization col-lg-4">
+        <section class="sponsorization col-lg-5">
             <div class="card">
                 <div class="card__header">
                     <div class="col-lg-7">
@@ -222,56 +256,47 @@
                                 <p>n notti</p>
                             </div>
                         </li>
+                        <li>
+                            <div class="guest">
+                                <img src="https://via.placeholder.com/25" alt="#">
+                                <p>Nome cognome</p>
+                            </div>
+                            <div class="apartment">
+                                <p>Nome appartament0</p>
+                            </div>
+                            <div class="days">
+                                <p>n notti</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="guest">
+                                <img src="https://via.placeholder.com/25" alt="#">
+                                <p>Nome cognome</p>
+                            </div>
+                            <div class="apartment">
+                                <p>Nome appartament0</p>
+                            </div>
+                            <div class="days">
+                                <p>n notti</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="guest">
+                                <img src="https://via.placeholder.com/25" alt="#">
+                                <p>Nome cognome</p>
+                            </div>
+                            <div class="apartment">
+                                <p>Nome appartament0</p>
+                            </div>
+                            <div class="days">
+                                <p>n notti</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </section>
         {{-- /sponsorization section --}}
-
-        {{-- apartments section --}}
-        <section class="apartments col-xl-5">
-            <div class="card">
-                <div class="card__header">
-                    <h3>I tuoi Appartamenti</h3>
-                </div>
-                <div class="card__main">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Prezzo/Notte</th>
-                                    <th>Località</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($apartments as $apartment)
-                                    <tr>
-                                        <td>{{$apartment->name}}</td>
-                                        <td>{{$apartment->price_day}}</td>
-                                        <td>{{$apartment->city}} - {{$apartment->country}}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {{-- /apartments section --}}
-
-        {{-- apartments-map section --}}
-        <section class="apartments-map col-xl-7">
-            <div class="card">
-                <div class="card__header">
-                    <h3>Posizione Appartamenti</h3>
-                </div>
-                <div class="card__main">
-    
-                </div>
-            </div>
-        </section>
-        {{-- /apartments-map section --}}
 
         {{-- stats section --}}
         <section class="stats col-12">
