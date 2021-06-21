@@ -9,9 +9,31 @@ body {
 main {
     margin-top: 90px;
 }
-button:focus {
+button,
+button:focus,
+button:active,
+input:focus,
+[type="button"],
+[type="reset"],
+[type="submit"] {
     outline: none;
+    -webkit-appearance: unset;
 }
-ul {
+ol,
+ul,
+dl {
     list-style: none;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+[v-cloak] {
+    display: none;
 }

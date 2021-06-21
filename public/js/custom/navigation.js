@@ -12,15 +12,23 @@
  window.addEventListener('scroll',() => pageProgress());
 
 /**
- * @description Hide Navbar on Scroll Down
+ * @description Hide/Show Navbar on page scroll 
  */
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
-   var currentScrollPos = window.pageYOffset;
-   if (prevScrollpos > currentScrollPos) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-100px";
-    }
-    prevScrollpos = currentScrollPos;
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-100px";
+  }
+  prevScrollpos = currentScrollPos;
 }
+
+/**
+ * @description sizing based on viewport height
+ */
+ window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});

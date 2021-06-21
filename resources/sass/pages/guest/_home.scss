@@ -1,6 +1,9 @@
 main {
     section {
         margin-bottom: 90px;
+        @include mq-medium {
+            margin-top: 50px;
+        }
         .title {
             text-align: center;
             color: $primaryDark;
@@ -13,23 +16,6 @@ main {
                 font-size: $body-md;
                 font-weight: 300;
             }
-        }
-    }
-
-    .progress-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 101;
-        width: 100%;
-        height: 2px;
-        background: #fff;
-        .progress-bar {
-            width: 0%;
-            height: inherit;
-            background: $primary;
         }
     }
 }
@@ -87,40 +73,70 @@ main {
 
 #slider {
     .main {
-        display: flex;
+        @include flex-center;
         flex-wrap: wrap;
         margin-top: 75px;
+        @include mq-medium {
+            margin-top: 50px;
+        }
         .text {
+            padding: 0 50px;
+            @include mq-medium {
+                text-align: center;
+            }
             .box {
-                margin: 75px 0;
-                padding-right: 150px;
+                max-width: calc(100% / 2) - 50px;
+                margin-bottom: 75px;
+                @include mq-medium {
+                    margin: 25px 0;
+                    padding: 0 25px;
+                }
             }
             h4 {
                 font-family: "Mulish", Arial, Helvetica, sans-serif;
-                font-size: $body-xl;
+                font-size: $title-xs;
                 font-weight: 700;
-                line-height: 2.5;
+                margin-bottom: 20px;
+                line-height: 1.25;
                 color: $primaryDarker;
+                @include mq-medium {
+                    font-size: $body-xl;
+                }
             }
             p {
-                font-size: $body-sm;
+                font-size: $body-md;
                 color: $primaryLight;
                 font-weight: 300;
+                @include mq-medium {
+                    font-size: $body-sm;
+                }
             }
-            button {
-                border-radius: 50px;
-                padding: 10px;
+            a {
+                margin: 0 auto;
             }
         }
         .slider {
             position: relative;
-            &__wrapper {
+            @include mq-medium {
+                margin: 50px 0;
+                padding: 0 25px;
+            }
+            &-wrapper {
                 position: relative;
                 background: $primaryLight;
                 height: 550px;
-                width: 450px;
+                max-width: 450px;
                 border-radius: 20px;
                 box-shadow: 0 4px 15px rgba($gray-500, 0.25);
+                @include mq-medium {
+                    margin: auto;
+                }
+                & > img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 20px;
+                }
                 .arrows {
                     position: absolute;
                     right: 25px;
@@ -130,37 +146,50 @@ main {
                         background: transparent;
                     }
                 }
-                img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                    border-radius: 20px;
-                }
-            }
-            &__rewiews {
-                .rewiew {
-                    @include flex-center-vert;
-                    padding: 5px;
-                    background: #fff;
-                    border-radius: 50px;
-                    box-shadow: 0 4px 15px rgba($gray-500, 0.25);
-                    max-width: 200px;
-                    position: absolute;
-                    &__img {
-                        margin-left: 2.5px;
+                .rewiews {
+                    .rewiew {
+                        @include flex-center-vert;
+                        padding: 5px;
+                        background: #fff;
+                        border-radius: 50px;
+                        box-shadow: 0 4px 15px rgba($gray-500, 0.25);
+                        max-width: 200px;
+                        white-space: nowrap;
+                        position: absolute;
+                        &__img {
+                            margin-left: 2.5px;
+                        }
+                        &__info {
+                            margin-left: 10px;
+                            margin-right: 20px;
+                        }
                     }
-                    &__info {
-                        margin-left: 10px;
-                        margin-right: 20px;
+                    .rewiew:first-child {
+                        top: 50px;
+                        left: -50px;
+                        @include mq-medium {
+                            top: 50px;
+                            left: 10%;
+                        }
+                        @include mq-small {
+                            top: unset;
+                            bottom: 25px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
                     }
-                }
-                .rewiew:first-child {
-                    top: 50px;
-                    left: -50px;
-                }
-                .rewiew:last-child {
-                    bottom: 100px;
-                    right: 175px;
+                    .rewiew:last-child {
+                        bottom: 100px;
+                        right: -25px;
+                        @include mq-medium {
+                            bottom: 100px;
+                            left: 45%;
+                        }
+                        @include mq-small {
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                    }
                 }
             }
         }

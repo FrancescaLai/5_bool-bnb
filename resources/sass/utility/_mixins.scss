@@ -9,6 +9,11 @@
         @content;
     }
 }
+@mixin mq-small {
+    @media only screen and (max-width: $small * 1px) {
+        @content;
+    }
+}
 
 // Flexbox Toolkit
 @mixin flex-column {
