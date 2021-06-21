@@ -9,7 +9,12 @@
     // $location = $_GET['location'];
 ?>
 <main>
-    <div id="app" class="search-page">
+    {{-- Page progress indicator --}}
+    <div class="progress-container">
+        <div class="progress-bar" id="bar"></div>
+    </div>
+    {{-- /Page progress indicator --}}
+    <div class="search-page">
         <div class="container">
             <div class="left">
                 <div class="container-search d-flex justify-content-between align-items-center">
@@ -24,7 +29,7 @@
         
                         <div>
                             <label>Raggio ricerca:</label>
-                            <input type="range" min="1000" max="50000" v-model="radius">
+                            <input type="range" min="1000" max="100000" v-model="radius">
                             <span>@{{Number(radius / 1000).toFixed(1)}} Km</span>
                         </div>
                         {{-- <input type="number" v-model="radius"> --}}
@@ -54,20 +59,11 @@
                         </button>
                     </div>
                 </div>
-                <div>
-                    <div v-for="apartment in apartments">
-                        <div v-for="item in apartmentsResults">
-                            <div v-if="item.position.lat == apartment.latitude">
-                                <h2>@{{apartment.name}}</h2>
-                                <p>@{{apartment.num_room}}</p>
-                                <a v-bind:href="'apartment/' + apartment.id">Visualizza</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div>
                     <div class="cards-apartment">
                         <div class="filters d-flex justify-content-between">
+                            {{-- PREZZO AL GIORNO --}}
                             <select name="filter1" id="filter1">
                                 <option value="">filtro</option>
                                 <option value="">filtro</option>
@@ -75,59 +71,57 @@
                             </select>
         
                             <select name="filter2" id="filter2">
+                            {{-- NUMERO LETTI --}}
                                 <option value="">filtro</option>
                                 <option value="">filtro</option>
                                 <option value="">filtro</option>
                             </select>
         
-                            <select name="filter3" id="filter3">
-                                <option value="">filtro</option>
-                                <option value="">filtro</option>
-                                <option value="">filtro</option>
-                            </select>
-        
-                            <select name="filter4" id="filter4">
-                                <option value="">filtro</option>
-                                <option value="">filtro</option>
-                                <option value="">filtro</option>
-                            </select>
+                            {{-- SERVIZI !!CHECKBOX!!--}}
                         </div>
-        
-                        <h3>Results for "Città"</h3>
-                        @for ($i = 0; $i < 5; $i++)
+                    </div>
+                    
+                    {{-- SORT PER PREZZO --}}
+                    <div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <h3 v-if="isQueryActive">Results for @{{query}}</h3>
+                    <div v-for="apartment in myApartmentsResults">
                         <div class="card-apartment d-flex justify-content-between">
+                            {{-- <img v-bind:src="apartment.image" alt=""> --}}
                             <img src="https://via.placeholder.com/300x200" alt="">
-        
                             <div class="d-flex justify-content-around">
                                 <div class="d-flex flex-column justify-content-between">
-                                    
                                     <h5>
                                         <span>
                                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                               <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#FFD74A"/>
+                                                <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#FFD74A"/>
                                             </svg>
-                                         </span> 
+                                            </span> 
                                         <span>4,91 (147)</span>
-                                        <span>Nome Casa / Appartamento</span><span>Nome Via + Civico, Provincia, Stato</span>
+                                        <span>@{{apartment.name}}</span><span>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</span>
                                     </h5>
-        
                                     <ul>
-                                        <li>2 beedrooms</li>
-                                        <li>58m^2</li>
-                                        <li>4+ guests</li>
+                                        <li>@{{apartment.num_bed}}</li>
+                                        <li>@{{apartment.mq}}^2</li>
+                                        {{-- <li>4+ guests</li> --}}
                                     </ul>
                                 </div>
-        
                                 <div class="d-flex flex-column justify-content-between align-items-end">
-                                    <h2>80€<span>per night</span></h2>
-                                    <button class="btn-login">Visualizza</button>
+                                    <h2>@{{apartment.price_day}}€<span>per night</span></h2>
+                                    <a v-bind:href="'apartment/' + apartment.id">
+                                        <button class="btn-login">Visualizza</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        @endfor
                     </div>
                 </div>
             </div>
+
             <div class="right">
                 <div id="map">
                     <button v-on:click="createMap">Mappa</button>
