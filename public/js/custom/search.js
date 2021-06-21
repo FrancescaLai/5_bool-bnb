@@ -4,13 +4,15 @@ var app = new Vue({
         idApartment: '',
         baseUrl: 'https://api.tomtom.com/',
         apiKey: 'Ftk43BCJTsswF7IOGeBv3bPKdUI84Hn4',
-        radius: '20000',
+        radius: 20000,
         query: '',
+        isQueryActive: false,
         dropdownResults: true,
         position: [],
         radiusResults: [],
-        apartmentsResults: [],
-        apartments: [],
+        searchResults: [],
+        myApartments: [],
+        myApartmentsResults: [],
         container: 'map',
         isMenuActive: false,
     },
@@ -28,9 +30,30 @@ var app = new Vue({
                 }
             })
             .then((response) => {
-                console.log(response.data.results)
-                this.apartmentsResults = response.data.results;
-            })
+                this.searchResults = response.data.results;
+                this.query = '';
+                this.myApartmentsResults = [];
+                this.radiusResults = [];
+                this.isQueryActive = true;
+                this.dropdownResults = true;
+                let search = this.searchResults[0];
+                let my = this.myApartments;
+                let pickRadius = (this.radius / 1000) / 111;
+
+                for(var k = 0; k < my.length; k++){
+                        
+                        if((my[k].latitude > (search.position.lat - pickRadius)) && 
+                            (my[k].latitude < (search.position.lat + pickRadius)) && 
+                            (my[k].longitude > (search.position.lon - pickRadius)) && 
+                            (my[k].longitude < (search.position.lon + pickRadius))){
+    
+                            if(!this.myApartmentsResults.includes(my[k])){
+                                this.myApartmentsResults.push(this.myApartments[k]);
+                            }
+                        }
+
+                }
+            });
         },
 
         /**
@@ -43,7 +66,6 @@ var app = new Vue({
                 }
             })
             .then((response) => {
-                console.log(response.data.results)
                 this.radiusResults = response.data.results;
             })
         },
@@ -91,7 +113,7 @@ var app = new Vue({
     mounted: function(){
         let link = 'http://localhost:8000/api/guest'
         axios.get(link).then((result)=>{
-            this.apartments = result.data;
+            this.myApartments = result.data;
         })
     }
 })
