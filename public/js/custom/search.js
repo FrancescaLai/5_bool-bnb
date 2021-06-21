@@ -11,6 +11,7 @@ var app = new Vue({
         radiusResults: [],
         apartmentsResults: [],
         apartments: [],
+        isMenuActive: false,
     },
     methods: {
         /**
@@ -58,7 +59,20 @@ var app = new Vue({
             this.dropdownResults = false;
             console.log(this.position);
             return this.position;
-        }
+        },
+
+        /**
+         * @description Show/Hide Menu and toggle document scrolling
+         */
+        toggleMenu: function() {
+            if (this.isMenuActive == false) {
+              this.isMenuActive = true;
+              document.body.classList.add("stop-scrolling");
+            } else {
+              this.isMenuActive = false;
+              document.body.classList.remove("stop-scrolling");
+            }
+          },
 
     },
     mounted: function(){

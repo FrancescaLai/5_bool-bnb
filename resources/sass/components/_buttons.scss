@@ -1,17 +1,24 @@
 .btn {
-    border-radius: 10px;
     padding: 10px 20px;
+    border-radius: 10px;
+    transition: transform 250ms ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+        color: currentColor;
+    }
+    &:active {
+        transform: scale(0.95);
+    }
 }
-.btn-login {
+.btn-empty {
     border: 1px solid $primaryLight;
     color: $primaryDark;
 }
-.btn-signup {
+.btn-full {
     border: 1px solid $primary;
     background-color: $primary;
     color: $primaryLighter;
 }
-
 .btn-link {
     font-weight: 300;
     font-size: 13px;
@@ -20,11 +27,6 @@
     float: right;
     padding: 10px 0px;
 }
-
-.btn-link:hover {
-    text-decoration: none;
-}
-
 .btn-login-rounded {
     width: 100%;
     border-radius: 30px;
@@ -32,13 +34,45 @@
     background: $primary;
     color: white;
 }
-
-.btn-full {
-    color: white;
+.btn-cta {
+    height: 4rem;
+    width: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 12px 30px;
+    border-radius: 30px;
     background-color: $primary;
-    border: 2px solid $primary;
-    padding: 5px 20px;
-    border-radius: 5px;
+    color: #fff;
+    position: relative;
+    div {
+        height: 100%;
+    }
+    span {
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        fill: #fff;
+        opacity: 0;
+        transform: translate(-10px, -50%);
+        transition: opacity 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+            transform 0.3s 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    &:hover {
+        color: #fff;
+        span {
+            transform: translateX(15px);
+        }
+        svg {
+            opacity: 1;
+            transform: translate(15px, -50%);
+        }
+    }
 }
 .btn-price {
     color: $primary;
@@ -50,9 +84,7 @@
     transition: 300ms box-shadow cubic-bezier(0.4, 0, 0.6, 1),
         300ms background-color cubic-bezier(0.4, 0, 0.6, 1),
         300ms color cubic-bezier(0.4, 0, 0.6, 1);
-    color: hsl(243, 80%, 62%);
-}
-.btn-price:hover {
-    box-shadow: inset 0 0 0 3px hsl(243, 80%, 62%);
-    color: hsl(243, 80%, 62%);
+    &:hover {
+        box-shadow: inset 0 0 0 3px hsl(243, 80%, 62%);
+    }
 }

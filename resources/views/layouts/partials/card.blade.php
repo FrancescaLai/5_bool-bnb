@@ -1,6 +1,6 @@
 <div class="card">
     <div class="image-box">
-        <img src="img/house.png" alt="">
+        <img src="https://via.placeholder.com/400/bec8de/fff?Text=Image" alt="#">
     </div>
     <div class="house-description">
         <h4>Room title card</h4>

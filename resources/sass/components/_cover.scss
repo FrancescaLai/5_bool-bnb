@@ -5,9 +5,12 @@
     background-position: left 65%;
     background-repeat: no-repeat;
     border-radius: 25px;
-    width: 95%;
+    width: 100%;
     margin: auto;
     position: relative;
+    @media (min-width: 768px) {
+        padding: 0 32px;
+    }
 
     .hero-title {
         position: absolute;
@@ -37,10 +40,11 @@
         transform: translateX(50%);
 
         form {
+            width: 100%;
             position: relative;
             @include flex-center-vert;
+            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 25px;
             input {
                 height: 50px;
                 display: inline-block;
@@ -48,7 +52,7 @@
                 padding: 0 25px;
                 color: $primaryDark;
                 &[type="search"] {
-                    flex-basis: calc(40% - 25px);
+                    flex-basis: calc(35% - 25px);
                     border: none;
                     background: #f2f4f8;
                     @include mq-medium {
@@ -64,7 +68,6 @@
             }
             button {
                 height: 50px;
-                width: 100;
                 flex-basis: calc(10% - 25px);
                 border-radius: 12px;
                 order: 3;
