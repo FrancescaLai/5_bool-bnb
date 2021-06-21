@@ -8,23 +8,20 @@
 <?php 
     // $location = $_GET['location'];
 ?>
-    <head>
-        <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps.css'>
-        <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps-web.min.js"></script>
-    </head>
-
-    <main>
-        <div class="container" style="margin-top: 150px">
-            <div id="app">
+<main>
+    <div id="app" class="search-page">
+        <div class="container">
+            <div class="left">
                 <div class="container-search d-flex justify-content-between align-items-center">
                     <div>
                         <input type="text" class="search-form" placeholder="Location" v-model="query" v-on:keydown="radiusSearch">
+                        
                         <ul>
                             <li v-for="(item, index) in radiusResults" :class="dropdownResults ? 'main-dropdwon-active' : 'main-dropdown'">
                                 <a v-on:click="getPosition(index)">@{{item.address.freeformAddress}}, @{{item.address.countrySecondarySubdivision}}, @{{item.address.countrySubdivision}}</a>
                             </li>
                         </ul>
-
+        
                         <div>
                             <label>Raggio ricerca:</label>
                             <input type="range" min="1000" max="50000" v-model="radius">
@@ -32,21 +29,21 @@
                         </div>
                         {{-- <input type="number" v-model="radius"> --}}
                     </div>
-
+        
                     <div>
                         <label class="labelCheck" for="start">Check-in:</label>
-
+        
                         <input type="date" id="start" name="trip-start"
-                            value="01-06-2021"
-                            min="01-06-2021" max="2023-12-31">
+                            value="2021-06-01"
+                            min="2021-06-01" max="2023-12-31">
                     </div>
-
+        
                     <div>
                         <label class="labelCheck" for="start">Check-out:</label>
-
+        
                         <input type="date" id="start" name="trip-start"
-                        value="01-06-2021"
-                        min="01-06-2021" max="2023-12-31">
+                        value="2021-06-01"
+                        min="2021-06-01" max="2023-12-31">
                     </div>
                     
                     <div>
@@ -68,94 +65,82 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="cards-apartment">
-                    <div class="filters d-flex justify-content-between">
-                        <select name="filter1" id="filter1">
-                            <option value="">filtro</option>
-                            <option value="">filtro</option>
-                            <option value="">filtro</option>
-                        </select>
-
-                        <select name="filter2" id="filter2">
-                            <option value="">filtro</option>
-                            <option value="">filtro</option>
-                            <option value="">filtro</option>
-                        </select>
-
-                        <select name="filter3" id="filter3">
-                            <option value="">filtro</option>
-                            <option value="">filtro</option>
-                            <option value="">filtro</option>
-                        </select>
-
-                        <select name="filter4" id="filter4">
-                            <option value="">filtro</option>
-                            <option value="">filtro</option>
-                            <option value="">filtro</option>
-                        </select>
-                    </div>
-
-                    <h3>Results for "Città"</h3>
-                    @for ($i = 0; $i < 5; $i++)
-                    <div class="card-apartment d-flex justify-content-between">
-                        <img src="https://via.placeholder.com/300x200" alt="">
-
-                        <div class="d-flex justify-content-around">
-                            <div class="d-flex flex-column justify-content-between">
-                                
-                                <h5>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.857 4.92587C13.7901 2.35805 10.2099 2.35804 9.14297 4.92587L8.58369 6.27189C8.361 6.80784 7.87574 7.17228 7.3211 7.23508L5.76039 7.41179C3.12208 7.71052 2.0693 10.9949 3.96629 12.8289L5.29142 14.11C5.68291 14.4885 5.85894 15.0499 5.75098 15.596L5.43104 17.2142C4.89984 19.901 7.795 21.9982 10.1279 20.5005L11.1745 19.8286C11.6797 19.5043 12.3203 19.5043 12.8255 19.8286L13.8721 20.5005C16.205 21.9982 19.1002 19.901 18.569 17.2142L18.249 15.596C18.1411 15.0499 18.3171 14.4885 18.7086 14.11L20.0337 12.8289C21.9307 10.9949 20.8779 7.71052 18.2396 7.41179L16.6789 7.23508C16.1243 7.17228 15.639 6.80784 15.4163 6.27189L14.857 4.92587Z" fill="#363853"/>
-                                    </svg>
-                                    4,91 (147) <span></span>
-                                    Nome Casa / Appartamento<span>Nome Via + Civico, Provincia, Stato</span>
-                                </h5>
-
-                                <ul>
-                                    <li>2 beedrooms</li>
-                                    <li>58m^2</li>
-                                    <li>4+ guests</li>
-                                </ul>
-                            </div>
-    
-                            <div class="d-flex flex-column justify-content-between align-items-end">
-                                <h2>80€<span>per night</span></h2>
-                                <button class="btn-login">Visualizza</button>
+                <div>
+                    <div class="cards-apartment">
+                        <div class="filters d-flex justify-content-between">
+                            <select name="filter1" id="filter1">
+                                <option value="">filtro</option>
+                                <option value="">filtro</option>
+                                <option value="">filtro</option>
+                            </select>
+        
+                            <select name="filter2" id="filter2">
+                                <option value="">filtro</option>
+                                <option value="">filtro</option>
+                                <option value="">filtro</option>
+                            </select>
+        
+                            <select name="filter3" id="filter3">
+                                <option value="">filtro</option>
+                                <option value="">filtro</option>
+                                <option value="">filtro</option>
+                            </select>
+        
+                            <select name="filter4" id="filter4">
+                                <option value="">filtro</option>
+                                <option value="">filtro</option>
+                                <option value="">filtro</option>
+                            </select>
+                        </div>
+        
+                        <h3>Results for "Città"</h3>
+                        @for ($i = 0; $i < 5; $i++)
+                        <div class="card-apartment d-flex justify-content-between">
+                            <img src="https://via.placeholder.com/300x200" alt="">
+        
+                            <div class="d-flex justify-content-around">
+                                <div class="d-flex flex-column justify-content-between">
+                                    
+                                    <h5>
+                                        <span>
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                               <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#FFD74A"/>
+                                            </svg>
+                                         </span> 
+                                        <span>4,91 (147)</span>
+                                        <span>Nome Casa / Appartamento</span><span>Nome Via + Civico, Provincia, Stato</span>
+                                    </h5>
+        
+                                    <ul>
+                                        <li>2 beedrooms</li>
+                                        <li>58m^2</li>
+                                        <li>4+ guests</li>
+                                    </ul>
+                                </div>
+        
+                                <div class="d-flex flex-column justify-content-between align-items-end">
+                                    <h2>80€<span>per night</span></h2>
+                                    <button class="btn-login">Visualizza</button>
+                                </div>
                             </div>
                         </div>
+                        @endfor
                     </div>
-                    @endfor
                 </div>
-
-                
-
             </div>
-
-            <div id="map">
-                
+            <div class="right">
+                <div id="map">
+                    <button v-on:click="createMap">Mappa</button>
+                </div>
             </div>
         </div>
-
-    </main>
+    </div>
+</main>
 @endsection
 
 @section('script')
-{{-- AXIOS CDN --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-{{-- VUE CDN --}}
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
-    {{-- TomTom Map --}}
-    <script>
-        var API_KEY = "Ftk43BCJTsswF7IOGeBv3bPKdUI84Hn4";
-   
-        var map = tt.map({
-          key: API_KEY,
-          container: 'map',
-        });
-    </script>
-
-    <script src="{{asset('js\custom\search.js')}}"></script>
+<script src="{{asset('js\custom\search.js')}}"></script>
+<script src="{{asset('js\custom\navigation.js')}}"></script>
 @endsection

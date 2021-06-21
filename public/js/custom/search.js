@@ -11,6 +11,7 @@ var app = new Vue({
         radiusResults: [],
         apartmentsResults: [],
         apartments: [],
+        container: 'map',
         isMenuActive: false,
     },
     methods: {
@@ -72,13 +73,25 @@ var app = new Vue({
               this.isMenuActive = false;
               document.body.classList.remove("stop-scrolling");
             }
-          },
+        },
+
+        /**
+         * @description Create map
+         */
+        createMap: function() {
+            let map = tt.map({
+                key: this.apiKey,
+                container: 'map',
+            });
+            console.log('map')
+        }
+
 
     },
     mounted: function(){
         let link = 'http://localhost:8000/api/guest'
         axios.get(link).then((result)=>{
             this.apartments = result.data;
-        });
+        })
     }
 })
