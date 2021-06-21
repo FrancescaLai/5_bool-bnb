@@ -11324,11 +11324,18 @@ main section .title p {
   padding: 5px;
   text-align: left;
 }
-.dashboard .reservations ul {
+.dashboard .messages .card__main button {
+  all: unset;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #bec8de;
+  color: #09244f;
+}
+.dashboard .sponsorization ul {
   overflow-y: auto;
   height: 100%;
 }
-.dashboard .reservations li {
+.dashboard .sponsorization li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11339,12 +11346,12 @@ main section .title p {
   border-radius: 10px;
   margin-bottom: 15px;
 }
-.dashboard .reservations li .guest {
+.dashboard .sponsorization li .guest {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.dashboard .reservations li .guest img {
+.dashboard .sponsorization li .guest img {
   margin-right: 15px;
   border-radius: 50%;
 }
