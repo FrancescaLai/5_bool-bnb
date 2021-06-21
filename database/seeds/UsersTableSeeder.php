@@ -14,7 +14,6 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user_1 = new User();
-
         $user_1->email = 'samuele.madrigali@gmail.com';
         $user_1->password = Hash::make('12345678');
         $user_1->name = 'Samuele';
@@ -26,7 +25,6 @@ class UsersTableSeeder extends Seeder
         $user_1->save();
 
         $user_2 = new User();
-
         $user_2->email = 'amedeo.pisani@gmail.com';
         $user_2->password = Hash::make('87654321');
         $user_2->name = 'Amedeo';
@@ -39,7 +37,6 @@ class UsersTableSeeder extends Seeder
 
 
         $user_3 = new User();
-
         $user_3->email = 'viola.marino@gmail.com';
         $user_3->password = Hash::make('87654321');
         $user_3->name = 'Viola';
