@@ -11324,12 +11324,43 @@ main section .title p {
   padding: 5px;
   text-align: left;
 }
-.dashboard .messages .card__main button {
+.dashboard .messages .card__main .table tbody {
+  display: block;
+  height: 300px;
+  overflow: auto;
+}
+.dashboard .messages .card__main .table tbody button {
   all: unset;
   padding: 5px 10px;
   border-radius: 10px;
   border: 1px solid #bec8de;
   color: #09244f;
+}
+.dashboard .messages .card__main .table thead, .dashboard .messages .card__main .table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.dashboard .messages .card__main th, .dashboard .messages .card__main td {
+  vertical-align: middle;
+}
+.dashboard .apartments .table tbody {
+  display: block;
+  height: 300px;
+  overflow: auto;
+}
+.dashboard .apartments .table tbody td {
+  border: none;
+  width: 100%;
+}
+.dashboard .apartments .table tbody img {
+  height: 30px;
+  width: 50px;
+}
+.dashboard .apartments .table thead, .dashboard .apartments .table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 .dashboard .sponsorization ul {
   overflow-y: auto;
@@ -11354,13 +11385,6 @@ main section .title p {
 .dashboard .sponsorization li .guest img {
   margin-right: 15px;
   border-radius: 50%;
-}
-.dashboard .apartments .table tbody td {
-  border: none;
-}
-.dashboard .apartments .table tbody img {
-  height: 30px;
-  width: 50px;
 }
 
 h2 {
