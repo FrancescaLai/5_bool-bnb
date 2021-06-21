@@ -82,7 +82,18 @@
             }
         }
     }
-    .reservations {
+    .messages{
+        .card__main{
+            button{
+                all:unset;
+                padding: 5px 10px;
+                border-radius: 10px;
+                border: 1px solid $primaryLight;
+                color: $primaryDark;
+            }
+        }
+    }
+    .sponsorization {
         ul {
             overflow-y: auto;
             height: 100%;

@@ -103,18 +103,39 @@
                     </div>
                 </div>
                 <div class="card__main">
-        
+                    <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nome appartamento</th>
+                                    <th>Oggetto Messaggio</th>
+                                    <th>Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($apartments as $apartment)
+                                    <tr>
+                                        <td>{{$apartment->name}}</td>
+
+                                        @foreach ($apartment->messages as $message)
+                                        <td>{{$message->subject}}</td>
+                                        @endforeach
+                                        
+                                        <td><button><a href="{{route('admin.show', ['apartment' => $apartment->id ])}}">Visualizza</a></button></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </section>
         {{-- /messages section --}}
 
-        {{-- reservations --}}
-        <section class="reservations col-lg-4">
+        {{-- sponsorization --}}
+        <section class="sponsorization col-lg-4">
             <div class="card">
                 <div class="card__header">
                     <div class="col-lg-7">
-                        <h3>Prenotazioni</h3>
+                        <h3>Sponsorizzazioni</h3>
                     </div>
                     <div class="col-lg-5 justify-content-end">
                         <div class="searchbar">
@@ -205,7 +226,7 @@
                 </div>
             </div>
         </section>
-        {{-- /reservations section --}}
+        {{-- /sponsorization section --}}
 
         {{-- apartments section --}}
         <section class="apartments col-xl-5">
@@ -221,8 +242,6 @@
                                     <th>Nome</th>
                                     <th>Prezzo/Notte</th>
                                     <th>Località</th>
-                                    <th>Prenotazioni</th>
-                                    <th>Messaggi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -231,9 +250,6 @@
                                         <td>{{$apartment->name}}</td>
                                         <td>{{$apartment->price_day}}</td>
                                         <td>{{$apartment->city}} - {{$apartment->country}}</td>
-                                        <td>n</td>
-                                        <td>{{count($apartment->messages)}}</td>
-                                        <td><a href="{{route('admin.show', ['apartment' => $apartment->id ])}}">Visualizza</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
