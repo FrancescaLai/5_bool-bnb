@@ -22,14 +22,15 @@
 
         p {
             color: #8f9bba;
+            width: 100%;
+            @include truncate(75px)
         }
     }
 
     .house-info {
         margin-top: 20px;
-        display: flex;
+        @include flex-center-vert;
         justify-content: space-between;
-
         .reviews {
             display: flex;
             align-items: baseline;
