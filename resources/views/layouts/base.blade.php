@@ -4,14 +4,16 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   {{-- TomTom --}}
    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps-web.min.js"></script>
+   <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps.css'>
    {{-- Google Font --}}
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-   <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps.css'>
    {{-- /Google Font --}}
    <title>@yield('pageTitle')</title>
+   <link rel="stylesheet" href="{{asset('css/glide.core.css')}}">
    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
@@ -28,7 +30,8 @@
       @include('layouts.partials.footer')
       {{-- /Footer --}}
    </div>
-
+   <div class="cursor"></div>
+   
    {{-- Script --}}
    @yield('script')
    {{-- Script --}}

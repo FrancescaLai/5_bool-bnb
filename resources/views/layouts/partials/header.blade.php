@@ -14,7 +14,7 @@
         </ul>
       </nav>
     </span>
-    
+
     <span class="m-header__cta">
       <a href="{{route('login')}}" class="btn btn-empty">Log in</a>
       <a href="{{route('register')}}" class="btn btn-full">Sign up</a>

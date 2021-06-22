@@ -14,7 +14,7 @@
     border-bottom: 1px solid transparent;
     background: $primaryLighter;
     @include flex-center;
-    height: 7rem;
+    height: 85px;
     position: fixed;
     z-index: 3;
     transition: 0.3s;
@@ -95,8 +95,13 @@
     @include mq-large {
         display: none;
     }
-    button {
-        margin-left: 5xppx;
+    a {
+        margin-left: 10px;
+        &:last-child {
+            &:hover {
+                color: #fff;
+            }
+        }
     }
 }
 .m-header__btn {
@@ -219,20 +224,12 @@
         letter-spacing: -2px;
     }
     @media (min-width: 768px) {
-        font-size: 8.6rem;
-        line-height: 9.5rem;
+        font-size: 7.6rem;
+        line-height: 8.2rem;
     }
     @media (min-width: 1024px) {
         font-size: 12rem;
         line-height: 14rem;
-    }
-}
-
-@media (min-width: 768px) and (min-width: 1024px) {
-    .m-header__primary {
-        font-size: 8.4rem;
-        line-height: 9.2rem;
-        letter-spacing: -2px;
     }
 }
 

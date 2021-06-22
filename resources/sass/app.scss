@@ -1,10 +1,10 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Mulish");
 
-// Bootstrap
+// Vendors
 @import "~bootstrap/scss/bootstrap";
 
-// Variables
+// Custom
 @import "utility/variables";
 @import "utility/mixins";
 @import "utility/helpers";
@@ -30,4 +30,3 @@
 @import "pages/guest/search";
 @import "pages/admin/dashboard";
 @import "pages/admin/create";
-
