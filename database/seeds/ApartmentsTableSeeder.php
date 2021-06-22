@@ -16,7 +16,7 @@ class ApartmentsTableSeeder extends Seeder
     {
         /**
          * apartments-user1
-         */ 
+         */
         $apartment_1a = new Apartment();
         $apartment_1a->user_id = 1;
         $apartment_1a->name = 'Villa Madrigali';
@@ -44,7 +44,7 @@ class ApartmentsTableSeeder extends Seeder
         $apartment_1b->name = 'Residence Il Fortino';
         $apartment_1b->slug = Str::slug($apartment_1b->name, '-');
         $apartment_1b->visibility = 1;
-        $apartment_1b->image = 'https://placeholder.com/300';
+        $apartment_1b->image = 'https://images.unsplash.com/photo-1613553497126-a44624272024?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80';
         $apartment_1b->description = 'Residence situato sul lungomare di Ronchi a Marina di Massa, con grande parco privato, Ristorante e Piscina';
         $apartment_1b->num_room = 2;
         $apartment_1b->num_bath = 1;
@@ -129,10 +129,10 @@ class ApartmentsTableSeeder extends Seeder
 
         /**
          * apartments-user2
-         */ 
+         */
         $apartment_2a = new Apartment();
         $apartment_2a->user_id = 2;
-        $apartment_2a->name = 'Hidden Gem of Cremona City Centre';
+        $apartment_2a->name = 'Hidden Gem of Cremona';
         $apartment_2a->slug = Str::slug($apartment_2a->name, '-');
         $apartment_2a->visibility = 1;
         $apartment_2a->image = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=973&q=80';
@@ -176,7 +176,7 @@ class ApartmentsTableSeeder extends Seeder
 
         $apartment_2c = new Apartment();
         $apartment_2c->user_id = 2;
-        $apartment_2c->name = 'Industrial style Chicago Loft with FREE parking';
+        $apartment_2c->name = 'Industrial style Chicago Loft';
         $apartment_2c->slug = Str::slug($apartment_2c->name, '-');
         $apartment_2c->visibility = 1;
         $apartment_2c->image = 'https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80';
@@ -292,7 +292,7 @@ class ApartmentsTableSeeder extends Seeder
         $apartment_3c->name = 'Bacche Apartament';
         $apartment_3c->slug = Str::slug($apartment_3c->name, '-');
         $apartment_3c->visibility = 1;
-        $apartment_3c->image = 'https://images.freeimages.com/images/large-previews/a91/soft-interior-1227117.jpg';
+        $apartment_3c->image = 'https://images.unsplash.com/photo-1534595038511-9f219fe0c979?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80';
         $apartment_3c->description = 'Bacche Apartament, nasce nel centro storico di Palermo, dai principali monumenti, musei e mercati storici come la Vucciria. Appartamento interamente ristrutturato e dotato di tutti i comfort, composto da una camera da letto con letto matrimoniale grande, una stanza con divano, cucina e due bagni con doccia.';
         $apartment_3c->num_room = 1;
         $apartment_3c->num_bath = 2;

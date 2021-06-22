@@ -22,7 +22,7 @@ var app = new Vue({
                 firstUser: 'Scott Russell',
                 firstUserImg: 'images/slider-user-1.svg',
                 firstRewiew: '4.5',
-                secondUser: 'Giuseppina Brambilla',
+                secondUser: 'Giulia Trevisani',
                 secondUserImg: 'images/slider-user-2.svg',
                 secondRewiew: '4.8',
             },
@@ -62,31 +62,31 @@ var app = new Vue({
                     key: this.apiKey,
                 }
             })
-            .then((response) => {
-                this.searchResults = response.data.results;
-                this.query = '';
-                this.myApartmentsResults = [];
-                this.radiusResults = [];
-                this.isQueryActive = true;
-                this.dropdownResults = true;
-                let search = this.searchResults[0];
-                let my = this.myApartments;
-                let pickRadius = (this.radius / 1000) / 111;
+                .then((response) => {
+                    this.searchResults = response.data.results;
+                    this.query = '';
+                    this.myApartmentsResults = [];
+                    this.radiusResults = [];
+                    this.isQueryActive = true;
+                    this.dropdownResults = true;
+                    let search = this.searchResults[0];
+                    let my = this.myApartments;
+                    let pickRadius = (this.radius / 1000) / 111;
 
-                for(var k = 0; k < my.length; k++){
-                        
-                        if((my[k].latitude > (search.position.lat - pickRadius)) && 
-                            (my[k].latitude < (search.position.lat + pickRadius)) && 
-                            (my[k].longitude > (search.position.lon - pickRadius)) && 
-                            (my[k].longitude < (search.position.lon + pickRadius))){
-    
-                            if(!this.myApartmentsResults.includes(my[k])){
+                    for (var k = 0; k < my.length; k++) {
+
+                        if ((my[k].latitude > (search.position.lat - pickRadius)) &&
+                            (my[k].latitude < (search.position.lat + pickRadius)) &&
+                            (my[k].longitude > (search.position.lon - pickRadius)) &&
+                            (my[k].longitude < (search.position.lon + pickRadius))) {
+
+                            if (!this.myApartmentsResults.includes(my[k])) {
                                 this.myApartmentsResults.push(this.myApartments[k]);
                             }
                         }
 
-                }
-            });
+                    }
+                });
         },
 
         /**
@@ -98,9 +98,9 @@ var app = new Vue({
                     key: this.apiKey
                 }
             })
-            .then((response) => {
-                this.radiusResults = response.data.results;
-            })
+                .then((response) => {
+                    this.radiusResults = response.data.results;
+                })
         },
 
         /**
