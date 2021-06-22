@@ -15,7 +15,7 @@ class ApartmentController extends Controller
 {
 
     protected $validation = [
-        'name' => 'required|string|max:255',
+        'name' => 'required|string|min:2|max:255',
         'description' => 'required|string',
         'num_room' => 'required|integer',
         'num_bath' => 'required|integer',
@@ -26,7 +26,7 @@ class ApartmentController extends Controller
         'region' => 'required|string|max:255',
         'city' => 'required|string|max:255',
         'street' => 'required|string|max:255',
-        'zip_code' => 'required|string|max:255',
+        'zip_code' => 'required|string|min:4|max:10|alfa_dash',
         'floor' => 'required|integer',
         'latitude' => 'required|numeric',
         'longitude' => 'required|numeric'
