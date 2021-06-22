@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
         $user_1->surname = 'Madrigali';
         $user_1->birth_date = '1990-06-23';
         $user_1->phone_number = '3583456789';
-        $user_1->document_type = 'id';
+        $user_1->document_type = 'Id';
         $user_1->document_number = ' MR47929AA';
         $user_1->save();
 
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
         $user_2->surname = 'Pisani';
         $user_2->birth_date = '1971-12-11';
         $user_2->phone_number = '3436459782';
-        $user_2->document_type = 'passport';
+        $user_2->document_type = 'Passport';
         $user_2->document_number = 'BC7844234';
         $user_2->save();
 
@@ -43,8 +43,8 @@ class UsersTableSeeder extends Seeder
         $user_3->surname = 'Marino';
         $user_3->birth_date = '1994-04-22';
         $user_3->phone_number = '3486552723';
-        $user_3->document_type = 'lg';
-        $user_3->document_number = 'B64D2LJ9PW';
+        $user_3->document_type = 'Ld';
+        $user_3->document_number = 'B64D2LJ9P';
         $user_3->save();
     }
 }
