@@ -64,20 +64,27 @@
                     <div class="cards-apartment">
                         <div class="filters d-flex justify-content-between">
                             {{-- PREZZO AL GIORNO --}}
-                            <select name="filter1" id="filter1">
-                                <option value="">filtro</option>
-                                <option value="">filtro</option>
-                                <option value="">filtro</option>
+                            <select v-on:click="ordina" v-model="priceOrder">
+                                <option disabled value="">Scegli l'ordine di prezzo</option>
+                                <option value="asc">Più economico</option>
+                                <option value="dis">Più caro</option>
                             </select>
         
-                            <select name="filter2" id="filter2">
                             {{-- NUMERO LETTI --}}
-                                <option value="">filtro</option>
-                                <option value="">filtro</option>
-                                <option value="">filtro</option>
-                            </select>
+                            <div>
+                                <label for="num_bed">Seleziona il numero di letti:</label><br>
+                                <select v-on:click="numBed" v-model="selectedNumBed">
+                                    <option v-for="num in numBedList" v-bind:value="num">@{{ num }}</option>
+                                </select>
+                            </div>
         
                             {{-- SERVIZI !!CHECKBOX!!--}}
+                            {{-- <div>
+                                @foreach ($services as $key => $service)
+                                    <input type="checkbox" id="service{{$key}}" name="service{{$key}}" value="{{$service->name}}">
+                                    <label for="service{{$key}}">{{$service->name}}</label><br>
+                                @endforeach
+                            </div> --}}
                         </div>
                     </div>
                     
@@ -90,7 +97,7 @@
                 <div>
                     <h3 v-if="isQueryActive">Results for @{{query}}</h3>
                     <div v-for="apartment in myApartmentsResults">
-                        <div class="card-apartment d-flex justify-content-between">
+                        <div class="card-apartment d-flex justify-content-between"  v-if="apartment.num_bed == selectedNumBed || selectedNumBed == 'Tutti'">
                             {{-- <img v-bind:src="apartment.image" alt=""> --}}
                             <img src="https://via.placeholder.com/300x200" alt="">
                             <div class="d-flex justify-content-around">
@@ -109,6 +116,16 @@
                                         <li>@{{apartment.mq}}^2</li>
                                         {{-- <li>4+ guests</li> --}}
                                     </ul>
+                                    {{-- @if ($apartments->services->isNotEmpty())
+		<h3>Servizi</h3>
+		<ul>
+			@foreach ($apartment->services as $service)
+				<li>
+					<h5>{{$service->name}}</h5>
+				</li>
+			@endforeach
+		</ul>
+		@endif --}}
                                 </div>
                                 <div class="d-flex flex-column justify-content-between align-items-end">
                                     <h2>@{{apartment.price_day}}€<span>per night</span></h2>
@@ -133,8 +150,11 @@
 @endsection
 
 @section('script')
+{{-- Axios cdn --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{-- Vue cdn --}}
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-<script src="{{asset('js\custom\search.js')}}"></script>
+{{-- Custom script --}}
 <script src="{{asset('js\custom\navigation.js')}}"></script>
+<script src="{{asset('js\custom\search.js')}}"></script>
 @endsection

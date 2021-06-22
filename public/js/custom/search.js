@@ -47,6 +47,16 @@ var app = new Vue({
         ],
         imgIndex: 0,
         autoplay: null,
+        priceOrder: '',
+        count: 0,
+        numBedList: [
+            'Tutti'
+        ],
+        selectedNumBed: 'Tutti',
+        servicesList: [
+            'Tutti'
+        ],
+        selectedService: 'Tutti'
     },
 
     methods: {
@@ -162,6 +172,36 @@ var app = new Vue({
                 this.imgIndex = this.images.length - 1;
             }
         },
+
+        numBed: function(){
+            while(this.count < this.myApartmentsResults.length){
+                if(this.numBedList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1){
+                    this.numBedList.push(this.myApartmentsResults[this.count].num_bed);
+                }
+                this.count++;
+            }
+            this.count = 0;
+        },
+        
+        ordina: function(a ,b){
+            this.myApartmentsResults.sort((a, b) => {
+                if(this.priceOrder == "asc"){
+                return a.price_day - b.price_day;
+                }else if(this.priceOrder == "dis"){
+                return b.price_day - a.price_day;
+                }
+            });
+        },
+
+        isServices: function(){
+            while(this.count < this.myApartmentsResults.length){
+                if(this.servicesList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1){
+                    this.servicesList.push(this.myApartmentsResults[this.count].num_bed);
+                }
+                this.count++;
+            }
+            this.count = 0;
+        }
     },
 
     mounted: function () {
