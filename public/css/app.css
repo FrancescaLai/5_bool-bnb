@@ -11533,26 +11533,6 @@ body {
   padding: 5px;
   text-align: left;
 }
-.dashboard .messages .card__main .table tbody {
-  display: block;
-  height: 300px;
-  overflow: auto;
-}
-.dashboard .messages .card__main .table tbody button {
-  all: unset;
-  padding: 5px 10px;
-  border-radius: 10px;
-  border: 1px solid #bec8de;
-  color: #09244f;
-}
-.dashboard .messages .card__main .table thead, .dashboard .messages .card__main .table tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-.dashboard .messages .card__main th, .dashboard .messages .card__main td {
-  vertical-align: middle;
-}
 .dashboard .apartments .table tbody {
   display: block;
   height: 300px;
@@ -11563,13 +11543,33 @@ body {
   width: 100%;
 }
 .dashboard .apartments .table tbody img {
-  height: 30px;
-  width: 50px;
+  height: 60px;
+  width: 100px;
+}
+.dashboard .apartments .table tbody button {
+  all: unset;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #bec8de;
+  color: #09244f;
 }
 .dashboard .apartments .table thead, .dashboard .apartments .table tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
+}
+.dashboard .messages .card__main .table tbody {
+  display: block;
+  height: 300px;
+  overflow: auto;
+}
+.dashboard .messages .card__main .table thead, .dashboard .messages .card__main .table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.dashboard .messages .card__main th, .dashboard .messages .card__main td {
+  vertical-align: middle;
 }
 .dashboard .sponsorization ul {
   overflow-y: auto;
@@ -11586,14 +11586,8 @@ body {
   border-radius: 10px;
   margin-bottom: 15px;
 }
-.dashboard .sponsorization li .guest {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.dashboard .sponsorization li .guest img {
-  margin-right: 15px;
-  border-radius: 50%;
+.dashboard .sponsorization li div {
+  width: 30%;
 }
 
 .form-create {

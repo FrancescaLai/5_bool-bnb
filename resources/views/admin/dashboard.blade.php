@@ -33,7 +33,7 @@
         {{-- /Welcome section --}}
 
         {{-- user-info section --}}
-        <section class="user-info col-lg-5">
+        <section class="user-info col-lg-4">
             <div class="card">
                 <div class="card__header">
                     <h3>Dettagli utente</h3>
@@ -84,6 +84,44 @@
         </section>
         {{-- /user-info section --}}
 
+        {{-- apartments section --}}
+        <section class="apartments col-lg-8">
+            <div class="card">
+                <div class="card__header">
+                    <h3>I tuoi Appartamenti</h3>
+                </div>
+                <div class="card__main">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Immagine</th>
+                                    <th>Metri quadrati</th>
+                                    <th>Prezzo/Notte</th>
+                                    <th>Località</th>
+                                    <th>Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($apartments as $apartment)
+                                    <tr>
+                                        <td>{{$apartment->name}}</td>
+                                        <td><img src="{{$apartment->image}}"></td>
+                                        <td>{{$apartment->mq}}</td>
+                                        <td>{{$apartment->price_day}}</td>
+                                        <td>{{$apartment->city}} - {{$apartment->country}}</td>
+                                        <td><button><a href="{{route('admin.show', ['apartment' => $apartment->id ])}}">Visualizza</a></button></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{-- /apartments section --}}
+
         {{-- messages section --}}
         <section class="messages col-lg-7">
             <div class="card">
@@ -107,20 +145,21 @@
                             <thead>
                                 <tr>
                                     <th>Nome appartamento</th>
-                                    <th>Oggetto <br> Messaggio</th>
+                                    <th>Oggetto Messaggio</th>
                                     <th>Messaggio</th>
-                                    <th>Link</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($apartments as $apartment)
                                     <tr>
-                                        <td>{{$apartment->name}}</td>
-                                        @foreach ($apartment->messages as $message)
-                                        <td>{{$message->subject}}</td>
-                                        <td>{{$message->message}}</td>
-                                        @endforeach
-                                        <td><button><a href="{{route('admin.show', ['apartment' => $apartment->id ])}}">Visualizza</a></button></td>
+                                        @if (count($apartment->messages) > 0)
+                                            <td>{{$apartment->name}}</td>
+                                            @foreach ($apartment->messages as $message)
+                                            <td>{{$message->subject}}</td>
+                                            <td>{{$message->message}}</td>
+                                            @endforeach
+                                        @endif
+
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -129,40 +168,6 @@
             </div>
         </section>
         {{-- /messages section --}}
-
-        
-
-        {{-- apartments section --}}
-        <section class="apartments col-lg-7">
-            <div class="card">
-                <div class="card__header">
-                    <h3>I tuoi Appartamenti</h3>
-                </div>
-                <div class="card__main">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Prezzo/Notte</th>
-                                    <th>Località</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($apartments as $apartment)
-                                    <tr>
-                                        <td>{{$apartment->name}}</td>
-                                        <td>{{$apartment->price_day}}</td>
-                                        <td>{{$apartment->city}} - {{$apartment->country}}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {{-- /apartments section --}}
 
         {{-- sponsorization --}}
         <section class="sponsorization col-lg-5">
@@ -184,114 +189,35 @@
                 </div>
                 <div class="card__main">
                     <ul>
+
+                        @foreach ($apartments as $apartment)
                         <li>
-                            <div class="guest">
-                                <img src="https://via.placeholder.com/25" alt="#">
-                                <p>Nome cognome</p>
-                            </div>
                             <div class="apartment">
-                                <p>Nome appartament0</p>
+                                <p>{{$apartment->name}}</p>
+                            </div>
+                            <div class="isSponsor">
+                                <p>Sponsorizzazione attiva?</p>
                             </div>
                             <div class="days">
-                                <p>n notti</p>
+                                <p>Giorni mancanti</p>
                             </div>
                         </li>
-                        <li>
-                            <div class="guest">
-                                <img src="https://via.placeholder.com/25" alt="#">
-                                <p>Nome cognome</p>
-                            </div>
-                            <div class="apartment">
-                                <p>Nome appartament0</p>
-                            </div>
-                            <div class="days">
-                                <p>n notti</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="guest">
-                                <img src="https://via.placeholder.com/25" alt="#">
-                                <p>Nome cognome</p>
-                            </div>
-                            <div class="apartment">
-                                <p>Nome appartament0</p>
-                            </div>
-                            <div class="days">
-                                <p>n notti</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="guest">
-                                <img src="https://via.placeholder.com/25" alt="#">
-                                <p>Nome cognome</p>
-                            </div>
-                            <div class="apartment">
-                                <p>Nome appartament0</p>
-                            </div>
-                            <div class="days">
-                                <p>n notti</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="guest">
-                                <img src="https://via.placeholder.com/25" alt="#">
-                                <p>Nome cognome</p>
-                            </div>
-                            <div class="apartment">
-                                <p>Nome appartament0</p>
-                            </div>
-                            <div class="days">
-                                <p>n notti</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="guest">
-                                <img src="https://via.placeholder.com/25" alt="#">
-                                <p>Nome cognome</p>
-                            </div>
-                            <div class="apartment">
-                                <p>Nome appartament0</p>
-                            </div>
-                            <div class="days">
-                                <p>n notti</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="guest">
-                                <img src="https://via.placeholder.com/25" alt="#">
-                                <p>Nome cognome</p>
-                            </div>
-                            <div class="apartment">
-                                <p>Nome appartament0</p>
-                            </div>
-                            <div class="days">
-                                <p>n notti</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="guest">
-                                <img src="https://via.placeholder.com/25" alt="#">
-                                <p>Nome cognome</p>
-                            </div>
-                            <div class="apartment">
-                                <p>Nome appartament0</p>
-                            </div>
-                            <div class="days">
-                                <p>n notti</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="guest">
-                                <img src="https://via.placeholder.com/25" alt="#">
-                                <p>Nome cognome</p>
-                            </div>
-                            <div class="apartment">
-                                <p>Nome appartament0</p>
-                            </div>
-                            <div class="days">
-                                <p>n notti</p>
-                            </div>
-                        </li>
+                        @endforeach
+
+                        {{-- @for ($i = 0; $i < 10; $i++)
+                            <li>
+                                <div class="guest">
+                                    <img src="https://via.placeholder.com/25" alt="#">
+                                    <p>Nome cognome</p>
+                                </div>
+                                <div class="apartment">
+                                    <p>Nome appartament0</p>
+                                </div>
+                                <div class="days">
+                                    <p>n notti</p>
+                                </div>
+                            </li>
+                        @endfor --}}
                     </ul>
                 </div>
             </div>
