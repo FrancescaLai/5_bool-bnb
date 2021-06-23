@@ -6,8 +6,9 @@ var app = new Vue({
         apiKey: 'Ftk43BCJTsswF7IOGeBv3bPKdUI84Hn4',
         radius: 20000,
         query: '',
+        lastQuery: '',
         isQueryActive: false,
-        dropdownResults: true,
+        dropdownResults: false,
         position: [],
         radiusResults: [],
         randomApartments: [],
@@ -15,6 +16,8 @@ var app = new Vue({
         myApartments: [],
         myApartmentsResults: [],
         container: 'map',
+        lat: '0',
+        long: '0',
         isMenuActive: false,
         images: [
             {
@@ -74,15 +77,15 @@ var app = new Vue({
             })
                 .then((response) => {
                     this.searchResults = response.data.results;
+                    this.lastQuery = this.query;
                     this.query = '';
                     this.myApartmentsResults = [];
                     this.radiusResults = [];
+                    this.dropdownResults = false;
                     this.isQueryActive = true;
-                    this.dropdownResults = true;
                     let search = this.searchResults[0];
                     let my = this.myApartments;
                     let pickRadius = (this.radius / 1000) / 111;
-
                     for (var k = 0; k < my.length; k++) {
 
                         if ((my[k].latitude > (search.position.lat - pickRadius)) &&
@@ -94,8 +97,8 @@ var app = new Vue({
                                 this.myApartmentsResults.push(this.myApartments[k]);
                             }
                         }
-
                     }
+                    createMap()
                 });
         },
 
@@ -110,6 +113,7 @@ var app = new Vue({
             })
                 .then((response) => {
                     this.radiusResults = response.data.results;
+                    this.dropdownResults = true;
                 })
         },
 
@@ -123,7 +127,6 @@ var app = new Vue({
             this.position.push(this.radiusResults[index].position.lat);
             this.position.push(this.radiusResults[index].position.lon);
             this.dropdownResults = false;
-            console.log(this.position);
             return this.position;
         },
 
@@ -144,11 +147,14 @@ var app = new Vue({
          * @description Create map
          */
         createMap: function () {
-            let map = tt.map({
+            setMap = [this.lat, this.long];
+            map = tt.map({
                 key: this.apiKey,
                 container: 'map',
+                setMap: center,
+                zoom: 9,
+                minZoom: 5
             });
-            console.log('map')
         },
 
         /**
@@ -173,29 +179,29 @@ var app = new Vue({
             }
         },
 
-        numBed: function(){
-            while(this.count < this.myApartmentsResults.length){
-                if(this.numBedList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1){
+        numBed: function () {
+            while (this.count < this.myApartmentsResults.length) {
+                if (this.numBedList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1) {
                     this.numBedList.push(this.myApartmentsResults[this.count].num_bed);
                 }
                 this.count++;
             }
             this.count = 0;
         },
-        
-        ordina: function(a ,b){
+
+        ordina: function (a, b) {
             this.myApartmentsResults.sort((a, b) => {
-                if(this.priceOrder == "asc"){
-                return a.price_day - b.price_day;
-                }else if(this.priceOrder == "dis"){
-                return b.price_day - a.price_day;
+                if (this.priceOrder == "asc") {
+                    return a.price_day - b.price_day;
+                } else if (this.priceOrder == "dis") {
+                    return b.price_day - a.price_day;
                 }
             });
         },
 
-        isServices: function(){
-            while(this.count < this.myApartmentsResults.length){
-                if(this.servicesList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1){
+        isServices: function () {
+            while (this.count < this.myApartmentsResults.length) {
+                if (this.servicesList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1) {
                     this.servicesList.push(this.myApartmentsResults[this.count].num_bed);
                 }
                 this.count++;
@@ -216,7 +222,6 @@ var app = new Vue({
                 [this.randomApartments[i], this.randomApartments[j]] = [this.randomApartments[j], this.randomApartments[i]];
             }
         });
-
 
         // Carousel autoplay
         this.autoplay = setInterval(this.nextImage, 4000);

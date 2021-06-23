@@ -11,7 +11,7 @@
       <div class="progress-bar" id="bar"></div>
    </div>
    {{-- /Page progress indicator --}}
-   
+
    {{-- Hero --}}
    <section id="hero">
       @include('layouts.partials.hero')
@@ -83,7 +83,7 @@
                </a>
             </div>
             <div class="slider col-12 col-md-6">
-               <div class="slider-wrapper" data-tilt data-tilt-full-page-listening>
+               <div class="slider-wrapper" data-tilt>
                   <div class="images">
                      <img :src="images[imgIndex].url" :alt="images[imgIndex].name">
                   </div>
