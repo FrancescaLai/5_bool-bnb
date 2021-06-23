@@ -21,7 +21,7 @@
         </button>
       </form>
       {{-- Dropdwon results --}}
-      <ul :class="dropdownResults != '' ? 'main-dropdwon-active' : 'main-dropdown'">
+      <ul v-if="dropdownResults" :class="dropdownResults == true ? 'main-dropdown' : '-hide'">
         <li v-for="(item, index) in radiusResults" v-cloak>
           <a v-on:click="getPosition(index)">@{{item.address.freeformAddress}}, @{{item.address.countrySecondarySubdivision}}, @{{item.address.countrySubdivision}}</a>
         </li>

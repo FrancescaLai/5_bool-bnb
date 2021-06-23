@@ -10012,11 +10012,42 @@ h3 {
   margin: auto;
 }
 
-.main-dropdwon-active {
-  display: block;
+.large-container {
+  padding: 0 50px;
+}
+@media only screen and (max-width: 768px) {
+  .large-container {
+    padding: 0 25px;
+  }
 }
 
 .main-dropdown {
+  position: absolute;
+  bottom: 90px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.advanced-dropdown {
+  position: absolute;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 750px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(161, 161, 170, 0.25);
+}
+
+.-hide {
   display: none;
 }
 
@@ -10107,7 +10138,7 @@ h3 {
 .btn-full {
   border: 1px solid #076cf9;
   background-color: #076cf9;
-  color: #f4f7fe;
+  color: #fff;
 }
 
 .btn-link {
@@ -11342,107 +11373,175 @@ body {
   display: table;
 }
 
-.search-page .container {
+#search-page #search {
   display: flex;
-  position: relative;
   z-index: 100;
+  min-height: calc(100vh - 205px);
 }
-@media only screen and (max-width: 992px) {
-  .search-page .container {
+#search-page #search .search__results {
+  width: 60%;
+}
+@media only screen and (max-width: 768px) {
+  #search-page #search .search__results {
     width: 100%;
   }
 }
-.search-page .container .left {
-  width: 60%;
-}
-.search-page .container .right {
-  width: 40%;
-}
-.search-page .container .container-search {
+#search-page #search .searchbar {
+  height: 100px;
   background-color: white;
-  padding: 20px;
+  padding: 20px 0;
 }
-.search-page .container .container-search div:first-child input:first-child {
-  width: 100%;
+#search-page #search .searchbar input:not([type=range]) {
+  height: 50px;
+  border: none;
+  padding: 0 15px;
+  background: #f4f4f5;
+  border-radius: 10px;
 }
-.search-page .container .container-search label.labelCheck {
+#search-page #search .searchbar .large-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+#search-page #search .searchbar .main-searchbar {
+  position: relative;
+}
+#search-page #search .searchbar .range {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#search-page #search .searchbar .range label {
   display: block;
 }
-.search-page .container .container-search .search {
-  all: unset;
+#search-page #search .searchbar button {
+  border: 1px solid #076cf9;
   background-color: #076cf9;
+  color: #fff;
+  padding: 11px;
   border-radius: 10px;
+  transition: transform 250ms ease-in-out;
 }
-.search-page .container .container-search .search svg {
-  margin: 10px;
+#search-page #search .searchbar button:hover {
+  transform: scale(1.05);
+  color: currentColor;
 }
-.search-page .container .cards-apartment {
-  width: 95%;
-  padding: 25px 0px;
+#search-page #search .searchbar button:active {
+  transform: scale(0.95);
 }
-.search-page .container .cards-apartment .filters select {
-  width: 20%;
+#search-page #search .filters {
+  height: 100px;
+  margin-top: 25px;
+  padding: 20px 0;
+}
+#search-page #search .filters .large-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+#search-page #search .filters select {
+  width: 145px;
+  height: 40px;
   padding: 5px 10px;
-  margin: 15px 0px 35px 0px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid #bec8de;
+}
+#search-page #search .results h3 {
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+#search-page #search .results ul {
+  margin-top: 15px;
+}
+#search-page #search .results .card-apartment {
+  height: 175px;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 45px 20px 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(161, 161, 170, 0.25);
+}
+#search-page #search .results .card-apartment__info {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#search-page #search .results .card-apartment__info img {
+  height: 150px;
+  width: 225px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 25px;
   border-radius: 10px;
 }
-.search-page .container .cards-apartment .card-apartment img {
-  margin: 15px 0px;
-  border-radius: 15px;
+#search-page #search .results .card-apartment__info .text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.search-page .container .cards-apartment .card-apartment div {
-  width: 60%;
+#search-page #search .results .card-apartment__info .text .text__info h6 {
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -2;
 }
-.search-page .container .cards-apartment .card-apartment div div:first-child {
-  width: 70%;
+#search-page #search .results .card-apartment__info .text .text__info p {
+  font-size: 12px;
 }
-.search-page .container .cards-apartment .card-apartment div div:first-child h5 {
-  font-weight: 600;
-  margin-left: 15px;
+#search-page #search .results .card-apartment__info .text .text__services {
+  display: flex;
+  gap: 15px;
 }
-.search-page .container .cards-apartment .card-apartment div div:first-child h5 span {
-  display: block;
-  font-size: 16px;
-  font-weight: 400;
-}
-.search-page .container .cards-apartment .card-apartment div div:first-child ul li {
-  display: inline;
-  margin: 0px 10px;
+#search-page #search .results .card-apartment__info .text .text__services li {
   font-size: 12px;
   color: #bec8de;
 }
-.search-page .container .cards-apartment .card-apartment div div:last-child {
-  width: 30%;
+#search-page #search .results .card-apartment__price {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.search-page .container .cards-apartment .card-apartment div div:last-child h2 {
+#search-page #search .results .card-apartment__price h4 {
+  font-family: "Mulish", Arial, Helvetica, sans-serif;
+  font-size: 24px;
   color: #076cf9;
+  font-weight: 600;
 }
-.search-page .container .cards-apartment .card-apartment div div:last-child h2 span {
-  display: block;
+#search-page #search .results .card-apartment__price p {
   color: #bec8de;
-  font-size: 16px;
 }
-.search-page .container .cards-apartment .card-apartment div div:last-child button {
-  width: 100px;
-  color: #076cf9;
-  background-color: rgba(7, 108, 249, 0.15);
+#search-page #search .results .card-apartment__price a {
+  background: rgba(7, 108, 249, 0.15);
   border: none;
-  border-radius: 15px;
-  padding: 10px 5px;
+  color: #076cf9;
 }
-.search-page .container .cards-apartment .card-apartment div div > * {
-  margin: 15px 0px;
+#search-page #search .results .card-apartment__price a:hover {
+  color: #076cf9;
 }
-.search-page #map {
-  width: 100%;
-  height: 100vh;
-  z-index: 0;
-  position: fixed;
+#search-page #search .search__map {
+  width: 40%;
 }
-@media only screen and (max-width: 992px) {
-  .search-page #map {
+@media only screen and (max-width: 768px) {
+  #search-page #search .search__map {
     display: none;
   }
+}
+#search-page #search #map {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
 }
 
 .navbar-back a {
@@ -11459,7 +11558,7 @@ body {
 }
 .dashboard h1 {
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 700;
   margin-right: 30px;
 }
 .dashboard h3 {
