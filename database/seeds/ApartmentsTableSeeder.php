@@ -127,6 +127,50 @@ class ApartmentsTableSeeder extends Seeder
         $apartment_1e->longitude = 9.61033000;
         $apartment_1e->save();
 
+        $apartment_1f = new Apartment();
+        $apartment_1f->user_id = 1;
+        $apartment_1f->name = 'Campo dei Fiori';
+        $apartment_1f->slug = Str::slug($apartment_1f->name, '-');
+        $apartment_1f->visibility = 1;
+        $apartment_1f->image = 'https://images.pexels.com/photos/5998041/pexels-photo-5998041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
+        $apartment_1f->description = 'Ottima posizione nel cuore del centro storico di Roma, situato tra il ghetto ebraico e Campo dei fiori. Si trova in un palazzo storico del 1700, piano terra, completamente ristrutturato e arredato';
+        $apartment_1f->num_room = 1;
+        $apartment_1f->num_bath = 1;
+        $apartment_1f->num_bed = 1;
+        $apartment_1f->mq = 60;
+        $apartment_1f->price_day = 80;
+        $apartment_1f->country = 'Italia';
+        $apartment_1f->region = 'Lazio';
+        $apartment_1f->city = 'Roma';
+        $apartment_1f->street = 'Via degli Strengari 26';
+        $apartment_1f->zip_code = '00186';
+        $apartment_1f->floor = 1;
+        $apartment_1f->latitude = 41.89199000;
+        $apartment_1f->longitude = 12.27323000;
+        $apartment_1f->save();
+
+        $apartment_1g = new Apartment();
+        $apartment_1g->user_id = 1;
+        $apartment_1g->name = 'Villa Lina';
+        $apartment_1g->slug = Str::slug($apartment_1g->name, '-');
+        $apartment_1g->visibility = 1;
+        $apartment_1g->image = 'https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
+        $apartment_1g->description = 'Villa Liberty indipendente con ampio giardino. Ampia camera matrimoniale posta al primo piano e dotata di grande terrazzo ad uso esclusivo, ove é possibile fumare. Grande bagno. Il centro città è raggiungibile a piedi in 10 minuti.';
+        $apartment_1g->num_room = 2;
+        $apartment_1g->num_bath = 2;
+        $apartment_1g->num_bed = 3;
+        $apartment_1g->mq = 110;
+        $apartment_1g->price_day = 100;
+        $apartment_1g->country = 'Italia';
+        $apartment_1g->region = 'Lombardia';
+        $apartment_1g->city = 'Cremona';
+        $apartment_1g->street = 'Via Angelo Cabrini 29';
+        $apartment_1g->zip_code = '26100';
+        $apartment_1g->floor = 2;
+        $apartment_1g->latitude = 45.14311000;
+        $apartment_1g->longitude = 10.03991000;
+        $apartment_1g->save();
+
         /**
          * apartments-user2
          */
@@ -240,6 +284,50 @@ class ApartmentsTableSeeder extends Seeder
         $apartment_2e->longitude = 2.40093000;
         $apartment_2e->save();
 
+        $apartment_2f = new Apartment();
+        $apartment_2f->user_id = 2;
+        $apartment_2f->name = 'Vicolo della Torre';
+        $apartment_2f->slug = Str::slug($apartment_2f->name, '-');
+        $apartment_2f->visibility = 1;
+        $apartment_2f->image = 'https://images.pexels.com/photos/6933776/pexels-photo-6933776.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500';
+        $apartment_2f->description = 'Trastevere, raffinato Loft nel centro di Roma, completamente ristrutturato nel 2019. Finemente arredato, dotato di ogni comodità, caratteristico e funzionale, con entrata indipendente e check-in automatico, ti sentirai libero di godere della vera atmosfera di Roma. La posizione è eccezionale tutti i monumenti più famosi sono raggiungibile a piedi.';
+        $apartment_2f->num_room = 3;
+        $apartment_2f->num_bath = 2;
+        $apartment_2f->num_bed = 4;
+        $apartment_2f->mq = 100;
+        $apartment_2f->price_day = 185;
+        $apartment_2f->country = 'Italia';
+        $apartment_2f->region = 'Lazio';
+        $apartment_2f->city = 'Roma';
+        $apartment_2f->street = 'Via di Monte Fiore 13';
+        $apartment_2f->zip_code = '00153';
+        $apartment_2f->floor = 2;
+        $apartment_2f->latitude = 41.88916000;
+        $apartment_2f->longitude = 12.47483000;
+        $apartment_2f->save();
+
+        $apartment_2g = new Apartment();
+        $apartment_2g->user_id = 2;
+        $apartment_2g->name = 'Maxime Home';
+        $apartment_2g->slug = Str::slug($apartment_2g->name, '-');
+        $apartment_2g->visibility = 1;
+        $apartment_2g->image = 'https://images.pexels.com/photos/4819708/pexels-photo-4819708.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
+        $apartment_2g->description = 'Piccolo e accogliente appartamento nel centro storico della città , a due passi da Piazza del Duomo e dalle principali attrazioni storiche. Raggiungibile facilmente dalla stazione ferroviaria che garantisce collegamenti ogni ora con la stazione di Milano e di conseguenza i suoi aeroporti. ';
+        $apartment_2g->num_room = 1;
+        $apartment_2g->num_bath = 1;
+        $apartment_2g->num_bed = 1;
+        $apartment_2g->mq = 55;
+        $apartment_2g->price_day = 40;
+        $apartment_2g->country = 'Italia';
+        $apartment_2g->region = 'Lombardia';
+        $apartment_2g->city = 'Cremona';
+        $apartment_2g->street = 'Via Radaelli 3';
+        $apartment_2g->zip_code = '26100';
+        $apartment_2g->floor = 1;
+        $apartment_2g->latitude = 45.13745000;
+        $apartment_2g->longitude = 10.02641000;
+        $apartment_2g->save();
+
         /**
          * apartments-user3
          */
@@ -298,7 +386,7 @@ class ApartmentsTableSeeder extends Seeder
         $apartment_3c->num_bath = 2;
         $apartment_3c->num_bed = 3;
         $apartment_3c->mq = 80;
-        $apartment_3c->price_day = 95;
+        $apartment_3c->price_day = 105;
         $apartment_3c->country = 'Italia';
         $apartment_3c->region = 'Sicilia';
         $apartment_3c->city = 'Palermo';
@@ -335,7 +423,7 @@ class ApartmentsTableSeeder extends Seeder
         $apartment_3e->user_id = 3;
         $apartment_3e->name = 'Appartamento Viola';
         $apartment_3e->slug = Str::slug($apartment_3e->name, '-');
-        $apartment_3e->visibility = 0;
+        $apartment_3e->visibility = 1;
         $apartment_3e->image = 'https://images.unsplash.com/photo-1617817643768-8855fc457e3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1099&q=80';
         $apartment_3e->description = 'Situata a Baunei, l\'appartamento di Viola è ospitato in un antico edificio in pietra, appena ristrutturato nel rispetto dei canoni architettonici e con l\'utilizzo dei materiali delle antiche case Baunesi. ';
         $apartment_3e->num_room = 2;
@@ -352,5 +440,49 @@ class ApartmentsTableSeeder extends Seeder
         $apartment_3e->latitude = 40.92251000;
         $apartment_3e->longitude = 9.48685000;
         $apartment_3e->save();
+
+        $apartment_3f = new Apartment();
+        $apartment_3f->user_id = 3;
+        $apartment_3f->name = 'Colosseo Apartment';
+        $apartment_3f->slug = Str::slug($apartment_3f->name, '-');
+        $apartment_3f->visibility = 1;
+        $apartment_3f->image = 'https://images.pexels.com/photos/6934174/pexels-photo-6934174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
+        $apartment_3f->description = 'l\'appartamento è stato recentemente ristrutturato al fine di offrire un ambiente confortevole e piacevole. Si trova in uno dei quartieri tipici della Roma Antica: Monti,a due passi dal Colosseo ,primo quartiere costruito in città dove di certo non mancano siti da visitare durante il giorno e locali tipici dove passare la serata.';
+        $apartment_3f->num_room = 3;
+        $apartment_3f->num_bath = 2;
+        $apartment_3f->num_bed = 6;
+        $apartment_3f->mq = 220;
+        $apartment_3f->price_day = 285;
+        $apartment_3f->country = 'Italia';
+        $apartment_3f->region = 'Lazio';
+        $apartment_3f->city = 'Roma';
+        $apartment_3f->street = 'Viale del Monte Oppio 22';
+        $apartment_3f->zip_code = '00184';
+        $apartment_3f->floor = 2;
+        $apartment_3f->latitude = 41.89392000;
+        $apartment_3f->longitude = 12.49801000;
+        $apartment_3f->save();
+
+        $apartment_3d = new Apartment();
+        $apartment_3d->user_id = 3;
+        $apartment_3d->name = 'Casa Matisse';
+        $apartment_3d->slug = Str::slug($apartment_3d->name, '-');
+        $apartment_3d->visibility = 1;
+        $apartment_3d->image = 'https://images.pexels.com/photos/6492388/pexels-photo-6492388.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
+        $apartment_3d->description = 'Sito in pieno Centro Storico dove si incrociano tradizione, arte e cultura di questa splendida città, in una delle vie, Via Calderai, dove ancora sopravvivono antichi mestieri da più di 500 anni, "i quararara" (i calderai), artigiani che, all\'interno delle loro botteghe, producono bracieri, tegami, pentole ed altri oggetti in rame, alluminio o bronzo. Il mio alloggio è adatto a coppie, avventurieri solitari, chi viaggia per lavoro e amici pelosi (animali domestici).';
+        $apartment_3d->num_room = 2;
+        $apartment_3d->num_bath = 1;
+        $apartment_3d->num_bed = 2;
+        $apartment_3d->mq = 75;
+        $apartment_3d->price_day = 95;
+        $apartment_3d->country = 'Italia';
+        $apartment_3d->region = 'Sicilia';
+        $apartment_3d->city = 'Palermo';
+        $apartment_3d->street = 'Via Calderai 51';
+        $apartment_3d->zip_code = '95133';
+        $apartment_3d->floor = 1;
+        $apartment_3d->latitude = 38.11433000;
+        $apartment_3d->longitude = 13.36340000;
+        $apartment_3d->save();
     }
 }
