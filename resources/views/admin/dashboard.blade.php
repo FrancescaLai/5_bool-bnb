@@ -142,28 +142,27 @@
                 </div>
                 <div class="card__main">
                     <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nome appartamento</th>
-                                    <th>Oggetto Messaggio</th>
-                                    <th>Messaggio</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($apartments as $apartment)
-                                    <tr>
-                                        @if (count($apartment->messages) > 0)
-                                            <td>{{$apartment->name}}</td>
-                                            @foreach ($apartment->messages as $message)
-                                            <td>{{$message->subject}}</td>
-                                            <td>{{$message->message}}</td>
-                                            @endforeach
-                                        @endif
-
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <thead>
+                            <tr>
+                                <th>Nome appartamento</th>
+                                <th>Oggetto Messaggio</th>
+                                <th>Messaggio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($apartments as $apartment)
+                            @if (count($apartment->messages) > 0)
+                            @foreach ($apartment->messages as $message)
+                            <tr>
+                                <td>{{$apartment->name}}</td>
+                                <td>{{$message->subject}}</td>
+                                <td>{{$message->message}}</td>
+                            </tr>
+                            @endforeach
+                            @endif
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -225,7 +224,7 @@
         {{-- /sponsorization section --}}
 
         {{-- stats section --}}
-        <section class="stats col-12">
+        {{-- <section class="stats col-12">
             <div class="card">
                 <div class="card__header">
                     <h3>Statistiche</h3>
@@ -234,7 +233,7 @@
     
                 </div>
             </div>
-        </section>
+        </section> --}}
         {{-- /stats section --}}
     </div>
     

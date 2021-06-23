@@ -10051,6 +10051,10 @@ h3 {
   display: none;
 }
 
+.back-main {
+  margin-top: 25px;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -11542,6 +11546,162 @@ body {
   position: fixed;
   height: 100vh;
   width: 100%;
+}
+
+#main-show h2 {
+  margin: 20px 0px;
+}
+#main-show .container {
+  padding-bottom: 70px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 768px) and (max-width: 1445px) {
+  #main-show .container {
+    padding: 0px 80px;
+  }
+}
+#main-show .reviews {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+#main-show .reviews p {
+  font-size: 16px;
+  font-weight: bold;
+}
+#main-show .reviews p span {
+  color: #a1a1aa;
+}
+#main-show .img-container {
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+#main-show .img-container img {
+  border-radius: 8px;
+}
+#main-show .img-container .big-image {
+  height: 100%;
+  width: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#main-show .img-container .preview-img {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 50%;
+  gap: 5px;
+}
+#main-show .img-container .preview-img img {
+  flex-basis: calc(50% - 15px);
+  height: calc((100% / 2) - 5px);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#main-show .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#main-show .left-page {
+  float: left;
+}
+#main-show .left-page .house-info {
+  max-width: 600px;
+  margin-top: 50px;
+  padding-left: 15px;
+}
+#main-show .left-page .house-info .row:nth-child(2) {
+  display: block;
+}
+#main-show .left-page .house-info .row:nth-child(4) {
+  border-bottom: none;
+}
+#main-show .left-page .house-info .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 30px 0;
+}
+#main-show .left-page .house-info .row .top {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+#main-show .left-page .house-info .row .top .reviews p {
+  margin-right: 40px;
+}
+#main-show .left-page .house-info .row .top .review-num {
+  margin-left: 5px;
+}
+#main-show .left-page .house-info .row .profile-img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+#main-show .left-page .house-info .row .hot-info {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+#main-show .left-page .house-info .row .hot-info .show-icon {
+  width: 30px;
+  margin-right: 20px;
+}
+#main-show .left-page .house-info .row .house-description {
+  line-height: 2;
+}
+#main-show .left-page .house-info .row .row:nth-child(4) {
+  display: block;
+}
+#main-show .left-page .house-info .row .services {
+  -moz-column-count: 2;
+       column-count: 2;
+  margin-top: 30px;
+}
+#main-show .right-page {
+  float: right;
+  margin-top: 50px;
+}
+#main-show .right-page .booking-section {
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+}
+#main-show .right-page .booking-section .booking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#main-show .right-page .booking-section .booking-header #price-day {
+  font-size: 20px;
+  font-weight: 600;
+}
+#main-show .right-page .booking-body {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 25PX;
+  font-size: 12px;
+}
+#main-show .right-page .booking-body .date {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+#main-show .right-page .booking-body .guest-num p {
+  padding: 45px;
+}
+#main-show .right-page .messages {
+  width: 650px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 30px;
 }
 
 .navbar-back a {

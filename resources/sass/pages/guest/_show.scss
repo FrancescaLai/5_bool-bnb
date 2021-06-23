@@ -12,7 +12,6 @@
         }
     }
 
-
     .reviews{
         display: flex;
         align-items: center;
@@ -28,30 +27,30 @@
         }
     }
 
-    .img-container{
+    .img-container {
+        height: 400px;
         display: flex;
         justify-content: space-between;
-
+        gap: 15px;
         img{
             border-radius: 8px;
         }
-
-        .preview-top{
-            margin-bottom: 50px;
-
-            @media (min-width: 768px) and (max-width: 1445px) {
-                display: flex;
-            }
+        .big-image {
+            height: 100%;
+            width: 50%;
+            object-fit: cover;
         }
-
-        .preview-bottom{
-            @media (min-width: 768px) and (max-width: 1445px) {
-                display: flex;
+        .preview-img {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+            width: 50%;
+            gap: 5px;  
+            img {
+                flex-basis: calc(50% - 15px);
+                height: calc((100% / 2) - 5px);
+                object-fit: cover;
             }
-        }
-
-        .preview-img img:nth-child(2n+1){
-            margin-right: 50px;
         }
     }
 
@@ -171,7 +170,7 @@
             }
         }
 
-        .messages{
+        .messages {
             width: 650px;
             padding: 30px;
             background-color: white;

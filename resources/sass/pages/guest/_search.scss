@@ -126,7 +126,8 @@
                         }
                     }
                 }
-            }.card-apartment__price {
+            }
+            .card-apartment__price {
                 height: 100%;
                 @include flex-column;
                 justify-content: space-between;
@@ -148,7 +149,6 @@
                     }
                 }
             }
-
         }
         .search__map {
             width: 40%;

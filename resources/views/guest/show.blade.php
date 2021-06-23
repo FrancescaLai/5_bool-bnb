@@ -1,221 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Font-awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-  <!-- /Font-awesome -->
-
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
-</head>
-<body>
-  <!-- /Header -->
-  <header>
-    <!-- Header Top-->
-    <!-- <section class="header-top">
-      <p id="shipping-info-text">FOR FERRARA PICKUP: Use code LOCALPICKUP at checkout to waive shipping, then schedule your pickup time link <a href="#">here</a> </p>
-    </section> -->
-    <!-- /Header Top-->
-
-    <!-- Main Header -->
-    <!-- <section class="main-header">
-      <div class="header-container">
-        <a class="header-logo">
-          <p>ABIGAIL BELL <br> <span class="big-size">VINTAGE</span> </p>
-        </a>
-        <nav class="main-nav">
-          <a href="#">SHOP</a>
-          <a href="#">INFO</a>
-          <a href="#">PROJECTS</a>
-        </nav>
-        <nav class="side-nav">
-          <input type="text" placeholder="Search">
-          <button type="button" name="button"><i class="fas fa-search"></i></button>
-          <a href="#"><i class="fas fa-shopping-cart"></i>
-            <div id="items-cart">0</div>
-          </a>
-        </nav>
-      </div>
-    </section>
-    <section class="hero">
-      <h1>Discover your <br> next favorite <br> thing</h1>
-      <a href="#">SHOP NOW</a>
-    </section> -->
-    <!-- /Main Header-->
-  </header>
-  <!-- /Header -->
-
-  <!-- Main -->
-  <main>
-    <!-- <section class="carousel-container">
-      <div class="slider-wrapper">
-        <div class="prev">
-            <i class="fas fa-angle-left"></i>
-        </div>
-        <div class="images">
-          <div class="box-img">
-            <img class="active first" src="img/img-1.jpeg" alt="img-1">
-          </div>
-          <div class="box-img">
-            <img src="img/img-2.jpeg" alt="img-2">
-          </div>
-          <div class="box-img">
-            <img src="img/img-3.jpeg" alt="img-3">
-          </div>
-          <div class="box-img">
-            <img src="img/img-4.jpeg" alt="">
-          </div>
-        </div>
-        <div class="next">
-            <i class="fas fa-angle-right"></i>
-        </div>
-      </div>
-    </section> -->
-
-
-
-  <div class="container">
-    <section id="show-apt">
-
-      <h2>Nome Casa/Appartamento</h2>
-      <div class="reviews">
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#FFD74A"/>
-        </svg>
-        <p>4.3</p>
-      </div>
-
-      <!-- IMG -->
-      <div class="img-container">
-        <div class="main-img">
-          <img class="big-image" src="img/img-1.jpeg" alt="">
-        </div>
-        <div class="preview-img">
-          <div class="left">
-            <img class="small-image" src="img/img-1.jpeg" alt="">
-            <img class="small-image" src="img/img-1.jpeg" alt="">
-          </div>
-          <div class="right">
-            <img class="small-image" src="img/img-1.jpeg" alt="">
-            <img class="small-image" src="img/img-1.jpeg" alt="">
-          </div>
-        </div>
-      </div>
-      <!-- /IMG -->
-
-      <div class="clearfix">
-        <div class="left-page">
-          <div class="house-info">
-            <div class="row">
-              <div class="host-house-info">
-                <div class="top">
-                  <div class="reviews">
-                    <p>Host: Giuseppina</p>
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#FFD74A"/>
-                    </svg>
-                    <p class="review-num">4.3</p>
-                  </div>
-                </div>
-                <div class="bottom">
-                  <p>2 camere · 4 letti · 1 bagno</p>
-                </div>
-              </div>
-              <img class="profile-img" src="img/img-1.jpeg" alt="">
-            </div>
-
-            <!-- Hot-info -->
-            <div class="row">
-              <div class="hot-info">
-                <i class="fas fa-home"></i>
-                <p>Casa intera</p>
-              </div>
-              <div class="hot-info">
-                <i class="fas fa-key"></i>
-                <p>Ottima esperienza di check-in</p>
-              </div>
-              <div class="hot-info">
-                <i class="far fa-calendar"></i>
-                <p>Cancellazione gratuita fino a un giorno prima</p>
-              </div>
-            </div>
-            <!-- /Hot-info -->
-
-            <!-- Descrizione Appartamento -->
-            <div class="row">
-              <p class="house-description">
-                In una delle regioni turistiche più belle della Sassonia, puoi aspettarti una vacanza in una casa galleggiante lussuosamente arredata. Le zone notte e giorno sono arredate con stile. Le camere separate, la cucina attrezzata e il moderno bagno-doccia offrono tutti i comfort che garantiscono una vacanza rilassante.
-              </p>
-            </div>
-            <!-- /Descrizione Appartamento -->
-
-            <h4>Cosa troverai</h4>
-
-            <div class="row">
-              <div class="services">
-                <div class="hot-info">
-                  <i class="fas fa-wifi"></i>
-                  <p>Wi-fi</p>
-                </div>
-                <div class="hot-info">
-                  <i class="fas fa-utensils"></i>
-                  <p>Cucina</p>
-                </div>
-                <div class="hot-info">
-                  <i class="fas fa-tv"></i>
-                  <p>TV via cavo standard</p>
-                </div>
-                <div class="hot-info">
-                  <i class="far fa-snowflake"></i>
-                  <p>Aria condizionata</p>
-                </div>
-                <div class="hot-info">
-                  <i class="fas fa-skiing"></i>
-                  <p>Accesso diretto alle piste da sci</p>
-                </div>
-                <div class="hot-info">
-                  <i class="fas fa-smoking"></i>
-                  <p>E' permesso fumare</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="right-page">
-          <div class="prova2">
-            <h1>CIAO</h1>
-          </div>
-        </div>
-      </div>
-
-    </section>
-  </div>
-
-
-  </main>
-  <!-- /Main -->
-
-</body>
-</html>
-
-
-
-
-
-
-
 @extends('layouts.base')
 
 @section('pageTitle')
     {{$apartment->name}}
 @endsection
-
 
 @section('content')
 <main id="main-show">
@@ -230,20 +17,17 @@
         </div>
 
         <div class="img-container">
-            <img class="big-image" src="https://via.placeholder.com/700x550" alt="">
+            <img class="big-image" src="{{$apartment->image}}" alt="apartment.name">
             <div class="preview-img">
-                <div class="preview-top">
-                    <img class="small-image" src="https://via.placeholder.com/300x250" alt="">
-                    <img class="small-image" src="https://via.placeholder.com/300x250" alt="">
-                </div>
-                <div class="preview-bottom">
-                    <img class="small-image" src="https://via.placeholder.com/300x250" alt="">
-                    <img class="small-image" src="https://via.placeholder.com/300x250" alt="">
-                </div>
+              <img src="https://via.placeholder.com/20x20" alt="#">
+              <img src="https://via.placeholder.com/20x20" alt="#">
+              <img src="https://via.placeholder.com/20x20" alt="#">
+              <img src="https://via.placeholder.com/20x20" alt="#">
             </div>
         </div>
 
         <div class="clearfix">
+
             <div class="left-page">
                 <div class="house-info">
                     <div class="row">
@@ -256,14 +40,9 @@
                             </div>
                         </div>
                         {{-- cambiare con img profilo --}}
-                        <div style="height: 50px; width: 50px; background-color:blue; border-radius: 50%">
-
-                        </div>
+                        <div style="height: 50px; width: 50px; background-color:blue; border-radius: 50%"></div>
                         {{-- cambiare con img profilo --}}
-
                     </div>
-
-
                     <div class="row">
                         <div class="hot-info">
                             <svg class="show-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
@@ -314,13 +93,11 @@
                             <p>Cancellazione gratuita fino a un giorno prima</p>
                         </div>
                     </div>
-
                     <div class="row">
                         <p class="house-description">
                             {{$apartment->description}}
                         </p>
                     </div>
-
                     <div class="row">
                         <div>
                             <h4>COSA TROVERAI</h4>
@@ -390,6 +167,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="right-page">
                 {{-- <div class="booking-section">
                     <div class="booking-header">
@@ -417,18 +195,38 @@
 
                 <div class="messages">
                     <h4>Contatta l'host</h4>
-                    <form action="{{route('guest.store')}}" method="POST">
-                        @csrf
-                        @method('POST')
-                        <label for="description"></label>
-                        <textarea class="form-control"  name="description" id="description" cols="30" rows="8" placeholder="Scrivi qui.."></textarea>
+
+                    <form action="{{route('guest.show', ['apartment' => $apartment->id])}}" method="POST" enctype="multipart/form-data">
+                      @csrf
+                      @method('POST')
+                      <div class="form-group">
+                          <label for="subject">Oggetto</label>
+                          <input type="text" class="form-control" id="subject" name="subject" placeholder="Oggetto">
+                      </div>
+                      <div class="form-group">
+                          <label for="message">Testo</label>
+                          <textarea class="form-control"  name="message" id="message" cols="30" rows="10" placeholder="Testo"></textarea>
+                      </div>
+                      <div class="mt-3">
+                          <button type="submit" class="btn btn-primary">Invia</button>
+                      </div>
                     </form>
-                    <div class="mt-3 show-btn">
-                        <button type="submit" class="btn btn-primary">Invia</button>
-                    </div>
+
                 </div>
+
             </div>
+            
         </div>
     </section>
 </main>
+@endsection
+
+@section('script')
+{{-- Axios cdn --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{-- Vue cdn --}}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+{{-- Custom script --}}
+<script src="{{asset('js\custom\navigation.js')}}"></script>
+<script src="{{asset('js\custom\search.js')}}"></script>
 @endsection
