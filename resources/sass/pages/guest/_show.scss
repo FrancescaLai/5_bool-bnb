@@ -1,0 +1,183 @@
+#main-show{
+    h2{
+        margin: 20px 0px;
+    }
+
+    .container{
+        padding-bottom: 70px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+        @media (min-width: 768px) and (max-width: 1445px) {
+            padding: 0px 80px;
+        }
+    }
+
+
+    .reviews{
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+
+        p{
+            font-size: $body-md;
+            font-weight: bold;
+
+            span{
+                color: $gray-500;
+            }
+        }
+    }
+
+    .img-container{
+        display: flex;
+        justify-content: space-between;
+
+        img{
+            border-radius: 8px;
+        }
+
+        .preview-top{
+            margin-bottom: 50px;
+
+            @media (min-width: 768px) and (max-width: 1445px) {
+                display: flex;
+            }
+        }
+
+        .preview-bottom{
+            @media (min-width: 768px) and (max-width: 1445px) {
+                display: flex;
+            }
+        }
+
+        .preview-img img:nth-child(2n+1){
+            margin-right: 50px;
+        }
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .left-page{
+        float: left;
+
+        .house-info{
+            max-width: 600px;
+            margin-top: 50px;
+            padding-left: 15px;
+
+            .row:nth-child(2){
+                display: block;
+            }
+
+            .row:nth-child(4){
+                border-bottom: none;
+            }
+
+            .row{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                padding: 30px 0;
+
+                .top{
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                    font-size: 18px;
+
+                    .reviews p{
+                        margin-right: 40px;
+                    }
+
+                    .review-num{
+                        margin-left: 5px;
+                    }
+                }
+
+                .profile-img{
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 50%;
+                }
+
+                .hot-info{
+                    display: flex;
+                    align-items: center;
+                    font-size: 18px;
+                    margin-bottom: 20px;
+
+                    .show-icon{
+                        width: 30px;
+                        margin-right: 20px;
+                    }
+                }
+
+                .house-description{
+                    line-height: 2;
+                }
+
+                .row:nth-child(4){
+                    display: block;
+                }
+
+                .services{
+                    column-count: 2;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+
+    .right-page{
+        float: right;
+        margin-top: 50px;
+
+        .booking-section{
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+
+            .booking-header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                #price-day{
+                    font-size: $body-xl;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .booking-body{
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            margin-top: 25PX;
+            font-size: $body-xs;
+
+            .date{
+                display: flex;
+                justify-content: space-around;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                padding: 10px;
+            }
+
+            .guest-num p{
+                padding: 45px;;
+            }
+        }
+
+        .messages{
+            width: 650px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+    }
+}
+
