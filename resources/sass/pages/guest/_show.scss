@@ -1,9 +1,12 @@
-#main-show{
-    h2{
-        margin: 20px 0px;
+#main-show {
+    margin: 110px 0 0;
+    h1 {
+        font-family: "Mulish", Arial, Helvetica, sans-serif;
+        font-size: $title-md;
+        font-weight: 700;
+        margin: 20px 0;
     }
-
-    .container{
+    .container {
         padding-bottom: 70px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
@@ -11,172 +14,178 @@
             padding: 0px 80px;
         }
     }
-
-    .reviews{
-        display: flex;
-        align-items: center;
+    .reviews {
+        @include flex-center-vert;
         margin-bottom: 25px;
-
-        p{
-            font-size: $body-md;
-            font-weight: bold;
-
-            span{
-                color: $gray-500;
-            }
+        gap: 25px;
+        & > span {
+            @include flex-center-vert;
+        }
+        svg {
+            margin-right: 10px;
+        }
+        p {
+            font-size: $body-sm;
+            color: $gray-600;
+        }
+        .reviews-vote {
+            color: $primaryDarker;
+            font-weight: 600;
         }
     }
 
     .img-container {
-        height: 400px;
+        height: 600px;
         display: flex;
         justify-content: space-between;
         gap: 15px;
-        img{
-            border-radius: 8px;
+        img {
+            border-radius: 15px;
         }
         .big-image {
             height: 100%;
-            width: 50%;
+            width: 100%;
+            max-width: calc(100% - 335px);
             object-fit: cover;
+            @include mq-large {
+                width: 50%;
+                max-width: 50%;
+            }
+            img {
+                width: 100%;
+                object-position: center;
+            }
         }
         .preview-img {
-            display: flex;
-            flex-wrap: wrap;
+            @include flex-column;
             height: 100%;
-            width: 50%;
-            gap: 5px;  
+            width: 335px;
+            gap: 10px;
+            @include mq-large {
+                width: 50%;
+                max-width: 50%;
+            }
             img {
-                flex-basis: calc(50% - 15px);
                 height: calc((100% / 2) - 5px);
                 object-fit: cover;
+                object-position: center;
             }
         }
     }
 
-    .clearfix::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-
-    .left-page{
-        float: left;
-
-        .house-info{
-            max-width: 600px;
-            margin-top: 50px;
-            padding-left: 15px;
-
-            .row:nth-child(2){
-                display: block;
+    .summary {
+        width: 100%;
+        display: flex;
+        margin-bottom: 40px;
+        @include mq-large {
+            flex-wrap: wrap;
+        }
+        &__left {
+            flex-basis: 60%;
+            @include mq-large {
+                flex-basis: 100%;
             }
-
-            .row:nth-child(4){
-                border-bottom: none;
-            }
-
-            .row{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-                padding: 30px 0;
-
-                .top{
-                    margin-bottom: 10px;
-                    font-weight: bold;
-                    font-size: 18px;
-
-                    .reviews p{
-                        margin-right: 40px;
-                    }
-
-                    .review-num{
-                        margin-left: 5px;
-                    }
-                }
-
-                .profile-img{
-                    height: 70px;
-                    width: 70px;
-                    border-radius: 50%;
-                }
-
-                .hot-info{
-                    display: flex;
-                    align-items: center;
-                    font-size: 18px;
-                    margin-bottom: 20px;
-
-                    .show-icon{
-                        width: 30px;
-                        margin-right: 20px;
-                    }
-                }
-
-                .house-description{
-                    line-height: 2;
-                }
-
-                .row:nth-child(4){
-                    display: block;
-                }
-
-                .services{
-                    column-count: 2;
-                    margin-top: 30px;
-                }
+        }
+        &__right {
+            flex-basis: 40%;
+            @include mq-large {
+                flex-basis: 100%;
             }
         }
     }
 
-    .right-page{
-        float: right;
-        margin-top: 50px;
-
-        .booking-section{
-            padding: 30px;
-            background-color: white;
-            border-radius: 8px;
-
-            .booking-header{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                #price-day{
-                    font-size: $body-xl;
-                    font-weight: 600;
-                }
+    .summary__left {
+        padding-right: 50px;
+        .host {
+            p:first-child {
+                display: inline-block;
+                font-size: $body-sm;
+                color: $gray-600;
+            }
+            p:last-child {
+                display: inline-block;
+                font-size: $body-md;
+                color: $primaryDarker;
+                font-weight: 600;
             }
         }
-
-        .booking-body{
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            margin-top: 25PX;
-            font-size: $body-xs;
-
-            .date{
-                display: flex;
-                justify-content: space-around;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-                padding: 10px;
-            }
-
-            .guest-num p{
-                padding: 45px;;
-            }
-        }
-
-        .messages {
-            width: 650px;
-            padding: 30px;
-            background-color: white;
-            border-radius: 8px;
+        .description {
             margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid $gray-400;
+            &__features {
+                margin-bottom: 40px;
+                @include flex-center-vert;
+                gap: 20px;
+                & > span {
+                    @include flex-center-vert;
+                }
+            }
+            &__text {
+                p {
+                    font-size: $body-md;
+                    color: $gray-600;
+                }
+            }
+        }
+        .amenities {
+            h3 {
+                font-family: "Mulish", Arial, Helvetica, sans-serif;
+                font-size: $title-xs;
+                font-weight: 700;
+                margin: 20px 0;
+            }
+            .list {
+                @include flex-center-vert;
+            }
+            ul {
+                width: 250px;
+                @include mq-large {
+                    width: 100%;
+                }
+                li {
+                    font-size: $body-md;
+                    color: $gray-600;
+                    width: fit-content;
+                }
+            }
+        }
+    }
+
+    .summary__right {
+        .messages {
+            max-width: 650px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba($gray-500, 0.15);
+            @include mq-large {
+                max-width: 100%;
+            }
+            h4 {
+                font-family: "Mulish", Arial, Helvetica, sans-serif;
+                font-size: $title-xs;
+                font-weight: 700;
+                margin: 10px 0 20px;
+            }
+            label {
+                font-size: $body-sm;
+                color: $gray-600;
+            }
+            input,
+            textarea {
+                border: none;
+                border-radius: 10px;
+                background: $gray-200;
+                padding: 25px;
+            }
+            textarea {
+                resize: none;
+            }
+            button:hover {
+                color: #fff;
+            }
         }
     }
 }
-

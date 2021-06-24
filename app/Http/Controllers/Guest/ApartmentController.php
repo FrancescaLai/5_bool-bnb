@@ -12,8 +12,8 @@ use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
 {
-    public function showApartment(Apartment $apartment){
-
+    public function showApartment(Apartment $apartment)
+    {
         return view('guest.show', compact('apartment'));
     }
 
@@ -29,10 +29,10 @@ class ApartmentController extends Controller
 
         $user_id = Auth::id();
 
-        if($user->id = $user_id){
+        if ($user->id = $user_id) {
             $newMessage->user_id = $user->id;
         }
-        
+
         $newMessage->apartment_id = $apartment->id;
         $newMessage->subject = $request->subject;
         $newMessage->message = $request->message;
@@ -41,9 +41,8 @@ class ApartmentController extends Controller
 
         $newMessage->save();
 
-        
-         return view('guest.show', compact('apartment', 'user'))->with('message', 'Il messaggio è stato inviato');
 
+        return view('guest.show', compact('apartment', 'user'))->with('message', 'Il messaggio è stato inviato');
     }
 
     // public function deleteMessage(Message $message)

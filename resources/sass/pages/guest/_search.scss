@@ -13,7 +13,7 @@
             height: 100px;
             background-color: white;
             padding: 20px 0;
-            input:not([type='range']) {
+            input:not([type="range"]) {
                 height: 50px;
                 border: none;
                 padding: 0 15px;
@@ -50,7 +50,6 @@
                     transform: scale(0.95);
                 }
             }
-
         }
         .filters {
             height: 100px;
@@ -89,7 +88,7 @@
                 padding: 20px 45px 20px 10px;
                 border-radius: 20px;
                 margin-bottom: 20px;
-                box-shadow: 0 4px 15px rgba($gray-500, 0.25);
+                box-shadow: 0 4px 15px rgba($gray-500, 0.15);
             }
             .card-apartment__info {
                 height: 100%;
@@ -141,7 +140,7 @@
                     color: $primaryLight;
                 }
                 a {
-                    background: rgba(#076CF9, 0.15);
+                    background: rgba(#076cf9, 0.15);
                     border: none;
                     color: $primary;
                     &:hover {

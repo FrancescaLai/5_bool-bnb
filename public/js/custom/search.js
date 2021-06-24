@@ -207,7 +207,7 @@ var app = new Vue({
                 this.count++;
             }
             this.count = 0;
-        }
+        },
     },
 
     mounted: function () {
