@@ -41,7 +41,7 @@
                     @csrf
                     @method('POST')
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="name"></label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
                     </div>
                     <div class="form-group form-create">
@@ -49,59 +49,59 @@
                         <input class="input-img" type="file" id="image" name="image">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="description"></label>
                         <textarea class="form-control"  name="description" id="description" cols="30" rows="10" placeholder="Descrizione"></textarea>
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="num_room"></label>
                         <input type="number" class="form-control" id="num_room" name="num_room" placeholder="Numero stanze">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="num_bath"></label>
                         <input type="number" class="form-control" id="num_bath" name="num_bath" placeholder="Numero bagni">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="num_bed"></label>
                         <input type="number" class="form-control" id="num_bed" name="num_bed" placeholder="Numero letti">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="mq"></label>
                         <input type="number" class="form-control" id="mq" name="mq" placeholder="Mq">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="price_day"></label>
                         <input type="number" class="form-control" id="price_day" name="price_day" placeholder="Prezzo">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="country"></label>
                         <input type="text" class="form-control" id="country" name="country" placeholder="Paese">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="region"></label>
                         <input type="text" class="form-control" id="region" name="region" placeholder="Regione">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="city"></label>
                         <input type="text" class="form-control" id="city" name="city" placeholder="Città">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="street"></label>
                         <input type="text" class="form-control" id="street" name="street" placeholder="Via">
                     </div>
                      <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="zip_code"></label>
                         <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="CAP">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="floor"></label>
                         <input type="number" class="form-control" id="floor" name="floor" placeholder="Piano">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="latitude"></label>
                         <input type="numbert" class="form-control" id="latitude" name="latitude" placeholder="Latitudine">
                     </div>
                     <div class="form-group form-create">
-                        <label for="title"></label>
+                        <label for="longitude"></label>
                         <input type="number" class="form-control" id="longitude" name="longitude" placeholder="Longitudine">
                     </div>
                     <div class="form-check form-check-inline">
