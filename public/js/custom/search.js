@@ -67,6 +67,7 @@ var app = new Vue({
          * @description Funzione di ricerca appartamenti
          */
         apartmentsSearch: function () {
+
             axios.get(this.baseUrl + '/search/2/geocode/' + this.query + '.json', {
                 params: {
                     lat: this.position[0],
@@ -98,7 +99,11 @@ var app = new Vue({
                             }
                         }
                     }
-                    createMap()
+
+                    this.createMap();
+
+                    this.myApartmentsResults.forEach(this.addMarker);
+                    
                 });
         },
 
@@ -147,14 +152,25 @@ var app = new Vue({
          * @description Create map
          */
         createMap: function () {
-            setMap = [this.lat, this.long];
+            // setMap = [this.lat, this.long];
+            const city = {lng: this.position[1], lat: this.position[0]};
             map = tt.map({
                 key: this.apiKey,
                 container: 'map',
-                setMap: center,
-                zoom: 9,
+                // setMap: center,
+                center: city,
+                zoom: 11,
                 minZoom: 5
             });
+
+        },
+
+        /**
+         * @description Add markers to map
+         */
+        addMarker: function (item) {
+            var location = [item.longitude, item.latitude]; 
+            var marker = new tt.Marker().setLngLat(location).addTo(map)
         },
 
         /**
@@ -207,7 +223,8 @@ var app = new Vue({
                 this.count++;
             }
             this.count = 0;
-        }
+        },
+
     },
 
     mounted: function () {
@@ -225,5 +242,11 @@ var app = new Vue({
 
         // Carousel autoplay
         this.autoplay = setInterval(this.nextImage, 4000);
+
+        // Initial map
+        map = tt.map({
+            key: this.apiKey,
+            container: 'map'
+        });
     }
 })

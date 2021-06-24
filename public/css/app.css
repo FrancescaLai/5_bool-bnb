@@ -11545,7 +11545,7 @@ body {
 #search-page #search #map {
   position: fixed;
   height: 100vh;
-  width: 100%;
+  width: 40%;
 }
 
 #main-show h2 {
