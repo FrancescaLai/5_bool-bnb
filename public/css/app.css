@@ -10215,6 +10215,18 @@ h3 {
   box-shadow: inset 0 0 0 3px #5851ec;
 }
 
+.btn-apt {
+  padding: 5px 25px;
+  border-radius: 5px;
+  color: #f4f7fe;
+}
+.btn-apt.btn-edit {
+  background-color: #38c172;
+}
+.btn-apt.btn-delete {
+  background-color: #e3342f;
+}
+
 .card {
   padding: 25px;
   border: none;
@@ -11856,4 +11868,123 @@ body {
 .service-column {
   -moz-column-count: 2;
        column-count: 2;
+}
+
+.form-edit {
+  max-width: 700px;
+}
+.form-edit .form-control {
+  padding: 1.375rem 0.75rem;
+}
+.form-edit .form-control:focus {
+  box-shadow: none;
+  border-color: #52525b;
+}
+.form-edit img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.service-column {
+  -moz-column-count: 2;
+       column-count: 2;
+  margin-bottom: 30px;
+}
+
+#main-show-apt {
+  margin-bottom: 60px;
+}
+@media (max-width: 1200px) {
+  #main-show-apt .container {
+    padding: 0px 80px;
+  }
+}
+#main-show-apt h1 {
+  margin-bottom: 30px;
+}
+@media (max-width: 1200px) {
+  #main-show-apt h1 {
+    font-size: 34px;
+  }
+}
+@media (max-width: 576px) {
+  #main-show-apt h1 {
+    font-size: 24px;
+  }
+}
+#main-show-apt h5 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #09244f;
+}
+@media (max-width: 768px) {
+  #main-show-apt h5 {
+    font-size: 24px;
+  }
+}
+#main-show-apt .apt-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+@media (max-width: 1200px) {
+  #main-show-apt .apt-info {
+    display: block;
+  }
+}
+#main-show-apt .apt-info .apt-img {
+  width: 500px;
+  margin: 5px 50px 45px 0px;
+}
+@media (max-width: 1200px) {
+  #main-show-apt .apt-info .apt-img {
+    width: 100%;
+  }
+}
+#main-show-apt .apt-info .apt-img img {
+  width: 100%;
+  border-radius: 8px;
+}
+#main-show-apt .apt-info .side-info {
+  height: 340px;
+  width: 50%;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+@media (max-width: 1200px) {
+  #main-show-apt .apt-info .side-info {
+    width: 100%;
+    margin-bottom: 45px;
+  }
+}
+#main-show-apt .apt-info .side-info .service-list {
+  -moz-column-count: 2;
+       column-count: 2;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+#main-show-apt .apt-info .side-info .apt-message {
+  padding-top: 20px;
+}
+#main-show-apt .apt-info .side-info .apt-message ul li {
+  margin-bottom: 10px;
+}
+#main-show-apt .apt-info .side-info .apt-message ul li p {
+  font-weight: bold;
+  width: 410px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#main-show-apt .apt-info .side-info .apt-message ul li p span {
+  font-weight: lighter;
+}
+@media (max-width: 992px) {
+  #main-show-apt .btn-edit-apt {
+    display: flex;
+    justify-content: space-between;
+  }
 }
