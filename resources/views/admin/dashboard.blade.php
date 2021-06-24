@@ -91,7 +91,7 @@
                     <div class="col-lg-10">
                         <h3>I tuoi Appartamenti</h3>
                     </div>
-                    <div class="col-lg-2 create">
+                    <div class="create">
                         <a href="{{route('admin.create')}}">
                             <button type="button" class="btn btn-primary">
                                 <span>Aggiungi</span>
@@ -103,26 +103,26 @@
                     </div> 
                 </div>
                 <div class="card__main">
-                    <div class="table-responsive">
+                    <div class="table-responsive-xl table-borderless table-hover">
                         <table class="table">
-                            <thead>
+                            <thead class="thead">
                                 <tr>
                                     <th>Nome</th>
-                                    <th>Immagine</th>
-                                    <th>Metri quadrati</th>
-                                    <th>Prezzo/Notte</th>
-                                    <th>Località</th>
+                                    <th class="dn-small">Immagine</th>
+                                    <th class="dn-medium">Mq</th>
+                                    <th class="dn-medium">€/Notte</th>
+                                    <th class="dn-medium">Località</th>
                                     <th>Link</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($apartments as $apartment)
                                     <tr>
-                                        <td>{{$apartment->name}}</td>
-                                        <td><img src="{{$apartment->image}}"></td>
-                                        <td>{{$apartment->mq}}</td>
-                                        <td>{{$apartment->price_day}}</td>
-                                        <td>{{$apartment->city}} - {{$apartment->country}}</td>
+                                        <td >{{$apartment->name}}</td>
+                                        <td class="dn-small"><img src="{{$apartment->image}}"></td>
+                                        <td class="dn-medium">{{$apartment->mq}}</td>
+                                        <td class="dn-medium">{{$apartment->price_day}}  €</td>
+                                        <td class="dn-medium">{{$apartment->city}} - {{$apartment->country}}</td>
                                         <td><button><a href="{{route('admin.show', ['apartment' => $apartment->id ])}}">Visualizza</a></button></td>
                                     </tr>
                                 @endforeach
@@ -143,8 +143,8 @@
                     </div>
                 </div>
                 <div class="card__main">
-                    <table class="table">
-                        <thead>
+                    <table class="table table-responsive-xl table-borderless table-hover">
+                        <thead class="thead">
                             <tr>
                                 <th>Nome appartamento</th>
                                 <th>Oggetto Messaggio</th>
