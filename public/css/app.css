@@ -11760,29 +11760,18 @@ body {
   margin-left: 10px;
   font-weight: 500;
 }
-.dashboard .searchbar {
-  background: #f4f7fe;
-  position: relative;
-  border-radius: 6px;
-}
-.dashboard .searchbar input {
-  color: #bec8de;
-  background: transparent;
-  font-size: 11px;
-  height: 36px;
-  width: 100%;
-  padding-left: 12px;
-  padding-right: 42px;
-  overflow: hidden;
-  border: 0;
-}
-.dashboard .searchbar .btn {
-  position: absolute;
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 5px 15px;
+.dashboard .create .btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
   border-radius: 5px;
+}
+.dashboard .create .btn:hover {
+  color: white;
+}
+.dashboard .create .btn span {
+  font-size: 0.8rem;
+  margin-right: 8px;
 }
 .dashboard .user-info table {
   width: 100%;

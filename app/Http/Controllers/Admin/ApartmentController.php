@@ -26,7 +26,7 @@ class ApartmentController extends Controller
         'region' => 'required|string|max:255',
         'city' => 'required|string|max:255',
         'street' => 'required|string|max:255',
-        'zip_code' => 'required|string|min:4|max:10|alfa_dash',
+        'zip_code' => 'required|string|min:4|max:10|alpha_dash',
         'floor' => 'required|integer',
         'latitude' => 'required|numeric',
         'longitude' => 'required|numeric'
