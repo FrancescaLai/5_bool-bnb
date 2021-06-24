@@ -11828,6 +11828,8 @@ body {
   align-items: center;
   padding: 10px 15px;
   border-radius: 5px;
+  border: none;
+  background-color: #09244f;
 }
 .dashboard .create .btn:hover {
   color: white;
@@ -11843,6 +11845,22 @@ body {
 .dashboard .user-info table td {
   padding: 5px;
   text-align: left;
+}
+.dashboard .apartments .table-borderless .thead {
+  background-color: #bec8de;
+}
+.dashboard .apartments .table-borderless .thead th {
+  color: #09244f;
+}
+@media only screen and (max-width: 768px) {
+  .dashboard .apartments .table-borderless .dn-medium {
+    display: none;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .dashboard .apartments .table-borderless .dn-small {
+    display: none;
+  }
 }
 .dashboard .apartments .table tbody {
   display: block;
@@ -11868,6 +11886,12 @@ body {
   display: table;
   width: 100%;
   table-layout: fixed;
+}
+.dashboard .messages .table-borderless .thead {
+  background-color: #bec8de;
+}
+.dashboard .messages .table-borderless .thead tr th {
+  color: #09244f;
 }
 .dashboard .messages .card__main .table tbody {
   display: block;
