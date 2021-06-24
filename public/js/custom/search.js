@@ -56,6 +56,10 @@ var app = new Vue({
             'Tutti'
         ],
         selectedNumBed: 'Tutti',
+        numMqList: [
+            'Tutti'
+        ],
+        selectedMq: 'Tutti',
         servicesList: [
             'Tutti'
         ],
@@ -93,7 +97,7 @@ var app = new Vue({
                             (my[k].latitude < (search.position.lat + pickRadius)) &&
                             (my[k].longitude > (search.position.lon - pickRadius)) &&
                             (my[k].longitude < (search.position.lon + pickRadius))) {
-
+                            
                             if (!this.myApartmentsResults.includes(my[k])) {
                                 this.myApartmentsResults.push(this.myApartments[k]);
                             }
@@ -195,6 +199,9 @@ var app = new Vue({
             }
         },
 
+        /**
+         * @description Funzione per filtrare gli appartamneti per i numeri di letti
+         */
         numBed: function () {
             while (this.count < this.myApartmentsResults.length) {
                 if (this.numBedList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1) {
@@ -205,6 +212,11 @@ var app = new Vue({
             this.count = 0;
         },
 
+        /**
+         * @description Funzione per ordinare gli appartamenti per prezzo al giorno in ordine crescente o decrescente  
+         * @param {} a 
+         * @param {*} b 
+         */
         ordina: function (a, b) {
             this.myApartmentsResults.sort((a, b) => {
                 if (this.priceOrder == "asc") {
@@ -215,6 +227,9 @@ var app = new Vue({
             });
         },
 
+        /**
+         * @description Funzione che 'dovrebbe' filtrare gli appartamenti per i servizi
+         */
         isServices: function () {
             while (this.count < this.myApartmentsResults.length) {
                 if (this.servicesList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1) {
@@ -225,6 +240,18 @@ var app = new Vue({
             this.count = 0;
         },
 
+        /**
+         * @description Funzione che filtra gli appartamenti per i Mq
+         */
+        numMq: function(){
+            while (this.count < this.myApartmentsResults.length) {
+                if (this.numMqList.indexOf(this.myApartmentsResults[this.count].mq) == -1) {
+                    this.numMqList.push(this.myApartmentsResults[this.count].mq);
+                }
+                this.count++;
+            }
+            this.count = 0;
+        }
     },
 
     mounted: function () {
