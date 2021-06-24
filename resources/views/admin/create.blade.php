@@ -23,7 +23,7 @@
 <body>
     <div id="app">
         {{------------MAIN---------------}}
-        <main class="py-4">
+        <main>
             <div class="container">
                 @if ($errors->any())
                     <div class="alert alert-danger">
