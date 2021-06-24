@@ -10438,58 +10438,40 @@ h3 {
 
 footer {
   background-color: #f4f7fe;
-  padding: 15px 30px 15px 30px;
+  padding-bottom: 75px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
-footer .col-xl-4 {
-  margin-top: 15px;
+footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  align-items: center;
 }
-footer span {
+footer .row .logo {
   font-family: "Mulish";
   font-weight: 700;
   color: #09244f;
   font-size: 24px;
 }
-footer .column {
-  margin: 15px 0px;
+footer .row div[class^=col] {
+  display: block;
 }
-footer .column .row {
-  height: 30px;
-}
-footer div[class^=col] a {
+footer .row div[class^=col] a {
   color: #09244f;
   font-size: 14px;
   font-weight: 600;
-  padding-left: 15px;
+  padding-left: 50px;
 }
-footer div[class^=col] a.joinCommunity {
+@media (max-width: 1460px) {
+  footer .row div[class^=col] a {
+    padding-left: 0px;
+  }
+}
+footer .row div[class^=col] a.joinCommunity {
   font-size: 12px;
   font-weight: 800;
-}
-footer div[class^=col] .email {
-  max-width: 188px;
-  position: relative;
-}
-footer div[class^=col] .email input {
-  all: unset;
-  border: 1px solid #bec8de;
-  border-radius: 15px;
-  font-size: 12px;
-  padding: 5px 15px;
-  width: 90%;
-}
-footer div[class^=col] .email div {
-  height: 21px;
-  width: 21px;
-  border-radius: 50%;
-  background-color: #076cf9;
-  position: absolute;
-  right: 5px;
-}
-footer div[class^=col] .email div svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .m-header {
