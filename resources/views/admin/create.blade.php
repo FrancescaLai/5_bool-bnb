@@ -104,17 +104,17 @@
                         <label for="longitude"></label>
                         <input type="number" class="form-control" id="longitude" name="longitude" placeholder="Longitudine">
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="visibility" name="visibility">
-                        <label class="form-check-label" for="visibility">Visibilità</label>
+                    <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input" type="checkbox" id="visibility" name="visibility">
+                        <label class="custom-control-label" for="visibility">Visibilità</label>
                     </div>
                     <div class="mt-3">
                         <h3>Servizi</h3>
                         <div class="prova" style="column-count: 2;">
                         @foreach ($services as $service)
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{$service->id}}" id="{{$service->name}}" name="services[]">
-                                <label class="form-check-label" for="{{$service->name}}">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" value="{{$service->id}}" id="{{$service->name}}" name="services[]">
+                                <label class="custom-control-label" for="{{$service->name}}">
                                     {{$service->name}}
                                 </label>
                             </div>
