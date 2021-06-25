@@ -60,10 +60,7 @@ var app = new Vue({
             'Tutti'
         ],
         selectedMq: 'Tutti',
-        servicesList: [
-            'Tutti'
-        ],
-        selectedService: 'Tutti'
+        servicesList: []
     },
 
     methods: {
@@ -80,35 +77,35 @@ var app = new Vue({
                     key: this.apiKey,
                 }
             })
-                .then((response) => {
-                    this.searchResults = response.data.results;
-                    this.lastQuery = this.query;
-                    this.query = '';
-                    this.myApartmentsResults = [];
-                    this.radiusResults = [];
-                    this.dropdownResults = false;
-                    this.isQueryActive = true;
-                    let search = this.searchResults[0];
-                    let my = this.myApartments;
-                    let pickRadius = (this.radius / 1000) / 111;
-                    for (var k = 0; k < my.length; k++) {
+            .then((response) => {
+                this.searchResults = response.data.results;
+                this.lastQuery = this.query;
+                this.query = '';
+                this.myApartmentsResults = [];
+                this.radiusResults = [];
+                this.dropdownResults = false;
+                this.isQueryActive = true;
+                let search = this.searchResults[0];
+                let my = this.myApartments;
+                let pickRadius = (this.radius / 1000) / 111;
+                for (var k = 0; k < my.length; k++) {
 
-                        if ((my[k].latitude > (search.position.lat - pickRadius)) &&
-                            (my[k].latitude < (search.position.lat + pickRadius)) &&
-                            (my[k].longitude > (search.position.lon - pickRadius)) &&
-                            (my[k].longitude < (search.position.lon + pickRadius))) {
-                            
-                            if (!this.myApartmentsResults.includes(my[k])) {
-                                this.myApartmentsResults.push(this.myApartments[k]);
-                            }
+                    if ((my[k].latitude > (search.position.lat - pickRadius)) &&
+                        (my[k].latitude < (search.position.lat + pickRadius)) &&
+                        (my[k].longitude > (search.position.lon - pickRadius)) &&
+                        (my[k].longitude < (search.position.lon + pickRadius))) {
+                        
+                        if (!this.myApartmentsResults.includes(my[k])) {
+                            this.myApartmentsResults.push(this.myApartments[k]);
                         }
                     }
+                }
 
-                    this.createMap();
+                this.createMap();
 
-                    this.myApartmentsResults.forEach(this.addMarker);
-                    
-                });
+                this.myApartmentsResults.forEach(this.addMarker);
+                
+            });
         },
 
         /**
@@ -267,6 +264,7 @@ var app = new Vue({
             }
         });
 
+        console.log('ciao');
         // Carousel autoplay
         this.autoplay = setInterval(this.nextImage, 4000);
 

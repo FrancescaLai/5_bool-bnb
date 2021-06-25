@@ -74,12 +74,16 @@
                         </select>
                     </div>
                     <div>
-                        <label for="num_bed">Servizi</label><br>
-                        <select v-on:click="numBed" v-model="selectedNumBed">
+                        <p>Servizi</p>
+                        @foreach ($services as $service)
+                            <input type="checkbox" id="{{$service->slug}}" value="{{$service->slug}}" v-model="servicesList['{{$service->slug}}']">
+                            <label for="{{$service->slug}}">{{$service->name}}</label><br>
+                        @endforeach
+                        {{-- <select v-on:click="numBed" v-model="selectedNumBed">
                             <optgroup label="Numero letti">
                                 <option v-for="num in numBedList" v-bind:value="num">@{{ num }}</option>
                             </optgroup>
-                        </select>
+                        </select> --}}
                     </div>
                     <div>
                         <label for="numMq">Metratura</label><br>
