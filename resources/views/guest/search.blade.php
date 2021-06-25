@@ -74,6 +74,7 @@
                             </optgroup>
                         </select>
                     </div>
+                    {{-- servizi --}}
                     <div>
                         <label for="num_bed">Servizi</label><br>
                         <div class="multiselect">
@@ -93,6 +94,7 @@
                             </ul>
                         </div>
                     </div>
+                    {{-- servizi --}}
                     <div>
                         <label for="numMq">Metratura</label><br>
                         <select v-on:click="numMq" v-model="selectedMq">
