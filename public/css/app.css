@@ -11375,11 +11375,12 @@ body {
   padding: 20px 0;
 }
 #search-page #search .searchbar input:not([type=range]) {
-  height: 50px;
+  height: 45px;
   border: none;
-  padding: 0 15px;
+  padding-left: 8px;
   background: #f4f4f5;
   border-radius: 10px;
+  color: grey;
 }
 #search-page #search .searchbar .large-container {
   display: flex;
@@ -11402,8 +11403,8 @@ body {
   border: 1px solid #076cf9;
   background-color: #076cf9;
   color: #fff;
-  padding: 11px;
-  border-radius: 10px;
+  padding: 5px;
+  border-radius: 8px;
   transition: transform 250ms ease-in-out;
 }
 #search-page #search .searchbar button:hover {
@@ -11430,7 +11431,7 @@ body {
   padding: 5px 10px;
   border: none;
   border-radius: 10px;
-  background: transparent;
+  background: #fafafa;
   border: 1px solid #bec8de;
 }
 #search-page #search .results h3 {
@@ -11513,18 +11514,15 @@ body {
 #search-page #search .results .card-apartment__price a:hover {
   color: #076cf9;
 }
-#search-page #search .search__map {
-  width: 40%;
+#search-page #search .search-map {
+  height: 500px;
+  width: 700px;
+  border-radius: 8px;
 }
-@media only screen and (max-width: 768px) {
-  #search-page #search .search__map {
-    display: none;
-  }
-}
-#search-page #search #map {
+#search-page #search .search-map #map {
   position: fixed;
-  height: 100vh;
-  width: 40%;
+  height: 70%;
+  width: 39%;
 }
 
 #main-show {
@@ -11985,7 +11983,6 @@ h5 {
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  overflow-y: auto;
 }
 .apt-info .side-info .apt-message {
   padding-top: 20px;
