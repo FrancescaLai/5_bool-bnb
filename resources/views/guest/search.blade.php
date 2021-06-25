@@ -285,7 +285,7 @@
         {{-- /Results section --}}
 
         {{-- Map section --}}
-        <section id="search__map">
+        <section class="search-map">
             <div id="map"></div>
         </section>
         {{-- /Map section --}}

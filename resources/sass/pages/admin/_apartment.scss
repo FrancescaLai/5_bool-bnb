@@ -1,21 +1,18 @@
-#main-show-apt{
-    margin-bottom: 60px;
-
-    .container{
+.container{
         @media (max-width: 1200px) {
             padding: 0px 80px;
         }
-    }
+}
 
-    h1{
-        margin-bottom: 30px;
-        @media (max-width: 1200px) {
-            font-size: $title-sm;
-        }
-        @media (max-width: 576px) {
-            font-size: $title-xs;
-        }
+h1{
+    margin-bottom: 30px;
+    @media (max-width: 1200px) {
+        font-size: $title-sm;
     }
+    @media (max-width: 576px) {
+        font-size: $title-xs;
+    }
+}
 
     h5{
         margin-bottom: 20px;
@@ -48,7 +45,7 @@
         }
 
         .side-info{
-            height: 340px;
+            height: 375px;
             width: 50%;
             background-color: white;
             padding: 30px;
@@ -60,9 +57,11 @@
             }
 
             .service-list{
+                height: 150px;
                 column-count: 2;
                 padding-bottom: 20px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                overflow: hidden;
             }
 
             .apt-message{
@@ -93,4 +92,3 @@
             justify-content: space-between;
         }
     }
-}

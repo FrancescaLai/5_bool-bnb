@@ -14,11 +14,12 @@
             background-color: white;
             padding: 20px 0;
             input:not([type="range"]) {
-                height: 50px;
+                height: 45px;
                 border: none;
-                padding: 0 15px;
+                padding-left: 8px;
                 background: $gray-200;
                 border-radius: 10px;
+                color: grey;
             }
             .large-container {
                 @include flex-center-vert;
@@ -39,8 +40,8 @@
                 border: 1px solid $primary;
                 background-color: $primary;
                 color: #fff;
-                padding: 11px;
-                border-radius: 10px;
+                padding: 5px;
+                border-radius: 8px;
                 transition: transform 250ms ease-in-out;
                 &:hover {
                     transform: scale(1.05);
@@ -66,7 +67,7 @@
                 padding: 5px 10px;
                 border: none;
                 border-radius: 10px;
-                background: transparent;
+                background: $gray-100;
                 border: 1px solid $primaryLight;
             }
         }
@@ -149,16 +150,16 @@
                 }
             }
         }
-        .search__map {
-            width: 40%;
-            @include mq-medium {
-                display: none;
+        .search-map{
+            // height: 500px;
+            // width: 700px;
+            // border-radius: 8px;
+
+            #map {
+                position: fixed;
+                height: 70%;
+                width: 39%;
             }
-        }
-        #map {
-            position: fixed;
-            height: 100vh;
-            width: 40%;
         }
     }
 
