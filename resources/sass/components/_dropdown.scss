@@ -1,0 +1,32 @@
+.main-dropdown {
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+    @include flex-column;
+    gap: 5px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+}
+.advanced-dropdown {
+    position: absolute;
+    top: 90px;
+    @include flex-column;
+    gap: 10px;
+    width: 750px;
+    background: #fff;
+    padding: 10px 25px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba($gray-500, 0.25);
+    li:first-child {
+        padding: 15px 0;
+        border-bottom: 1px solid $gray-400;
+        font-size: $body-sm;
+        font-weight: 600;
+    }
+    li {
+        font-size: $body-xs;
+        color: $gray-600;
+    }
+}

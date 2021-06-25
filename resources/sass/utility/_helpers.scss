@@ -12,28 +12,6 @@
         padding: 0 25px;
     }
 }
-.main-dropdown {
-    position: absolute;
-    bottom: 90px;
-    left: 0;
-    @include flex-column;
-    gap: 5px;
-    width: 100%;
-    background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-}
-.advanced-dropdown {
-    position: absolute;
-    top: 90px;
-    @include flex-column;
-    gap: 5px;
-    width: 750px;
-    background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba($gray-500, 0.25);
-}
 .-hide {
     display: none;
 }

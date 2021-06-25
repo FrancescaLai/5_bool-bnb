@@ -52,9 +52,7 @@ var app = new Vue({
         autoplay: null,
         priceOrder: '',
         count: 0,
-        numBedList: [
-            'Tutti'
-        ],
+        numBedList: ['Tutti'],
         selectedNumBed: 'Tutti',
         numMqList: [
             'Tutti'
@@ -64,6 +62,9 @@ var app = new Vue({
             'Tutti'
         ],
         selectedService: 'Tutti'
+        services: [],
+        selectedServices: [],
+        servicesDropdwon: false,
     },
 
     methods: {
@@ -164,7 +165,7 @@ var app = new Vue({
                 // setMap: center,
                 center: city,
                 zoom: 11,
-                minZoom: 5
+                minZoom: 5,
             });
 
         },
@@ -202,6 +203,14 @@ var app = new Vue({
         /**
          * @description Funzione per filtrare gli appartamneti per i numeri di letti
          */
+        /**
+         * @description 
+         */
+        clearAutoplay: function() {
+            clearInterval(this.autoplay);
+            this.autoplay = setInterval(this.carouselNext, 4000);
+        },
+
         numBed: function () {
             while (this.count < this.myApartmentsResults.length) {
                 if (this.numBedList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1) {
@@ -236,8 +245,20 @@ var app = new Vue({
                     this.servicesList.push(this.myApartmentsResults[this.count].num_bed);
                 }
                 this.count++;
+        /**
+         * 
+         * @description mostra/nasconde checkbox
+         * @returns results
+         */
+        showCheckboxes: function () {
+        var checkboxes = document.getElementById("checkboxes");
+            if (!this.servicesDropdwon) {
+                checkboxes.style.display = "block";
+                this.servicesDropdwon = true;
+            } else {
+                checkboxes.style.display = "none";
+                this.servicesDropdwon = false;
             }
-            this.count = 0;
         },
 
         /**
@@ -255,16 +276,23 @@ var app = new Vue({
     },
 
     mounted: function () {
-        let link = 'http://localhost:8000/api/guest'
-        axios.get(link).then((result) => {
+        // Get all services
+        let apartmentslink = 'http://localhost:8000/api/guest'
+        axios.get(apartmentslink).then((result) => {
             this.myApartments = result.data;
-            this.randomApartments = result.data;
 
             /* Randomize array in-place */
+            this.randomApartments = result.data;
             for (let i = this.randomApartments.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [this.randomApartments[i], this.randomApartments[j]] = [this.randomApartments[j], this.randomApartments[i]];
             }
+        });
+
+        // Get all services
+        let servicesLink = 'http://localhost:8000/api/services'
+        axios.get(servicesLink).then((result) => {
+            this.services = result.data;
         });
 
         // Carousel autoplay
@@ -275,5 +303,14 @@ var app = new Vue({
             key: this.apiKey,
             container: 'map'
         });
-    }
+    },
+
+    computed: {
+        selectFilters: function() {
+            if( this.selectedServices.length == 0 ) {
+                return this.myApartmentsResults;
+            }
+        }
+    },
+
 })
