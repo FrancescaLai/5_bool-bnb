@@ -6,9 +6,6 @@
 
 @section('content')
 <main id="search-page">
-    <div class="container">
-
-    </div>
     {{-- Page progress indicator --}}
     <div class="progress-container">
         <div class="progress-bar" id="bar"></div>

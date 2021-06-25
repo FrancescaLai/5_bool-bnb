@@ -11514,11 +11514,6 @@ body {
 #search-page #search .results .card-apartment__price a:hover {
   color: #076cf9;
 }
-#search-page #search .search-map {
-  height: 500px;
-  width: 700px;
-  border-radius: 8px;
-}
 #search-page #search .search-map #map {
   position: fixed;
   height: 70%;
