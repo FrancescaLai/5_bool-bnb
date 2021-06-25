@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pageTitle')
-    Homepage
+boolbnb | Homepage
 @endsection
 
 @section('content')
@@ -83,17 +83,17 @@
                </a>
             </div>
             <div class="slider col-12 col-md-6">
-               <div class="slider-wrapper" data-tilt>
+               <div class="slider-wrapper" data-tilt v-cloak>
                   <div class="images">
                      <img :src="images[imgIndex].url" :alt="images[imgIndex].name">
                   </div>
                   <div class="arrows">
-                     <button v-on:click="prevImage">
+                     <button v-on:click="prevImage(); clearAutoplay()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0303 6.46967C15.3232 6.76256 15.3232 7.23744 15.0303 7.53033L10.5607 12L15.0303 16.4697C15.3232 16.7626 15.3232 17.2374 15.0303 17.5303C14.7374 17.8232 14.2626 17.8232 13.9697 17.5303L8.96967 12.5303C8.82902 12.3897 8.75 12.1989 8.75 12C8.75 11.8011 8.82902 11.6103 8.96967 11.4697L13.9697 6.46967C14.2626 6.17678 14.7374 6.17678 15.0303 6.46967Z" fill="#fff"/>
                         </svg>
                      </button>
-                     <button v-on:click="nextImage">
+                     <button v-on:click="nextImage(); clearAutoplay()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96967 17.5303C8.67678 17.2374 8.67678 16.7626 8.96967 16.4697L13.4393 12L8.96967 7.53033C8.67678 7.23744 8.67678 6.76256 8.96967 6.46967C9.26256 6.17678 9.73744 6.17678 10.0303 6.46967L15.0303 11.4697C15.171 11.6103 15.25 11.8011 15.25 12C15.25 12.1989 15.171 12.3897 15.0303 12.5303L10.0303 17.5303C9.73744 17.8232 9.26256 17.8232 8.96967 17.5303Z" fill="#fff"/>
                         </svg>
@@ -149,11 +149,9 @@
             <p>Travel with more confidence</p>
          </div>
          <div class="main">
-            
-            <div class="col-12 col-sm-6 col-lg-4" v-for="(apartment, index) in randomApartments">
+            <div class="col-12 col-sm-6 col-lg-4" v-for="(apartment, index) in randomApartments" v-cloak>
                @include('layouts.partials.card')
             </div>
-
          </div>
       </div> 
    </section>

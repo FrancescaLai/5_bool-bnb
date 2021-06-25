@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pageTitle')
-    Ricerca avanzata
+    boolbnb | Ricerca avanzata
 @endsection
 
 @section('content')
@@ -23,7 +23,8 @@
                         <input v-on:keyup.13="getPosition(index)" type="text" class="search-form" placeholder="Dove vuoi andare?" v-model="query" v-on:keydown="radiusSearch">
 
                         {{-- Dropdown list --}}
-                        <ul v-if="dropdownResults" :class="dropdownResults == true ? 'advanced-dropdown' : '-hide'">
+                        <ul v-if="dropdownResults && query != ''" :class="dropdownResults == true ? 'advanced-dropdown' : '-hide'">
+                            <li>Results for "@{{query}}"</li>
                             <li v-for="(item, index) in radiusResults">
                                 <a v-on:click="getPosition(index)">@{{item.address.freeformAddress}}, @{{item.address.countrySecondarySubdivision}}, @{{item.address.countrySubdivision}}</a>
                             </li>
@@ -75,11 +76,22 @@
                     </div>
                     <div>
                         <label for="num_bed">Servizi</label><br>
-                        <select v-on:click="numBed" v-model="selectedNumBed">
-                            <optgroup label="Numero letti">
-                                <option v-for="num in numBedList" v-bind:value="num">@{{ num }}</option>
-                            </optgroup>
-                        </select>
+                        <div class="multiselect">
+                            <div class="selectBox" v-on:click="showCheckboxes()">
+                              <select>
+                                <option>Select an option</option>
+                              </select>
+                              <div class="overSelect"></div>
+                            </div>
+                            <ul id="checkboxes">
+                                @foreach ( $services as $service )
+                                <li>
+                                    <label for="{{$service->name}}">{{$service->name}}</label>
+                                    <input type="checkbox" id="{{$service->name}}" name="{{$service->name}}" value="{{$service->id}}" v-model="selectedServices">
+                                </li>
+                                @endforeach 
+                            </ul>
+                        </div>
                     </div>
                     <div>
                         <label for="num_bed">Metratura</label><br>
@@ -92,6 +104,7 @@
                 </div>
             </div>
             {{-- /Filters --}}
+
 
             {{-- /Results --}}
             <div class="results">

@@ -85,6 +85,9 @@
             @include mq-large {
                 flex-basis: 100%;
             }
+            @include mq-medium {
+                padding: 0 25px;
+            }
         }
         &__right {
             flex-basis: 40%;

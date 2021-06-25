@@ -1,8 +1,11 @@
-.card {
-    padding: 25px;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba($gray-500, 0.25);
+#featured {
+    .card {
+        padding: 25px;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba($gray-500, 0.25);
+        margin-bottom: 50px;
+    }
 
     .image-box img {
         width: 100%;
@@ -16,14 +19,16 @@
         padding-bottom: 20px;
 
         h4 {
+            font-size: $body-md;
             color: $primaryDark;
             margin: 20px 0px 20px 0px;
+            text-overflow: ellipsis;
         }
 
         p {
             color: #8f9bba;
             width: 100%;
-            @include truncate(75px)
+            @include truncate(75px);
         }
     }
 

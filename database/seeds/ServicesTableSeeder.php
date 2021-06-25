@@ -32,14 +32,14 @@ class ServicesTableSeeder extends Seeder
             'Culla',
             'Seggiolone',
             'Self check-in',
-            'Allarme antincendio', 
+            'Allarme antincendio',
             'Rivelatore di monossido di carbonio',
             'Bagno privato',
             'Lungo la spiaggia',
             'Accesso diretto alle piste da sci'
         ];
 
-        foreach($services as $service) {
+        foreach ($services as $service) {
             $newService = new Service();
 
             $newService->name = $service;
@@ -51,7 +51,7 @@ class ServicesTableSeeder extends Seeder
         /**
          * apartments-services
          */
-        
+
         // $apartment1 = Apartment::where('id', 1);
         // $apartment2 = Apartment::where('id', 2);
         // $apartment3 = Apartment::where('id', 3);

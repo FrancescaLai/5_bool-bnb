@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Apartment;
 use App\User;
+use App\Service;
 use Illuminate\Support\Str;
 
 class ApartmentsTableSeeder extends Seeder
@@ -463,26 +464,26 @@ class ApartmentsTableSeeder extends Seeder
         $apartment_3f->longitude = 12.49801000;
         $apartment_3f->save();
 
-        $apartment_3d = new Apartment();
-        $apartment_3d->user_id = 3;
-        $apartment_3d->name = 'Casa Matisse';
-        $apartment_3d->slug = Str::slug($apartment_3d->name, '-');
-        $apartment_3d->visibility = 1;
-        $apartment_3d->image = 'https://images.pexels.com/photos/6492388/pexels-photo-6492388.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
-        $apartment_3d->description = 'Sito in pieno Centro Storico dove si incrociano tradizione, arte e cultura di questa splendida città, in una delle vie, Via Calderai, dove ancora sopravvivono antichi mestieri da più di 500 anni, "i quararara" (i calderai), artigiani che, all\'interno delle loro botteghe, producono bracieri, tegami, pentole ed altri oggetti in rame, alluminio o bronzo. Il mio alloggio è adatto a coppie, avventurieri solitari, chi viaggia per lavoro e amici pelosi (animali domestici).';
-        $apartment_3d->num_room = 2;
-        $apartment_3d->num_bath = 1;
-        $apartment_3d->num_bed = 2;
-        $apartment_3d->mq = 75;
-        $apartment_3d->price_day = 95;
-        $apartment_3d->country = 'Italia';
-        $apartment_3d->region = 'Sicilia';
-        $apartment_3d->city = 'Palermo';
-        $apartment_3d->street = 'Via Calderai 51';
-        $apartment_3d->zip_code = '95133';
-        $apartment_3d->floor = 1;
-        $apartment_3d->latitude = 38.11433000;
-        $apartment_3d->longitude = 13.36340000;
-        $apartment_3d->save();
+        $apartment_3g = new Apartment();
+        $apartment_3g->user_id = 3;
+        $apartment_3g->name = 'Casa Matisse';
+        $apartment_3g->slug = Str::slug($apartment_3g->name, '-');
+        $apartment_3g->visibility = 1;
+        $apartment_3g->image = 'https://images.pexels.com/photos/6492388/pexels-photo-6492388.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260';
+        $apartment_3g->description = 'Sito in pieno Centro Storico dove si incrociano tradizione, arte e cultura di questa splendida città, in una delle vie, Via Calderai, dove ancora sopravvivono antichi mestieri da più di 500 anni, "i quararara" (i calderai), artigiani che, all\'interno delle loro botteghe, producono bracieri, tegami, pentole ed altri oggetti in rame, alluminio o bronzo. Il mio alloggio è adatto a coppie, avventurieri solitari, chi viaggia per lavoro e amici pelosi (animali domestici).';
+        $apartment_3g->num_room = 2;
+        $apartment_3g->num_bath = 1;
+        $apartment_3g->num_bed = 2;
+        $apartment_3g->mq = 75;
+        $apartment_3g->price_day = 95;
+        $apartment_3g->country = 'Italia';
+        $apartment_3g->region = 'Sicilia';
+        $apartment_3g->city = 'Palermo';
+        $apartment_3g->street = 'Via Calderai 51';
+        $apartment_3g->zip_code = '95133';
+        $apartment_3g->floor = 1;
+        $apartment_3g->latitude = 38.11433000;
+        $apartment_3g->longitude = 13.36340000;
+        $apartment_3g->save();
     }
 }
