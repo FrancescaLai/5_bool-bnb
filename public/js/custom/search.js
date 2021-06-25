@@ -58,7 +58,7 @@ var app = new Vue({
             'Tutti'
         ],
         selectedMq: 'Tutti',
-        servicesList: []
+        servicesList: [],
         servicesList: [
             'Tutti'
         ],
@@ -204,9 +204,6 @@ var app = new Vue({
         /**
          * @description Funzione per filtrare gli appartamneti per i numeri di letti
          */
-        /**
-         * @description 
-         */
         clearAutoplay: function() {
             clearInterval(this.autoplay);
             this.autoplay = setInterval(this.carouselNext, 4000);
@@ -293,7 +290,7 @@ var app = new Vue({
             }
         });
 
-        console.log('ciao');
+        
         // Get all services
         let servicesLink = 'http://localhost:8000/api/services'
         axios.get(servicesLink).then((result) => {
