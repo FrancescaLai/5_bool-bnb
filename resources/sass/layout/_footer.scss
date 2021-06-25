@@ -27,10 +27,6 @@ footer {
                 color: $primaryDark;
                 font-size: $body-sm;
                 font-weight: 600;
-                padding-left: 50px;
-                @media (max-width: 1460px) {
-                    padding-left: 0px;
-                } 
     
                 &.joinCommunity {
                     font-size: $body-xs;

@@ -10462,12 +10462,6 @@ footer .row div[class^=col] a {
   color: #09244f;
   font-size: 14px;
   font-weight: 600;
-  padding-left: 50px;
-}
-@media (max-width: 1460px) {
-  footer .row div[class^=col] a {
-    padding-left: 0px;
-  }
 }
 footer .row div[class^=col] a.joinCommunity {
   font-size: 12px;
@@ -10478,17 +10472,9 @@ footer .row div[class^=col] a.joinCommunity {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  z-index: 1000;
-  pointer-events: none;
-  background: none;
 }
-
-.m-header__wrapper {
+.m-header .m-header__wrapper {
   width: 100%;
-  padding: 0 24px;
-  pointer-events: auto;
-  border-bottom: 1px solid transparent;
   background: #f4f7fe;
   display: flex;
   align-items: center;
@@ -10496,16 +10482,15 @@ footer .row div[class^=col] a.joinCommunity {
   height: 85px;
   position: fixed;
   z-index: 3;
-  transition: 0.3s;
 }
-.m-header__wrapper h1 {
+.m-header .m-header__wrapper h1 {
   font-family: "Mulish";
   font-size: 1.8rem;
   line-height: 2.8rem;
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  .m-header__wrapper {
+  .m-header .m-header__wrapper {
     padding: 0 32px;
   }
 }

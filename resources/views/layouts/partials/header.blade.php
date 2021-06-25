@@ -1,24 +1,23 @@
 <header class="m-header">
+
   {{-- Navbar --}}
-  <div id="navbar" class="m-header__wrapper">
+  <div class="m-header__wrapper">
     <a class="m-header__logo" href="{{route('guest.home')}}">
       <h1>boolbnb</h1>
     </a>
 
-    <span class="m-header__nav">
-      <nav>
-        <ul>
-          <li><a href="{{route('guest.search')}}">Search</a></li>
-          <li><a href="{{route('admin.index')}}">Dashboard</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </nav>
-    </span>
+    <nav class="m-header__nav">
+      <ul>
+        <li><a href="{{route('guest.search')}}">Search</a></li>
+        <li><a href="{{route('admin.index')}}">Dashboard</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
 
-    <span class="m-header__cta">
+    <div class="m-header__cta">
       <a href="{{route('login')}}" class="btn btn-empty">Log in</a>
       <a href="{{route('register')}}" class="btn btn-full">Sign up</a>
-    </span>
+    </div>
     
     <span class="m-header__btn" v-on:click="toggleMenu">
       <span></span>
@@ -40,9 +39,8 @@
         <ul class="m-header__secondary">
           <li class="m-header__submenu">
             <ul>
-              <li><span>Accedi/Registrati</span></li>
-              <li><a href="{{route('login')}}">Accedi</a></li>
-              <li><a href="{{route('register')}}">Registrati</a></li>
+              <li><a href="{{route('login')}}">Login</a></li>
+              <li><a href="{{route('register')}}">Sign up</a></li>
             </ul>
           </li>
         </ul>

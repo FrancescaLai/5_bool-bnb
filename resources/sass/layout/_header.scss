@@ -2,32 +2,27 @@
     position: absolute;
     left: 0;
     top: 0;
+
+    .m-header__wrapper {
     width: 100%;
-    z-index: 1000;
-    pointer-events: none;
-    background: none;
-}
-.m-header__wrapper {
-    width: 100%;
-    padding: 0 24px;
-    pointer-events: auto;
-    border-bottom: 1px solid transparent;
     background: $primaryLighter;
     @include flex-center;
     height: 85px;
     position: fixed;
     z-index: 3;
-    transition: 0.3s;
-    h1 {
-        font-family: "Mulish";
-        font-size: 1.8rem;
-        line-height: 2.8rem;
-        font-weight: 700;
-    }
-    @media (min-width: 768px) {
-        padding: 0 32px;
+    
+        h1 {
+            font-family: "Mulish";
+            font-size: 1.8rem;
+            line-height: 2.8rem;
+            font-weight: 700;
+        }
+        @media (min-width: 768px) {
+            padding: 0 32px;
+        }
     }
 }
+
 .-menu-open .m-header__wrapper {
     transition: color 0.3s, background-color 0s;
     color: #fff;
