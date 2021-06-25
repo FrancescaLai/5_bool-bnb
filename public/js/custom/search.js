@@ -62,7 +62,7 @@ var app = new Vue({
         servicesList: [
             'Tutti'
         ],
-        selectedService: 'Tutti'
+        selectedService: 'Tutti',
         services: [],
         selectedServices: [],
         servicesDropdwon: false,
@@ -246,6 +246,9 @@ var app = new Vue({
                     this.servicesList.push(this.myApartmentsResults[this.count].num_bed);
                 }
                 this.count++;
+            }
+        },
+
         /**
          * 
          * @description mostra/nasconde checkbox
