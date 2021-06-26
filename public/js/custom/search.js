@@ -63,9 +63,13 @@ var app = new Vue({
             'Tutti'
         ],
         selectedService: 'Tutti',
-        services: [],
-        selectedServices: [],
+        allServices: [],
+        servicesNameArray: [],
+        servicesApartment: [],
         servicesDropdwon: false,
+        checked: {
+            service: [],
+        },
     },
 
     methods: {
@@ -252,7 +256,7 @@ var app = new Vue({
          * @returns results
          */
         showCheckboxes: function () {
-        var checkboxes = document.getElementById("checkboxes");
+            var checkboxes = document.getElementById("checkboxes");
             if (!this.servicesDropdwon) {
                 checkboxes.style.display = "block";
                 this.servicesDropdwon = true;
@@ -261,6 +265,30 @@ var app = new Vue({
                 this.servicesDropdwon = false;
             }
         },
+
+         /**
+         * 
+         * @description FILTRO SERVIZI
+         * 
+         */
+        available: function(category) {
+            const categorySet = new Set([]);
+            for (var i = 0; i < this.myApartments.length; i++) {
+                this.myApartments[i][category].forEach(el => categorySet.add(el));
+            }
+            return [...categorySet];
+        },
+
+        visible: function(service) {
+            const services = this.checked.service.length ? _.intersection(service, this.checked.service).length : true;
+            if (services) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+
+
 
         /**
          * @description Funzione che filtra gli appartamenti per i Mq
@@ -294,8 +322,28 @@ var app = new Vue({
         // Get all services
         let servicesLink = 'http://localhost:8000/api/services'
         axios.get(servicesLink).then((result) => {
-            this.services = result.data;
+            this.allServices = result.data;
+            
+            // prendo il nome di tutti i servizi e faccio il push in servicesNameArray
+            for (var x = 0; x < this.allServices.length; x++) {
+                this.servicesNameArray.push(this.allServices[x].name);
+            }
+            // prendo casualmente un numero y di servizi da servicesNameArray e faccio il push in servicesApartment
+            for (var z = 0; z < this.myApartments.length; z++){
+                for (var y = 0; y < 10; y++) {
+                    let randomService = this.servicesNameArray[Math.floor(Math.random() * this.servicesNameArray.length)];
+                    // faccio un controllo per evitare servizi "doppioni"
+                    if(this.servicesApartment.includes(randomService) == false) {
+                        this.servicesApartment.push(randomService);
+                    }
+                }
+                
+                this.myApartments[z]['services'] = this.servicesApartment;
+                // this.myApartments[z][0] = Object.assign(this.myApartments[z].services, this.servicesApartment);
+                this.servicesApartment = [];
+            }
         });
+        
 
         // Carousel autoplay
         this.autoplay = setInterval(this.nextImage, 4000);
@@ -308,10 +356,13 @@ var app = new Vue({
     },
 
     computed: {
-        selectFilters: function() {
-            if( this.selectedServices.length == 0 ) {
-                return this.myApartmentsResults;
-            }
+        // selectFilters: function() {
+        //     if( this.selectedServices.length == 0 ) {
+        //         return this.myApartmentsResults;
+        //     }
+        // }
+        service: function() {
+            return this.available("service").sort((a, b) => a -b);
         }
     },
 
