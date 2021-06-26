@@ -57,7 +57,7 @@
             {{-- Filters --}}
             <div class="filters">
                 <div class="large-container">
-                    <div>
+                    {{-- <div>
                         <label for="num_bed">Prezzo</label><br>
                         <select v-on:click="ordina" v-model="priceOrder">
                             <optgroup label="Prezzo">
@@ -73,9 +73,13 @@
                                 <option v-for="num in numBedList" v-bind:value="num">@{{ num }}</option>
                             </optgroup>
                         </select>
-                    </div>
+                    </div> --}}
                     {{-- servizi --}}
-                    <div>
+                        <h3>Servizi</h3>
+                        <template v-for="service in servicesNameArray">
+                            <input :id="service" type="checkbox" :value="service" v-model="checked.servicesNameArray"><label :for="service" >@{{ service }}</label>
+                        </template>
+                    {{-- <div>
                         <label for="num_bed">Servizi</label><br>
                         <div class="multiselect">
                             <div class="selectBox" v-on:click="showCheckboxes()">
@@ -84,32 +88,75 @@
                               </select>
                               <div class="overSelect"></div>
                             </div>
-                            <ul id="checkboxes">
-                                @foreach ( $services as $service )
-                                <li>
-                                    <label for="{{$service->name}}">{{$service->name}}</label>
-                                    <input type="checkbox" id="{{$service->name}}" name="{{$service->name}}" value="{{$service->id}}" v-model="selectedServices">
-                                </li>
-                                @endforeach 
-                            </ul>
+                            <template id="checkboxes" v-for="option in service">
+                                <div>
+                                    <label :for="option">@{{option}}</label>
+                                    <input type="checkbox" :id="option" :value="option" v-model="checked.service">
+                                </div>
+                            </template>
                         </div>
-                    </div>
+                    </div> --}}
+
                     {{-- servizi --}}
-                    <div>
+                    {{-- <div>
                         <label for="numMq">Metratura</label><br>
                         <select v-on:click="numMq" v-model="selectedMq">
                             <optgroup label="Numero letti">
                                 <option v-for="num in numMqList" v-bind:value="num">@{{ num }}</option>
                             </optgroup>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             {{-- /Filters --}}
 
 
             {{-- /Results --}}
-            <div class="results" v-if="selectedNumBed == 'Tutti' && selectedMq == 'Tutti'">
+
+            <div class="results">
+                <div class="large-container">
+                    <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
+
+                        <ul v-if="myApartmentsResults.length != []">
+                            <li v-for="apartment in myApartmentsResults "  v-show="visible(apartment.services)" class="card-apartment">
+                                <div class="card-apartment__info">
+                                    <img :src="apartment.image" :alt="apartment.name">
+                                    <div class="text">
+                                        <div class="text__info">
+                                            <span>
+                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#076cf9"/>
+                                                </svg>
+                                            </span>
+                                            <span>4,91 (147)</span>
+                                            <div><h6>@{{apartment.name}}</h6></div>
+                                            <div><p>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</p></div>
+                                        </div> 
+                                        <ul class="text__services">
+                                            <li>@{{apartment.num_bed}} bed(s)</li>
+                                            <li>@{{apartment.mq}}m&#178;</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-apartment__price">
+                                    <div>
+                                        <h4>@{{apartment.price_day}}€</h4>
+                                        <p>/ per notte</p>
+                                    </div>
+                                    <div>
+                                        <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul> 
+                          
+                    <div v-else-if="isQueryActive == true">
+                        <p>Non esistono appartamenti disponibili in questa zona</p>
+                    </div>
+                </div>
+            </div> 
+
+            {{-- <div class="results" v-if="selectedNumBed == 'Tutti' && selectedMq == 'Tutti' && visible(myApartments).services">
                 <div class="large-container">
                     <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
 
@@ -150,9 +197,9 @@
                         <p>Non esistono appartamenti disponibili in questa zona</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="results" v-if="selectedNumBed != 'Tutti' && selectedMq == 'Tutti'">
+            {{-- <div class="results" v-if="selectedNumBed != 'Tutti' && selectedMq == 'Tutti' && visible(myApartments).services">
                 <div class="large-container">
                     <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
 
@@ -193,9 +240,9 @@
                         <p>Non esistono appartamenti disponibili in questa zona</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="results" v-if="selectedMq != 'Tutti' && selectedNumBed == 'Tutti'">
+            {{-- <div class="results" v-if="selectedMq != 'Tutti' && selectedNumBed == 'Tutti' && visible(myApartments).services">
                 <div class="large-container">
                     <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
 
@@ -236,9 +283,9 @@
                         <p>Non esistono appartamenti disponibili in questa zona</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="results" v-if="selectedMq != 'Tutti' && selectedNumBed != 'Tutti'">
+            {{-- <div class="results" v-if="selectedMq != 'Tutti' && selectedNumBed != 'Tutti' && visible(myApartments).services">
                 <div class="large-container">
                     <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
 
@@ -279,7 +326,8 @@
                         <p>Non esistono appartamenti disponibili in questa zona</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+
             {{-- /Results --}}
         </section>
         {{-- /Results section --}}
