@@ -64,6 +64,8 @@ var app = new Vue({
         ],
         selectedService: 'Tutti',
         services: [],
+        servicesNameArray: [],
+        servicesApartment: [],
         selectedServices: [],
         servicesDropdwon: false,
     },
@@ -295,7 +297,25 @@ var app = new Vue({
         let servicesLink = 'http://localhost:8000/api/services'
         axios.get(servicesLink).then((result) => {
             this.services = result.data;
+            
+            // prendo il nome di tutti i servizi e faccio il push in servicesNameArray
+            for (var x = 0; x < this.services.length; x++) {
+                this.servicesNameArray.push(this.services[x].name);
+            }
+            // prendo casualmente un numero y di servizi da servicesNameArray e faccio il push in servicesApartment
+            for (var z = 0; z < this.myApartments.length; z++){
+                for (var y = 0; y < 10; y++) {
+                    let randomService = this.servicesNameArray[Math.floor(Math.random() * this.servicesNameArray.length)];
+                    // faccio un controllo per evitare servizi "doppioni"
+                    if(this.servicesApartment.includes(randomService) == false) {
+                        this.servicesApartment.push(randomService);
+                    }
+                }
+                this.myApartments[z] = Object.assign( this.myApartments[z], this.servicesApartment);
+                this.servicesApartment = [];
+            }
         });
+        
 
         // Carousel autoplay
         this.autoplay = setInterval(this.nextImage, 4000);
