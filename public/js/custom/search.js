@@ -264,6 +264,14 @@ var app = new Vue({
             }
         },
 
+         /**
+         * 
+         * @description FILTRO SERVIZI
+         * 
+         */
+
+
+
         /**
          * @description Funzione che filtra gli appartamenti per i Mq
          */
@@ -311,7 +319,9 @@ var app = new Vue({
                         this.servicesApartment.push(randomService);
                     }
                 }
-                this.myApartments[z] = Object.assign( this.myApartments[z], this.servicesApartment);
+                
+                this.myApartments[z]['services'] = this.servicesApartment;
+                // this.myApartments[z][0] = Object.assign(this.myApartments[z].services, this.servicesApartment);
                 this.servicesApartment = [];
             }
         });
