@@ -25,12 +25,17 @@
     top: 90px;
     @include flex-column;
     gap: 10px;
-    width: 750px;
+    width: 100%;
     background: #fff;
     padding: 10px 25px 25px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba($gray-500, 0.25);
     z-index: 10;
+    @include mq-medium {
+        flex-basis: 100%;
+        justify-content: space-between;
+        top: 130px;
+    }
     li:first-child {
         padding: 15px 0;
         border-bottom: 1px solid $gray-400;

@@ -14,7 +14,7 @@ Boolbnb | {{$apartment->name}}
 
     <section class="container">
         {{-- Title --}}
-        <h1>{{$apartment->name}}</h1>
+        <h1 v-cloak>{{$apartment->name}}</h1>
         <div class="reviews">
             <span>
                 <svg width="17" height="17" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +32,7 @@ Boolbnb | {{$apartment->name}}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 14.4623H16.1909C17.6066 14.4623 18.472 12.7739 17.7261 11.4671L17.2365 10.6092C16.7547 9.76504 16.7547 8.69728 17.2365 7.85309L17.7261 6.99524C18.472 5.68842 17.6066 4 16.1909 4L6 4L6 14.4623ZM6 14.4623L6 20" stroke="#71717a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                    
-                <p>{{$apartment->country}}, {{$apartment->region}}, {{$apartment->city}}</p>
+                <p v-cloak>{{$apartment->country}}, {{$apartment->region}}, {{$apartment->city}}</p>
             </span>
         </div>
         {{-- /Title --}}
@@ -63,23 +63,23 @@ Boolbnb | {{$apartment->name}}
                                 <path d="M5 19.1115C5 16.6984 6.69732 14.643 9.00404 14.2627L9.21182 14.2284C11.0589 13.9239 12.9411 13.9239 14.7882 14.2284L14.996 14.2627C17.3027 14.643 19 16.6984 19 19.1115C19 20.1545 18.1815 21 17.1719 21H6.82813C5.81848 21 5 20.1545 5 19.1115Z" stroke="#71717a" stroke-width="1.5"/>
                                 <path d="M16.0834 6.9375C16.0834 9.11212 14.2552 10.875 12 10.875C9.74486 10.875 7.91669 9.11212 7.91669 6.9375C7.91669 4.76288 9.74486 3 12 3C14.2552 3 16.0834 4.76288 16.0834 6.9375Z" stroke="#71717a" stroke-width="1.5"/>
                             </svg>
-                            <p>{{$apartment->num_bed}} letto/i</p>
+                            <p v-cloak>{{$apartment->num_bed}} letto/i</p>
                         </span>
                         <span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 14.4623H16.1909C17.6066 14.4623 18.472 12.7739 17.7261 11.4671L17.2365 10.6092C16.7547 9.76504 16.7547 8.69728 17.2365 7.85309L17.7261 6.99524C18.472 5.68842 17.6066 4 16.1909 4L6 4L6 14.4623ZM6 14.4623L6 20" stroke="#71717a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <p>{{$apartment->num_room}} stanza/e</p>
+                            <p v-cloak>{{$apartment->num_room}} stanza/e</p>
                         </span>
                         <span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 14.4623H16.1909C17.6066 14.4623 18.472 12.7739 17.7261 11.4671L17.2365 10.6092C16.7547 9.76504 16.7547 8.69728 17.2365 7.85309L17.7261 6.99524C18.472 5.68842 17.6066 4 16.1909 4L6 4L6 14.4623ZM6 14.4623L6 20" stroke="#71717a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <p>{{$apartment->num_bath}} bagno/i</p>
+                            <p v-cloak>{{$apartment->num_bath}} bagno/i</p>
                         </span>
                     </div>
                     <div class="description__text">
-                        <p>{{$apartment->description}}</p>    
+                        <p v-cloak>{{$apartment->description}}</p>    
                     </div>
                 </div>
 
@@ -87,16 +87,11 @@ Boolbnb | {{$apartment->name}}
                     <h3>Servizi</h3>
                     <div class="list">
                         <ul>
-                            <li>Serivzio</li>
-                            <li>Serivzio</li>
-                            <li>Serivzio</li>
-                            <li>Serivzio</li>
-                        </ul>
-                        <ul>
-                            <li>Serivzio</li>
-                            <li>Serivzio</li>
-                            <li>Serivzio</li>
-                            <li>Serivzio</li>
+                            @foreach ($apartment->services as $service)
+                            <li>
+                                {{$service->name}}
+                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -142,6 +137,5 @@ Boolbnb | {{$apartment->name}}
 {{-- Vue cdn --}}
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 {{-- Custom script --}}
-<script src="{{asset('js\custom\navigation.js')}}"></script>
 <script src="{{asset('js\custom\search.js')}}"></script>
 @endsection

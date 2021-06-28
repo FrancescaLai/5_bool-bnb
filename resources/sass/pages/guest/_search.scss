@@ -2,24 +2,24 @@
     #search {
         display: flex;
         z-index: 100;
-        @include mq-large {
+        @media only screen and (max-width: 1160px) {
             display: block;
         }
         .search__results {
             min-height: 100vh;
             flex-basis: 60%;
-            @include mq-large {
+            @media only screen and (max-width: 1160px) {
                 width: 100%;
             }
         }
         .search__map {
             flex-basis: 40%;
-            @include mq-large {
+            @media only screen and (max-width: 1160px) {
                 width: 100%;
             }
         }
         .searchbar {
-            height: 100px;
+            height: 150px;
             background-color: white;
             padding: 20px 0;
             input:not([type="range"]) {
@@ -34,6 +34,9 @@
                 @include flex-center-vert;
                 justify-content: space-between;
                 height: 100%;
+                @include mq-medium {
+                    flex-wrap: wrap;
+                }
             }
             .main-searchbar {
                 flex-basis: 60%;
@@ -41,6 +44,10 @@
                 @include flex-center-vert;
                 justify-content: space-between;
                 gap: 30px;
+                @include mq-medium {
+                    flex-basis: 100%;
+                    justify-content: space-between;
+                }
                 .search-form {
                     flex-basis: calc(70% - 15px);
                 }
@@ -48,13 +55,15 @@
                     flex-basis: 20%;
                     @include flex-center-vert;
                     gap: 10px;
+                    margin-right: 20px;
                 }
             }
 
             .date {
                 flex-basis: 40%;
                 @include flex-center;
-                gap: 30px;
+                gap: 20px;
+                margin-right: 20px;
             }
             button {
                 border: 1px solid $primary;
@@ -80,17 +89,72 @@
                 @include flex-center-vert;
                 justify-content: space-between;
                 height: 100%;
+                gap: 25px;
+                @include mq-medium {
+                    @include flex-center;
+                }
+                & > div {
+                    max-width: calc((100% / 4) - 25px);
+                }
             }
             select {
-                width: 145px;
+                display: block;
                 height: 40px;
+                width: 160px;
                 padding: 5px 10px;
                 border: none;
                 border-radius: 10px;
                 background: $gray-100;
                 border: 1px solid $primaryLight;
+                @include mq-medium {
+                    width: 100px;
+                }
+            }
+
+            .multiselect {
+                width: 160px;
+                @include mq-medium {
+                    width: 100px;
+                }
+                .selectBox {
+                    position: relative;
+                    select {
+                        width: 100%;
+                    }
+                    .overSelect {
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0px;
+                        bottom: 0;
+                    }
+                }
+            }
+
+            #checkboxes {
+                height: 200px;
+                width: 200px;
+                display: none;
+                background: #fff;
+                box-shadow: 0 4px 15px rgba($gray-500, 0.15);
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 10px;
+                position: absolute;
+                top: auto;
+                overflow-y: auto;
+                .template-container {
+                    display: flex;
+                    gap: 10px;
+                }
+                label {
+                    &:hover {
+                        background-color: $primaryLighter;
+                    }
+                }
             }
         }
+
         .results {
             h3 {
                 font-family: "Mulish", Arial, Helvetica, sans-serif;
@@ -120,6 +184,9 @@
                     object-fit: cover;
                     margin-right: 25px;
                     border-radius: 10px;
+                    @include mq-small {
+                        width: 100px;
+                    }
                 }
                 .text {
                     height: 100%;
@@ -172,14 +239,16 @@
         }
         #map {
             position: fixed;
-            height: 100%;
+            height: calc(100vh - 85px);
             width: 100%;
-            @include mq-large {
+            max-width: 40%;
+            @media only screen and (max-width: 1160px) {
                 display: block;
                 position: relative;
                 height: 600px;
                 border-radius: 20px;
-                width: 75%;
+                max-width: 85%;
+                padding: 0 25px;
                 margin: 25px auto;
             }
         }
@@ -189,39 +258,5 @@
                 width: 80% !important;
             }
         }
-    }
-
-    .multiselect {
-        width: 200px;
-    }
-
-    .selectBox {
-        position: relative;
-    }
-
-    .selectBox select {
-        width: 100%;
-        font-weight: bold;
-    }
-
-    .overSelect {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
-
-    #checkboxes {
-        display: none;
-        border: 1px #dadada solid;
-    }
-
-    #checkboxes label {
-        display: block;
-    }
-
-    #checkboxes label:hover {
-        background-color: #1e90ff;
     }
 }
