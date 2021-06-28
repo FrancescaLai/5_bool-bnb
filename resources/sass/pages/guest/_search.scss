@@ -183,6 +183,12 @@
                 margin: 25px auto;
             }
         }
+        .mapboxgl-map{
+            width: 40% !important;
+            @include mq-large {
+                width: 80% !important;
+            }
+        }
     }
 
     .multiselect {

@@ -11574,6 +11574,14 @@ body {
     margin: 25px auto;
   }
 }
+#search-page #search .mapboxgl-map {
+  width: 40% !important;
+}
+@media only screen and (max-width: 992px) {
+  #search-page #search .mapboxgl-map {
+    width: 80% !important;
+  }
+}
 #search-page .multiselect {
   width: 200px;
 }
