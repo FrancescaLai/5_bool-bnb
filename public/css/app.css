@@ -12109,15 +12109,55 @@ body {
     margin-bottom: 45px;
   }
 }
+#apartment-main .apt-info .side-info .description {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+#apartment-main .apt-info .side-info .description__text p {
+  font-size: 16px;
+  color: #71717a;
+}
+#apartment-main .apt-info .side-info .description__features {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#apartment-main .apt-info .side-info .description__features > span {
+  display: flex;
+  align-items: center;
+}
+#apartment-main .apt-info .side-info .location {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+#apartment-main .apt-info .side-info .location ul {
+  -moz-column-count: 2;
+       column-count: 2;
+}
+#apartment-main .apt-info .side-info .location ul span {
+  font-size: 16px;
+  color: #71717a;
+}
 #apartment-main .apt-info .side-info .service-list {
   height: 150px;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+  overflow-y: auto;
+}
+#apartment-main .apt-info .side-info .service-list h5 {
+  padding-top: 20px;
+  position: sticky;
+  top: 0;
+  background-color: white;
 }
 #apartment-main .apt-info .side-info .service-list ul {
   -moz-column-count: 2;
        column-count: 2;
+  font-size: 16px;
+  color: #71717a;
 }
 #apartment-main .apt-info .side-info .apt-message {
   padding-top: 20px;
@@ -12126,14 +12166,13 @@ body {
   margin-bottom: 10px;
 }
 #apartment-main .apt-info .side-info .apt-message ul li p {
-  font-weight: bold;
   width: 410px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 #apartment-main .apt-info .side-info .apt-message ul li p span {
   font-weight: lighter;
+  font-size: 16px;
+  color: #71717a;
 }
 #apartment-main button:hover {
   color: #fff;
