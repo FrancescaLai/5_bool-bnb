@@ -52,12 +52,56 @@
                 width: 100%;
                 margin-bottom: 45px;
             }
-            .service-list {
-                height: 150px;
-                column-count: 2;
+            .description {
+                padding-top: 20px;
                 padding-bottom: 20px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-                overflow: hidden;
+                &__text {
+                    p {
+                        font-size: $body-md;
+                        color: $gray-600;
+                    }
+                }
+            }
+            .description__features {
+                margin-bottom: 20px;
+                @include flex-center-vert;
+                gap: 20px;
+                & > span {
+                    @include flex-center-vert;
+                }
+            }
+            .location{
+                padding-top: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                ul{
+                    column-count: 2;
+                    span{
+                        font-size: $body-md;
+                        color: $gray-600;
+                    }
+                }
+            }
+            .service-list {
+                height: 150px;
+                
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                overflow-y: auto;
+                
+                h5{
+                    padding-top: 20px;
+                    position: sticky;
+                    top: 0;
+                    background-color: white;
+                }
+                
+                ul{
+                    column-count: 2;
+                    font-size: $body-md;
+                    color: $gray-600;
+                }
             }
             .apt-message {
                 padding-top: 20px;
@@ -66,14 +110,13 @@
                     margin-bottom: 10px;
 
                     p {
-                        font-weight: bold;
                         width: 410px;
                         white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
 
                         span {
                             font-weight: lighter;
+                            font-size: $body-md;
+                            color: $gray-600;
                         }
                     }
                 }
