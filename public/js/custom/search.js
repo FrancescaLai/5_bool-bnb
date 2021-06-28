@@ -52,23 +52,17 @@ var app = new Vue({
         autoplay: null,
         priceOrder: '',
         count: 0,
-        numBedList: ['Tutti'],
-        selectedNumBed: 'Tutti',
-        numMqList: [
-            'Tutti'
-        ],
-        selectedMq: 'Tutti',
-        servicesList: [],
-        servicesList: [
-            'Tutti'
-        ],
-        selectedService: 'Tutti',
+        numBedList: ['Qualsiasi'],
+        selectedNumBed: 'Qualsiasi',
+        numMqList: ['Qualsiasi'],
+        selectedMq: 'Qualsiasi',
+        servicesList: ['Qualsiasi'],
+        selectedService: 'Qualsiasi',
         allServices: [],
         servicesNameArray: [],
         servicesApartment: [],
-        servicesDropdwon: false,
         checked: {
-            service: []
+            service: [],
         },
     },
 
@@ -206,13 +200,16 @@ var app = new Vue({
         },
 
         /**
-         * @description Funzione per filtrare gli appartamneti per i numeri di letti
+         * @description Funzione per resettare l'autoplay quando si cambia immagine
          */
         clearAutoplay: function() {
             clearInterval(this.autoplay);
             this.autoplay = setInterval(this.carouselNext, 4000);
         },
 
+        /**
+         * @description Funzione per filtrare gli appartamneti per i numeri di letti
+         */
         numBed: function () {
             while (this.count < this.myApartmentsResults.length) {
                 if (this.numBedList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1) {
@@ -224,11 +221,24 @@ var app = new Vue({
         },
 
         /**
+         * @description Funzione per filtrare gli appartamneti per i metri quadri
+         */
+        numMq: function(){
+            while (this.count < this.myApartmentsResults.length) {
+                if (this.numMqList.indexOf(this.myApartmentsResults[this.count].mq) == -1) {
+                    this.numMqList.push(this.myApartmentsResults[this.count].mq);
+                }
+                this.count++;
+            }
+            this.count = 0;
+        },
+
+        /**
          * @description Funzione per ordinare gli appartamenti per prezzo al giorno in ordine crescente o decrescente  
          * @param {} a 
          * @param {*} b 
          */
-        ordina: function (a, b) {
+        orderByPrice: function (a, b) {
             this.myApartmentsResults.sort((a, b) => {
                 if (this.priceOrder == "asc") {
                     return a.price_day - b.price_day;
@@ -238,44 +248,15 @@ var app = new Vue({
             });
         },
 
-        /**
-         * @description Funzione che 'dovrebbe' filtrare gli appartamenti per i servizi
-         */
-        isServices: function () {
-            while (this.count < this.myApartmentsResults.length) {
-                if (this.servicesList.indexOf(this.myApartmentsResults[this.count].num_bed) == -1) {
-                    this.servicesList.push(this.myApartmentsResults[this.count].num_bed);
-                }
-                this.count++;
-            }
-        },
-
-        /**
-         * 
-         * @description mostra/nasconde checkbox
-         * @returns results
-         */
-        showCheckboxes: function () {
-            var checkboxes = document.getElementById("checkboxes");
-            if (!this.servicesDropdwon) {
-                checkboxes.style.display = "block";
-                this.servicesDropdwon = true;
-            } else {
-                checkboxes.style.display = "none";
-                this.servicesDropdwon = false;
-            }
-        },
-
          /**
          * 
          * @description FILTRO SERVIZI
          * 
          */
-
         available: function(category) {
-        const categorySet = new Set([]);
-            for (var i = 0; i < this.myApartmentsResults.length; i++) {
-                this.myApartmentsResults[i][category].forEach(el => categorySet.add(el));
+            const categorySet = new Set([]);
+            for (var i = 0; i < this.myApartments.length; i++) {
+                this.myApartments[i][category].forEach(el => categorySet.add(el));
             }
             return [...categorySet];
         },
@@ -288,21 +269,6 @@ var app = new Vue({
                 return false;
             }
         },
-
-
-
-        /**
-         * @description Funzione che filtra gli appartamenti per i Mq
-         */
-        numMq: function(){
-            while (this.count < this.myApartmentsResults.length) {
-                if (this.numMqList.indexOf(this.myApartmentsResults[this.count].mq) == -1) {
-                    this.numMqList.push(this.myApartmentsResults[this.count].mq);
-                }
-                this.count++;
-            }
-            this.count = 0;
-        }
     },
 
     mounted: function () {
@@ -344,6 +310,7 @@ var app = new Vue({
                 this.servicesApartment = [];
             }
         });
+        
 
         // Carousel autoplay
         this.autoplay = setInterval(this.nextImage, 4000);
@@ -362,17 +329,9 @@ var app = new Vue({
         //     }
         // }
         service: function() {
-            return this.available("service").sort((a, b) => a -b);
-        }
-        
-    },
+            return this.available("service").sort((a, b) => a - b);
+        },
 
-    filters: {
-      capitalize: function (value) {
-        if (!value) return '';
-        value = value.toString();
-        return value.charAt(0).toUpperCase() + value.slice(1);
-      }
-    }
+    },
 
 })
