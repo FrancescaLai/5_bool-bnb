@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('pageTitle')
-    {{$apartment->name}}
+Boolbnb | {{$apartment->name}}
 @endsection
 
 @section('content')
-
+<main id="apartment-main">
 	<div class="container">
 		<h1>{{$apartment->name}}</h1>
 		
@@ -56,9 +56,8 @@
 				<button type="submit" class="btn btn-apt btn-delete"><i class="fas fa-trash"></i>Elimina</button>
 			</form>	
 		</div>
-	
 	</div>
-
+</main>
 @endsection
 
 @section('script')
@@ -67,6 +66,5 @@
 {{-- Vue cdn --}}
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 {{-- Custom script --}}
-<script src="{{asset('js\custom\navigation.js')}}"></script>
 <script src="{{asset('js\custom\search.js')}}"></script>
 @endsection

@@ -3,19 +3,29 @@
     left: 0;
     top: 0;
 
+    #navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        transition: top 0.3s;
+    }
+
     .m-header__wrapper {
-    width: 100%;
-    background: $primaryLighter;
-    @include flex-center;
-    height: 85px;
-    position: fixed;
-    z-index: 3;
-    
+        width: 100%;
+        background: $primaryLighter;
+        @include flex-center;
+        height: 85px;
+        position: fixed;
+        z-index: 100;
+
         h1 {
             font-family: "Mulish";
             font-size: 1.8rem;
-            line-height: 2.8rem;
             font-weight: 700;
+            margin-bottom: 0;
+            @include mq-medium {
+                display: none;
+            }
         }
         @media (min-width: 768px) {
             padding: 0 32px;
@@ -47,24 +57,13 @@
         left: 32px;
     }
 }
-.m-header__logo span {
-    display: block;
-    height: 0;
-    overflow: hidden;
-    position: relative;
-}
 .m-header__logo span > svg {
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+    display: none;
     object-fit: cover;
     object-position: center;
-}
-.m-header__logo svg {
-    fill: currentColor;
+    @include mq-medium {
+        display: block;
+    }
 }
 .m-header__nav {
     ul {
@@ -170,6 +169,7 @@
     visibility: hidden;
     pointer-events: none;
     transition: 0.2s;
+    z-index: 99;
 }
 
 .-menu-open .m-header__menu {

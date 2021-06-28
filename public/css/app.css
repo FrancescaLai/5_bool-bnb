@@ -10046,7 +10046,6 @@ main {
 button,
 button:focus,
 button:active,
-input:focus,
 [type=button],
 [type=reset],
 [type=submit] {
@@ -10248,12 +10247,15 @@ h3 {
 }
 
 #hero {
-  padding: 0 25px;
+  padding: 0;
 }
 @media (min-width: 768px) {
   #hero {
-    padding: 0 75px;
+    padding: 0 50px;
   }
+}
+#hero .container {
+  padding: 0 25px;
 }
 #hero .hero-wrapper {
   height: calc(100vh - 150px);
@@ -10275,15 +10277,10 @@ h3 {
 }
 @media only screen and (max-width: 992px) {
   #hero .hero-wrapper .hero-title {
-    top: 65px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  #hero .hero-wrapper .hero-title {
     text-align: center;
-    top: 45px;
+    top: 120px;
     left: 50%;
-    transform: translate(-50%);
+    transform: translateX(-50%);
   }
 }
 #hero .hero-wrapper .hero-title h2 {
@@ -10341,19 +10338,13 @@ h3 {
   color: #09244f;
 }
 #hero .hero-wrapper .hero-search form input[type=search] {
-  flex-basis: calc(35% - 25px);
+  flex-basis: 100%;
   border: none;
   background: #f2f4f8;
-}
-@media only screen and (max-width: 992px) {
-  #hero .hero-wrapper .hero-search form input[type=search] {
-    order: -1;
-  }
 }
 @media only screen and (max-width: 768px) {
   #hero .hero-wrapper .hero-search form input[type=search] {
     order: -1;
-    flex-basis: 100%;
   }
 }
 #hero .hero-wrapper .hero-search form input[type=date] {
@@ -10383,29 +10374,13 @@ h3 {
 #hero .hero-wrapper .hero-search form button:hover {
   color: #fff;
 }
-@media only screen and (max-width: 992px) {
-  #hero .hero-wrapper .hero-search form button {
-    order: 1;
-  }
-  #hero .hero-wrapper .hero-search form button span {
-    display: none;
-  }
-}
 @media only screen and (max-width: 768px) {
   #hero .hero-wrapper .hero-search form button {
     order: 2;
   }
-  #hero .hero-wrapper .hero-search form button span {
-    display: block;
-  }
 }
 #hero .hero-wrapper .hero-search form button svg {
   margin-right: 8px;
-}
-@media only screen and (max-width: 992px) {
-  #hero .hero-wrapper .hero-search form button svg {
-    margin: 0;
-  }
 }
 @media only screen and (max-width: 768px) {
   #hero .hero-wrapper .hero-search form button svg {
@@ -10415,7 +10390,7 @@ h3 {
 
 .main-dropdown {
   position: absolute;
-  bottom: 90px;
+  bottom: 80px;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -10424,6 +10399,17 @@ h3 {
   background: #fff;
   padding: 25px;
   border-radius: 10px;
+}
+.main-dropdown li:first-child {
+  padding: 15px 0;
+  border-bottom: 1px solid #d4d4d8;
+  font-size: 14px;
+  font-weight: 600;
+}
+.main-dropdown li {
+  font-size: 12px;
+  color: #71717a;
+  padding: 5px 0;
 }
 
 .advanced-dropdown {
@@ -10437,6 +10423,7 @@ h3 {
   padding: 10px 25px 25px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(161, 161, 170, 0.25);
+  z-index: 10;
 }
 .advanced-dropdown li:first-child {
   padding: 15px 0;
@@ -10450,10 +10437,18 @@ h3 {
 }
 
 footer {
+  position: relative;
   background-color: #f4f7fe;
   padding-bottom: 75px;
   padding-top: 40px;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+footer h3 {
+  font-family: "Mulish";
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  font-weight: 700;
 }
 footer .row {
   display: flex;
@@ -10486,6 +10481,12 @@ footer .row div[class^=col] a.joinCommunity {
   left: 0;
   top: 0;
 }
+.m-header #navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: top 0.3s;
+}
 .m-header .m-header__wrapper {
   width: 100%;
   background: #f4f7fe;
@@ -10494,13 +10495,18 @@ footer .row div[class^=col] a.joinCommunity {
   justify-content: center;
   height: 85px;
   position: fixed;
-  z-index: 3;
+  z-index: 100;
 }
 .m-header .m-header__wrapper h1 {
   font-family: "Mulish";
   font-size: 1.8rem;
-  line-height: 2.8rem;
   font-weight: 700;
+  margin-bottom: 0;
+}
+@media only screen and (max-width: 768px) {
+  .m-header .m-header__wrapper h1 {
+    display: none;
+  }
 }
 @media (min-width: 768px) {
   .m-header .m-header__wrapper {
@@ -10539,28 +10545,17 @@ footer .row div[class^=col] a.joinCommunity {
   }
 }
 
-.m-header__logo span {
-  display: block;
-  height: 0;
-  overflow: hidden;
-  position: relative;
-}
-
 .m-header__logo span > svg {
-  display: block;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
+  display: none;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
-
-.m-header__logo svg {
-  fill: currentColor;
+@media only screen and (max-width: 768px) {
+  .m-header__logo span > svg {
+    display: block;
+  }
 }
 
 .m-header__nav ul {
@@ -10675,6 +10670,7 @@ footer .row div[class^=col] a.joinCommunity {
   visibility: hidden;
   pointer-events: none;
   transition: 0.2s;
+  z-index: 99;
 }
 
 .-menu-open .m-header__menu {
@@ -11298,20 +11294,25 @@ body {
   background-size: cover;
 }
 
-.register .title-register {
+#main-register .register .title-register {
   background-color: white;
   border-bottom: 0px;
   text-align: center;
 }
-.register .title-register h2 {
+#main-register .register .title-register h2 {
   color: #09244f;
   font-size: 34px;
 }
-.register .title-register h5 {
+#main-register .register .title-register h5 {
   color: #bec8de;
 }
-.register .body-register button {
+#main-register .register .body-register button {
   width: 100%;
+  transition: 250ms ease-in-out;
+}
+#main-register .register .body-register button:hover {
+  transform: unset;
+  color: #fff;
 }
 
 #login .card {
@@ -11377,13 +11378,26 @@ body {
 #search-page #search {
   display: flex;
   z-index: 100;
-  min-height: calc(100vh - 205px);
+}
+@media only screen and (max-width: 992px) {
+  #search-page #search {
+    display: block;
+  }
 }
 #search-page #search .search__results {
-  width: 60%;
+  min-height: 100vh;
+  flex-basis: 60%;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 992px) {
   #search-page #search .search__results {
+    width: 100%;
+  }
+}
+#search-page #search .search__map {
+  flex-basis: 40%;
+}
+@media only screen and (max-width: 992px) {
+  #search-page #search .search__map {
     width: 100%;
   }
 }
@@ -11395,7 +11409,7 @@ body {
 #search-page #search .searchbar input:not([type=range]) {
   height: 45px;
   border: none;
-  padding-left: 8px;
+  padding: 8px 10px;
   background: #f4f4f5;
   border-radius: 10px;
   color: grey;
@@ -11407,15 +11421,28 @@ body {
   height: 100%;
 }
 #search-page #search .searchbar .main-searchbar {
+  flex-basis: 60%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
 }
-#search-page #search .searchbar .range {
+#search-page #search .searchbar .main-searchbar .search-form {
+  flex-basis: calc(70% - 15px);
+}
+#search-page #search .searchbar .main-searchbar .range {
+  flex-basis: 20%;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-#search-page #search .searchbar .range label {
-  display: block;
+#search-page #search .searchbar .date {
+  flex-basis: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 #search-page #search .searchbar button {
   border: 1px solid #076cf9;
@@ -11532,10 +11559,20 @@ body {
 #search-page #search .results .card-apartment__price a:hover {
   color: #076cf9;
 }
-#search-page #search .search-map #map {
+#search-page #search #map {
   position: fixed;
-  height: 70%;
-  width: 39%;
+  height: 100%;
+  width: 100%;
+}
+@media only screen and (max-width: 992px) {
+  #search-page #search #map {
+    display: block;
+    position: relative;
+    height: 600px;
+    border-radius: 20px;
+    width: 75%;
+    margin: 25px auto;
+  }
 }
 #search-page .multiselect {
   width: 200px;
@@ -11777,150 +11814,158 @@ body {
   color: #fff;
 }
 
-.navbar-back a {
+#dashboard-main {
+  margin: 25px 0;
+}
+#dashboard-main .navbar-back a {
   font-family: "Mulish";
   font-size: 1.8rem;
   line-height: 2.8rem;
   font-weight: 700;
 }
-
-.dashboard h1,
-.dashboard h3 {
+#dashboard-main .dashboard h1,
+#dashboard-main .dashboard h3 {
   font-family: "Mulish", Arial, Helvetica, sans-serif;
   color: #1b1b1b;
+  margin: 0;
 }
-.dashboard h1 {
+#dashboard-main .dashboard h1 {
   font-size: 24px;
   font-weight: 700;
   margin-right: 30px;
 }
-.dashboard h3 {
+#dashboard-main .dashboard h3 {
   font-size: 18px;
   font-weight: 700;
 }
-.dashboard section {
+#dashboard-main .dashboard section {
   margin-bottom: 30px;
 }
-.dashboard section .card {
+#dashboard-main .dashboard section .card {
   border: none;
   border-radius: 10px;
 }
-.dashboard section .card__header {
+#dashboard-main .dashboard section .card__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 22px 30px;
   height: 80px;
 }
-.dashboard section .card__main {
+#dashboard-main .dashboard section .card__main {
   padding: 5px 30px 25px 30px;
   height: 420px;
 }
-.dashboard .title {
+#dashboard-main .dashboard .title {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
-.dashboard .title__text, .dashboard .title__date {
+#dashboard-main .dashboard .title__text, #dashboard-main .dashboard .title__date {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.dashboard .title__text {
+#dashboard-main .dashboard .title__text {
   color: #bec8de;
 }
-.dashboard .title__date p {
+#dashboard-main .dashboard .title__date p {
   margin-left: 10px;
   font-weight: 500;
 }
-.dashboard .create .btn {
+#dashboard-main .dashboard .create .btn {
   display: flex;
   align-items: center;
   padding: 10px 15px;
   border-radius: 5px;
   border: none;
-  background-color: #09244f;
+  background-color: #076cf9;
 }
-.dashboard .create .btn:hover {
+#dashboard-main .dashboard .create .btn:hover {
   color: white;
 }
-.dashboard .create .btn span {
+#dashboard-main .dashboard .create .btn span {
   font-size: 0.8rem;
   margin-right: 8px;
 }
-.dashboard .user-info table {
+#dashboard-main .dashboard .user-info table {
   width: 100%;
 }
-.dashboard .user-info table th,
-.dashboard .user-info table td {
+#dashboard-main .dashboard .user-info table th,
+#dashboard-main .dashboard .user-info table td {
   padding: 5px;
   text-align: left;
 }
-.dashboard .apartments .table-borderless .thead {
-  background-color: #bec8de;
+#dashboard-main .dashboard .apartments .table-borderless .thead {
+  background-color: #f4f7fe;
 }
-.dashboard .apartments .table-borderless .thead th {
-  color: #09244f;
+#dashboard-main .dashboard .apartments .table-borderless .thead th {
+  color: #1b1b1b;
 }
 @media only screen and (max-width: 768px) {
-  .dashboard .apartments .table-borderless .dn-medium {
+  #dashboard-main .dashboard .apartments .table-borderless .dn-medium {
     display: none;
   }
 }
 @media only screen and (max-width: 576px) {
-  .dashboard .apartments .table-borderless .dn-small {
+  #dashboard-main .dashboard .apartments .table-borderless .dn-small {
     display: none;
   }
 }
-.dashboard .apartments .table tbody {
+#dashboard-main .dashboard .apartments .table tbody {
   display: block;
   height: 300px;
   overflow: auto;
 }
-.dashboard .apartments .table tbody td {
+#dashboard-main .dashboard .apartments .table tbody td {
   border: none;
   width: 100%;
+  vertical-align: middle;
 }
-.dashboard .apartments .table tbody img {
+#dashboard-main .dashboard .apartments .table tbody img {
   height: 60px;
   width: 100px;
 }
-.dashboard .apartments .table tbody button {
+#dashboard-main .dashboard .apartments .table tbody button {
   all: unset;
   padding: 5px 10px;
   border-radius: 10px;
   border: 1px solid #bec8de;
   color: #09244f;
 }
-.dashboard .apartments .table thead, .dashboard .apartments .table tbody tr {
+#dashboard-main .dashboard .apartments .table thead,
+#dashboard-main .dashboard .apartments .table tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
-.dashboard .messages .table-borderless .thead {
-  background-color: #bec8de;
+#dashboard-main .dashboard .messages .table-borderless .thead {
+  background-color: #f4f7fe;
 }
-.dashboard .messages .table-borderless .thead tr th {
+#dashboard-main .dashboard .messages .table-borderless .thead tr th {
   color: #09244f;
 }
-.dashboard .messages .card__main .table tbody {
+#dashboard-main .dashboard .messages .card__main .table tbody {
   display: block;
   height: 300px;
   overflow: auto;
 }
-.dashboard .messages .card__main .table thead, .dashboard .messages .card__main .table tbody tr {
+#dashboard-main .dashboard .messages .card__main .table thead,
+#dashboard-main .dashboard .messages .card__main .table tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
-.dashboard .messages .card__main th, .dashboard .messages .card__main td {
+#dashboard-main .dashboard .messages .card__main th,
+#dashboard-main .dashboard .messages .card__main td {
   vertical-align: middle;
 }
-.dashboard .sponsorization ul {
+#dashboard-main .dashboard .sponsorization ul {
   overflow-y: auto;
   height: 100%;
 }
-.dashboard .sponsorization li {
+#dashboard-main .dashboard .sponsorization li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11931,121 +11976,145 @@ body {
   border-radius: 10px;
   margin-bottom: 15px;
 }
-.dashboard .sponsorization li div {
+#dashboard-main .dashboard .sponsorization li div {
   width: 30%;
 }
 
-.form-create {
-  display: flex;
-  max-width: 700px;
+#main-create {
+  margin: unset;
+  margin: 25px auto;
 }
-.form-create .form-control {
+#main-create h2,
+#main-create h3 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+#main-create form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main-create textarea {
+  resize: none;
+}
+#main-create button[type=submit] {
+  margin-top: 25px;
+}
+#main-create .form-create {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+}
+#main-create .form-create .form-control {
   padding: 1.375rem 0.75rem;
 }
-.form-create .form-control:focus {
+#main-create .form-create .form-control:focus {
   box-shadow: none;
   border-color: #52525b;
 }
-.form-create .input-img {
+#main-create .form-create .input-img {
   padding: 1.375rem 0rem;
 }
-
-.service-column {
+#main-create .service-column {
   -moz-column-count: 2;
        column-count: 2;
 }
 
-.form-edit {
+#main-edit {
+  margin: unset;
+  margin: 25px auto;
+}
+#main-edit .form-edit {
   max-width: 700px;
 }
-.form-edit .form-control {
+#main-edit .form-edit .form-control {
   padding: 1.375rem 0.75rem;
 }
-.form-edit .form-control:focus {
+#main-edit .form-edit .form-control:focus {
   box-shadow: none;
   border-color: #52525b;
 }
-.form-edit img {
+#main-edit .form-edit img {
   width: 60px;
   height: 60px;
   margin-right: 10px;
 }
-
-.service-column {
+#main-edit .service-column {
   -moz-column-count: 2;
        column-count: 2;
   margin-bottom: 30px;
 }
 
+#apartment-main {
+  margin: 25px 0;
+}
 @media (max-width: 1200px) {
-  .container {
+  #apartment-main container {
     padding: 0px 80px;
   }
 }
-
-h1 {
+#apartment-main h1 {
   margin-bottom: 30px;
 }
 @media (max-width: 1200px) {
-  h1 {
+  #apartment-main h1 {
     font-size: 34px;
   }
 }
 @media (max-width: 576px) {
-  h1 {
+  #apartment-main h1 {
     font-size: 24px;
   }
 }
-
-h5 {
+#apartment-main h5 {
   margin-bottom: 20px;
   font-weight: bold;
   color: #09244f;
 }
 @media (max-width: 768px) {
-  h5 {
+  #apartment-main h5 {
     font-size: 24px;
   }
 }
-
-.apt-info {
+#apartment-main .apt-info {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
 @media (max-width: 1200px) {
-  .apt-info {
+  #apartment-main .apt-info {
     display: block;
   }
 }
-.apt-info .apt-img {
+#apartment-main .apt-info .apt-img {
   width: 500px;
   margin: 5px 50px 45px 0px;
 }
 @media (max-width: 1200px) {
-  .apt-info .apt-img {
+  #apartment-main .apt-info .apt-img {
     width: 100%;
   }
 }
-.apt-info .apt-img img {
+#apartment-main .apt-info .apt-img img {
   width: 100%;
   border-radius: 8px;
 }
-.apt-info .side-info {
+#apartment-main .apt-info .side-info {
   height: 375px;
   width: 50%;
   background-color: white;
   padding: 30px;
   border-radius: 8px;
   overflow-y: auto;
+  box-shadow: 0 4px 15px rgba(161, 161, 170, 0.15);
 }
 @media (max-width: 1200px) {
-  .apt-info .side-info {
+  #apartment-main .apt-info .side-info {
     width: 100%;
     margin-bottom: 45px;
   }
 }
-.apt-info .side-info .service-list {
+#apartment-main .apt-info .side-info .service-list {
   height: 150px;
   -moz-column-count: 2;
        column-count: 2;
@@ -12053,25 +12122,27 @@ h5 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
-.apt-info .side-info .apt-message {
+#apartment-main .apt-info .side-info .apt-message {
   padding-top: 20px;
 }
-.apt-info .side-info .apt-message ul li {
+#apartment-main .apt-info .side-info .apt-message ul li {
   margin-bottom: 10px;
 }
-.apt-info .side-info .apt-message ul li p {
+#apartment-main .apt-info .side-info .apt-message ul li p {
   font-weight: bold;
   width: 410px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.apt-info .side-info .apt-message ul li p span {
+#apartment-main .apt-info .side-info .apt-message ul li p span {
   font-weight: lighter;
 }
-
+#apartment-main button:hover {
+  color: #fff;
+}
 @media (max-width: 992px) {
-  .btn-edit-apt {
+  #apartment-main .btn-edit-apt {
     display: flex;
     justify-content: space-between;
   }

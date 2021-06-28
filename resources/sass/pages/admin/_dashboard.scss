@@ -1,173 +1,189 @@
-.navbar-back {
-    a {
-        font-family: "Mulish";
-        font-size: 1.8rem;
-        line-height: 2.8rem;
-        font-weight: 700;
+#dashboard-main {
+    margin: 25px 0;
+    .navbar-back {
+        a {
+            font-family: "Mulish";
+            font-size: 1.8rem;
+            line-height: 2.8rem;
+            font-weight: 700;
+        }
     }
-}
 
-.dashboard {
-    h1,
-    h3 {
-        font-family: "Mulish", Arial, Helvetica, sans-serif;
-        color: $primaryDarker;
-    }
-    h1 {
-        font-size: $title-xs;
-        font-weight: 700;
-        margin-right: 30px;
-    }
-    h3 {
-        font-size: $body-lg;
-        font-weight: 700;
-    }
-    section {
-        margin-bottom: 30px;
-        .card {
-            border: none;
-            border-radius: 10px;
-            &__header {
-                @include flex-center-vert;
-                justify-content: space-between;
-                padding: 22px 30px;
-                height: 80px;
-            }
-            &__main {
-                padding: 5px 30px 25px 30px;
-                height: 420px;
-            }
+    .dashboard {
+        h1,
+        h3 {
+            font-family: "Mulish", Arial, Helvetica, sans-serif;
+            color: $primaryDarker;
+            margin: 0;
         }
-    }
-    .title {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1.5rem;
-        &__text,
-        &__date {
-            @include flex-center;
+        h1 {
+            font-size: $title-xs;
+            font-weight: 700;
+            margin-right: 30px;
         }
-        &__text {
-            color: $primaryLight;
+        h3 {
+            font-size: $body-lg;
+            font-weight: 700;
         }
-        &__date {
-            p {
-                margin-left: 10px;
-                font-weight: 500;
+        section {
+            margin-bottom: 30px;
+            .card {
+                border: none;
+                border-radius: 10px;
+                &__header {
+                    @include flex-center-vert;
+                    justify-content: space-between;
+                    padding: 22px 30px;
+                    height: 80px;
+                }
+                &__main {
+                    padding: 5px 30px 25px 30px;
+                    height: 420px;
+                }
             }
         }
-    }
-    .create{
-        .btn {
+        .title {
             @include flex-center-vert;
-            padding: 10px 15px;
-            border-radius: 5px;
-            border: none;
-            background-color: $primaryDark;
-            &:hover {
-                color: white;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            &__text,
+            &__date {
+                @include flex-center;
             }
-            span{
-                font-size: 0.8rem;
-                margin-right: 8px;
+            &__text {
+                color: $primaryLight;
             }
-        }
-    }
-    .user-info {
-        table {
-            width: 100%;
-            th,
-            td {
-                padding: 5px;
-                text-align: left;
-            }
-        }
-    }
-    .apartments {
-        .table-borderless{
-            .thead{
-                background-color: $primaryLight;
-                th{color: $primaryDark;}
-            }
-            @include mq-medium{
-                .dn-medium{display: none;}
-            }
-            @include mq-small{
-                .dn-small{display: none;}
-            }
-        }
-        .table {
-            tbody {
-                display: block;
-                height: 300px;
-                overflow: auto;
-                td {
-                    border: none;
-                    width: 100%;
-                }
-                img {
-                    height: 60px;
-                    width: 100px;
-                }
-                button{
-                    all:unset;
-                    padding: 5px 10px;
-                    border-radius: 10px;
-                    border: 1px solid $primaryLight;
-                    color: $primaryDark;
+            &__date {
+                p {
+                    margin-left: 10px;
+                    font-weight: 500;
                 }
             }
-
-            thead, tbody tr{
-                display: table;
+        }
+        .create {
+            .btn {
+                @include flex-center-vert;
+                padding: 10px 15px;
+                border-radius: 5px;
+                border: none;
+                background-color: $primary;
+                &:hover {
+                    color: white;
+                }
+                span {
+                    font-size: 0.8rem;
+                    margin-right: 8px;
+                }
+            }
+        }
+        .user-info {
+            table {
                 width: 100%;
-                table-layout: fixed;
-            }
-            
-
-        }
-    }
-    .messages{
-        .table-borderless{
-            .thead{
-                background-color: $primaryLight;
-                tr{th{color: $primaryDark;}}
+                th,
+                td {
+                    padding: 5px;
+                    text-align: left;
+                }
             }
         }
-        .card__main{
-            .table{
-                tbody{
+        .apartments {
+            .table-borderless {
+                .thead {
+                    background-color: $primaryLighter;
+                    th {
+                        color: $primaryDarker;
+                    }
+                }
+                @include mq-medium {
+                    .dn-medium {
+                        display: none;
+                    }
+                }
+                @include mq-small {
+                    .dn-small {
+                        display: none;
+                    }
+                }
+            }
+            .table {
+                tbody {
                     display: block;
                     height: 300px;
                     overflow: auto;
+                    td {
+                        border: none;
+                        width: 100%;
+                        vertical-align: middle;
+                    }
+                    img {
+                        height: 60px;
+                        width: 100px;
+                    }
+                    button {
+                        all: unset;
+                        padding: 5px 10px;
+                        border-radius: 10px;
+                        border: 1px solid $primaryLight;
+                        color: $primaryDark;
+                    }
                 }
-                thead, tbody tr{
+
+                thead,
+                tbody tr {
                     display: table;
                     width: 100%;
                     table-layout: fixed;
                 }
             }
-            th, td{
-                vertical-align: middle;
+        }
+        .messages {
+            .table-borderless {
+                .thead {
+                    background-color: $primaryLighter;
+                    tr {
+                        th {
+                            color: $primaryDark;
+                        }
+                    }
+                }
+            }
+            .card__main {
+                .table {
+                    tbody {
+                        display: block;
+                        height: 300px;
+                        overflow: auto;
+                    }
+                    thead,
+                    tbody tr {
+                        display: table;
+                        width: 100%;
+                        table-layout: fixed;
+                    }
+                }
+                th,
+                td {
+                    vertical-align: middle;
+                }
             }
         }
-    }
-    .sponsorization {
-        ul {
-            overflow-y: auto;
-            height: 100%;
-        }
-        li {
-            @include flex-center;
-            justify-content: space-between;
-            background: $primaryLighter;
-            color: $primaryDark;
-            padding: 10px 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
+        .sponsorization {
+            ul {
+                overflow-y: auto;
+                height: 100%;
+            }
+            li {
+                @include flex-center;
+                justify-content: space-between;
+                background: $primaryLighter;
+                color: $primaryDark;
+                padding: 10px 20px;
+                border-radius: 10px;
+                margin-bottom: 15px;
 
-            div{
-                width: 30%;
+                div {
+                    width: 30%;
+                }
             }
         }
     }

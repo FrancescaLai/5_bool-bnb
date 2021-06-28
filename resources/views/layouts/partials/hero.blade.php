@@ -10,7 +10,7 @@
     {{-- Searchbar --}}
     <div class="hero-search">
       <form method="GET" name="form" action="{{route('guest.search')}}">
-        <input type="search" name="location" class="search-form" placeholder="Location" v-model="query" v-on:keydown="radiusSearch">
+        <input type="search" name="location" id="location" class="search-form" placeholder="Dove vuoi andare?" v-model="query" v-on:keydown="radiusSearch">
         <input type="date" class="search-form" placeholder="Check in">
         <input type="date" class="search-form" placeholder="Check out">
         <button class="btn btn-full" type="submit" value="Submit">
@@ -21,7 +21,8 @@
         </button>
       </form>
       {{-- Dropdwon results --}}
-      <ul v-if="dropdownResults" :class="dropdownResults == true ? 'main-dropdown' : '-hide'">
+      <ul v-if="dropdownResults && query != ''" :class="dropdownResults == true ? 'main-dropdown' : '-hide'">
+        <li v-cloak>Results for "@{{query}}"</li>
         <li v-for="(item, index) in radiusResults" v-cloak>
           <a v-on:click="getPosition(index)">@{{item.address.freeformAddress}}, @{{item.address.countrySecondarySubdivision}}, @{{item.address.countrySubdivision}}</a>
         </li>

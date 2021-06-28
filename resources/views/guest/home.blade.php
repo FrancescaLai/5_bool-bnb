@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pageTitle')
-boolbnb | Homepage
+Boolbnb | Homepage
 @endsection
 
 @section('content')
@@ -83,9 +83,9 @@ boolbnb | Homepage
                </a>
             </div>
             <div class="slider col-12 col-md-6">
-               <div class="slider-wrapper" data-tilt v-cloak>
+               <div class="slider-wrapper" data-tilt data-tilt-full-page-listening v-cloak>
                   <div class="images">
-                     <img :src="images[imgIndex].url" :alt="images[imgIndex].name">
+                     <img :src="images[imgIndex].url" :alt="images[imgIndex].name" loading="lazy">
                   </div>
                   <div class="arrows">
                      <button v-on:click="prevImage(); clearAutoplay()">
@@ -102,7 +102,7 @@ boolbnb | Homepage
                   <div class="rewiews">
                      <div class="rewiew">
                         <div class="rewiew__img">
-                           <img :src="images[imgIndex].firstUserImg" alt="images[imgIndex].firstUser">
+                           <img :src="images[imgIndex].firstUserImg" alt="images[imgIndex].firstUser" loading="lazy">
                         </div>
                         <div class="rewiew__info">
                            <p class="name">@{{ images[imgIndex].firstUser }}</p>
@@ -118,7 +118,7 @@ boolbnb | Homepage
                      </div>
                      <div class="rewiew">
                         <div class="rewiew__img">
-                           <img :src="images[imgIndex].secondUserImg" alt="images[imgIndex].secondUser">
+                           <img :src="images[imgIndex].secondUserImg" alt="images[imgIndex].secondUser" loading="lazy">
                         </div>
                         <div class="rewiew__info">
                            <p class="name">@{{ images[imgIndex].secondUser }}</p>
@@ -170,16 +170,16 @@ boolbnb | Homepage
                <div class="glide__track" data-glide-el="track">
                  <ul class="glide__slides">
                    <li class="glide__slide">
-                     <img src="{{asset('images/showcase-1.jpg')}}" alt="#">
+                     <img src="{{asset('images/showcase-1.jpg')}}" alt="#" loading="lazy">
                    </li>
                    <li class="glide__slide">
-                     <img src="{{asset('images/showcase-2.jpg')}}" alt="#">
+                     <img src="{{asset('images/showcase-2.jpg')}}" alt="#" loading="lazy">
                    </li>
                    <li class="glide__slide">
-                     <img src="{{asset('images/showcase-3.jpg')}}" alt="#">
+                     <img src="{{asset('images/showcase-3.jpg')}}" alt="#" loading="lazy">
                    </li>
                    <li class="glide__slide">
-                     <img src="{{asset('images/showcase-4.jpg')}}" alt="#">
+                     <img src="{{asset('images/showcase-4.jpg')}}" alt="#" loading="lazy">
                    </li>
                  </ul>
                </div>
@@ -211,6 +211,10 @@ boolbnb | Homepage
 </main>
 @endsection
 
+@section('cursor')
+   <div class="cursor"></div>
+@endsection
+
 @section('script')
 {{-- Axios cdn --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -221,4 +225,13 @@ boolbnb | Homepage
 <script src="{{asset('js\custom\search.js')}}"></script>
 <script src="{{asset('js\vendors\vanilla-tilt.js')}}"></script>
 <script src="{{asset('js\vendors\glide.js')}}"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+   ScrollReveal({ reset: true });
+   ScrollReveal().reveal('#categories', { delay: 1000, distance: '100px'});
+   ScrollReveal().reveal('#slider', { delay: 1000, distance: '100px'});
+   ScrollReveal().reveal('#featured', { delay: 1000, distance: '100px'});
+   ScrollReveal().reveal('#showcase', { delay: 1000, distance: '100px'});
+   ScrollReveal().reveal('#join', { delay: 1000, distance: '100px'});
+</script>
 @endsection
