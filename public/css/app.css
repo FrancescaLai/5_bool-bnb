@@ -12183,3 +12183,9 @@ body {
     justify-content: space-between;
   }
 }
+
+.alert-text {
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+}

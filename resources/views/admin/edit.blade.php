@@ -100,10 +100,12 @@ Boolbnb | Edit -> {{$apartment->name}}
                     </div>
                 @endforeach
             </div>
+            
             <div class="mt-2">
                 <button type="submit" class="btn btn-primary">Modifica</button>
             </div>
         </form>
+
     </div>
 </main>
 @endsection

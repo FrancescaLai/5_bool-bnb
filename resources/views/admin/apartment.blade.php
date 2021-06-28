@@ -106,12 +106,43 @@ Boolbnb | {{$apartment->name}}
 				<button type="button" class="btn btn-apt btn-edit"><i class="fas fa-pencil-alt"></i>Modifica</button>
 			</a>
 				
-			<form action="{{route('admin.destroy', [ 'apartment' => $apartment->id ])}}" method="POST" class="d-inline">
+			{{-- <form action="{{route('admin.destroy', [ 'apartment' => $apartment->id ])}}" method="POST" class="d-inline">
 				@csrf
-				@method('DELETE')
-				<button type="submit" class="btn btn-apt btn-delete"><i class="fas fa-trash"></i>Elimina</button>
-			</form>	
+				@method('DELETE') --}}
+				<button data-toggle="modal" data-target="#exampleModal" type="submit" class="btn btn-apt btn-delete"><i class="fas fa-trash"></i>Elimina</button>
+			{{-- </form>	 --}}
 		</div>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel">Sei sicuro di voler cancellare questo appartamento?</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-footer">
+					<form action="{{route('admin.destroy', [ 'apartment' => $apartment->id ])}}" method="POST" class="d-inline">
+						@csrf
+						@method('DELETE')
+						<button type="submit" class="btn btn-primary">Si</button>
+					</form>	
+				  	<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+		{{-- Pop up message succes --}}
+		@if (session('message'))
+		<div class="alert-text alert alert-success">
+			{{ session('message')}}
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+		</div>
+	@endif	
 	</div>
 </main>
 @endsection
