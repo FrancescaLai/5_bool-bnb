@@ -50,6 +50,7 @@ Boolbnb | Ricerca avanzata
                         <label for="price">Prezzo</label>
                         <select v-on:click="orderByPrice" v-model="priceOrder">
                             <optgroup label="Prezzo">
+                                <option value="" disabled>Filtra per</option>
                                 <option value="asc">Dal più economico</option>
                                 <option value="dis">Dal più costoso</option>
                             </optgroup>
