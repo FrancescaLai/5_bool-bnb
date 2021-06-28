@@ -54,10 +54,13 @@
             }
             .service-list {
                 height: 150px;
-                column-count: 2;
                 padding-bottom: 20px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 overflow: hidden;
+
+                ul{
+                    column-count: 2;
+                }
             }
             .apt-message {
                 padding-top: 20px;
