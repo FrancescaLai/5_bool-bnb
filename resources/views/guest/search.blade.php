@@ -64,9 +64,13 @@ Boolbnb | Ricerca avanzata
                         </select>
                     </div> --}}
                     {{-- servizi --}}
-                        <h3>Servizi</h3>
+                        {{-- <h3>Servizi</h3>
                         <template v-for="service in servicesNameArray">
                             <input :id="service" type="checkbox" :value="service" v-model="checked.servicesNameArray"><label :for="service" >@{{ service }}</label>
+                        </template> --}}
+                        <h3>Size</h3>
+                        <template v-for="service in servicesNameArray">
+                            <input :id="service" type="checkbox" :value="service" v-model="checked.service"><label :for="service" >@{{ service }}</label>
                         </template>
                     {{-- <div>
                         <label for="num_bed">Servizi</label><br>
@@ -105,10 +109,15 @@ Boolbnb | Ricerca avanzata
             <div class="results">
                 <div class="large-container">
                     <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
+                    <ul v-if="myApartmentsResults.length != []">
+                        <li v-for="apartment in myApartmentsResults "  v-show="visible(apartment.services)" class="card-apartment">
+                            <h3>@{{ apartment.name }}</h3>
+                            {{-- <p>Sizes: <template v-for="(service, index) in myApartments.service">@{{ service }}@{{ index == myApartments.service.length - 1 ? '' : ', ' }}</template></p> --}}
+                        </li>
+                    </ul> 
 
-                        <ul v-if="myApartmentsResults.length != []">
-                            <li v-for="apartment in myApartmentsResults "  v-show="visible(apartment.services)" class="card-apartment">
-                                <div class="card-apartment__info">
+
+                                {{-- <div class="card-apartment__info">
                                     <img :src="apartment.image" :alt="apartment.name">
                                     <div class="text">
                                         <div class="text__info">
@@ -136,12 +145,10 @@ Boolbnb | Ricerca avanzata
                                         <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
                                     </div>
                                 </div>
-                            </li>
-                        </ul> 
                           
                     <div v-else-if="isQueryActive == true">
                         <p>Non esistono appartamenti disponibili in questa zona</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div> 
 
@@ -332,6 +339,9 @@ Boolbnb | Ricerca avanzata
 @endsection
 
 @section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
 {{-- Axios cdn --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {{-- Vue cdn --}}

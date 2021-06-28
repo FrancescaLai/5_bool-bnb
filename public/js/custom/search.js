@@ -68,7 +68,7 @@ var app = new Vue({
         servicesApartment: [],
         servicesDropdwon: false,
         checked: {
-            service: [],
+            service: []
         },
     },
 
@@ -271,10 +271,11 @@ var app = new Vue({
          * @description FILTRO SERVIZI
          * 
          */
+
         available: function(category) {
-            const categorySet = new Set([]);
-            for (var i = 0; i < this.myApartments.length; i++) {
-                this.myApartments[i][category].forEach(el => categorySet.add(el));
+        const categorySet = new Set([]);
+            for (var i = 0; i < this.myApartmentsResults.length; i++) {
+                this.myApartmentsResults[i][category].forEach(el => categorySet.add(el));
             }
             return [...categorySet];
         },
@@ -343,7 +344,6 @@ var app = new Vue({
                 this.servicesApartment = [];
             }
         });
-        
 
         // Carousel autoplay
         this.autoplay = setInterval(this.nextImage, 4000);
@@ -364,6 +364,15 @@ var app = new Vue({
         service: function() {
             return this.available("service").sort((a, b) => a -b);
         }
+        
     },
+
+    filters: {
+      capitalize: function (value) {
+        if (!value) return '';
+        value = value.toString();
+        return value.charAt(0).toUpperCase() + value.slice(1);
+      }
+    }
 
 })
