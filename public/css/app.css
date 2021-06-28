@@ -11989,11 +11989,6 @@ body {
   text-align: center;
   margin-bottom: 25px;
 }
-#main-create form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 #main-create textarea {
   resize: none;
 }
@@ -12116,11 +12111,13 @@ body {
 }
 #apartment-main .apt-info .side-info .service-list {
   height: 150px;
-  -moz-column-count: 2;
-       column-count: 2;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   overflow: hidden;
+}
+#apartment-main .apt-info .side-info .service-list ul {
+  -moz-column-count: 2;
+       column-count: 2;
 }
 #apartment-main .apt-info .side-info .apt-message {
   padding-top: 20px;

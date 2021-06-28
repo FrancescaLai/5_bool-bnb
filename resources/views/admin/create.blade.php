@@ -92,7 +92,7 @@ Boolbnb | Nuovo Appartamento
             </div>
             <div class="mt-3">
                 <h3>Servizi</h3>
-                <div class="prova" style="column-count: 2;">
+                <div style="column-count: 2;">
                 @foreach ($services as $service)
                     <div class="custom-control custom-checkbox">
                         <input class="custom-control-input" type="checkbox" value="{{$service->id}}" id="{{$service->name}}" name="services[]">
