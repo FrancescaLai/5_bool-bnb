@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>boolbnb</title>
+    <title>@yield('pageTitle')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -72,9 +72,9 @@
             </div>
         </nav>
 
-        <main>
-            @yield('content')
-        </main>
+        {{-- Main --}}
+        @yield('content')
+        {{-- /Main --}}
     </div>
 
     @yield('dayjs')

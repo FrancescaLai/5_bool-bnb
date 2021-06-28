@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('pageTitle')
-boolbnb | {{$apartment->name}}
+Boolbnb | {{$apartment->name}}
 @endsection
 
 @section('content')

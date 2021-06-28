@@ -1,17 +1,11 @@
 @extends('layouts.base')
 
 @section('pageTitle')
-    boolbnb | Ricerca avanzata
+Boolbnb | Ricerca avanzata
 @endsection
 
 @section('content')
 <main id="search-page">
-    {{-- Page progress indicator --}}
-    <div class="progress-container">
-        <div class="progress-bar" id="bar"></div>
-    </div>
-    {{-- /Page progress indicator --}}
-
     {{-- Search --}}
     <div id="search">
         {{-- Results section --}}
@@ -21,7 +15,10 @@
                 <div class="large-container">
                     <div class="main-searchbar">
                         <input v-on:keyup.13="getPosition(index)" type="text" class="search-form" placeholder="Dove vuoi andare?" v-model="query" v-on:keydown="radiusSearch">
-
+                        <div class="range">
+                            <input type="range" min="1000" max="100000" v-model="radius">
+                            <span>@{{Number(radius / 1000).toFixed(1)}} Km</span>
+                        </div>
                         {{-- Dropdown list --}}
                         <ul v-if="dropdownResults && query != ''" :class="dropdownResults == true ? 'advanced-dropdown' : '-hide'">
                             <li>Results for "@{{query}}"</li>
@@ -30,19 +27,11 @@
                             </li>
                         </ul>
                         {{-- /Dropdown list --}}
-
-                    </div>
-                    <div class="range">
-                        <input type="range" min="1000" max="100000" v-model="radius">
-                        <span>@{{Number(radius / 1000).toFixed(1)}} Km</span>
                     </div>
                     <div class="date">
                         <input type="date" id="start" name="trip-start" value="2021-06-01" min="2021-06-01" max="2023-12-31">
-                    </div>
-                    <div class="date">
                         <input type="date" id="start" name="trip-start" value="2021-06-01" min="2021-06-01" max="2023-12-31">
                     </div>
-
                     {{-- Search event trigger --}}
                     <button v-on:click='apartmentsSearch'>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -160,38 +149,38 @@
                 <div class="large-container">
                     <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
 
-                        <ul v-if="myApartmentsResults.length != []">
-                            <li v-for="apartment in myApartmentsResults" class="card-apartment">
-                                <div class="card-apartment__info">
-                                    <img :src="apartment.image" :alt="apartment.name">
-                                    <div class="text">
-                                        <div class="text__info">
-                                            <span>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#076cf9"/>
-                                                </svg>
-                                            </span>
-                                            <span>4,91 (147)</span>
-                                            <div><h6>@{{apartment.name}}</h6></div>
-                                            <div><p>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</p></div>
-                                        </div> 
-                                        <ul class="text__services">
-                                            <li>@{{apartment.num_bed}} bed(s)</li>
-                                            <li>@{{apartment.mq}}m&#178;</li>
-                                        </ul>
-                                    </div>
+                    <ul v-if="myApartmentsResults.length != []">
+                        <li v-for="apartment in myApartmentsResults" class="card-apartment">
+                            <div class="card-apartment__info">
+                                <img :src="apartment.image" :alt="apartment.name">
+                                <div class="text">
+                                    <div class="text__info">
+                                        <span>
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#076cf9"/>
+                                            </svg>
+                                        </span>
+                                        <span>4,91 (147)</span>
+                                        <div><h6>@{{apartment.name}}</h6></div>
+                                        <div><p>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</p></div>
+                                    </div> 
+                                    <ul class="text__services">
+                                        <li>@{{apartment.num_bed}} bed(s)</li>
+                                        <li>@{{apartment.mq}}m&#178;</li>
+                                    </ul>
                                 </div>
-                                <div class="card-apartment__price">
-                                    <div>
-                                        <h4>@{{apartment.price_day}}€</h4>
-                                        <p>/ per notte</p>
-                                    </div>
-                                    <div>
-                                        <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
-                                    </div>
+                            </div>
+                            <div class="card-apartment__price">
+                                <div>
+                                    <h4>@{{apartment.price_day}}€</h4>
+                                    <p>/ per notte</p>
                                 </div>
-                            </li>
-                        </ul> 
+                                <div>
+                                    <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul> 
                           
                     <div v-else-if="isQueryActive == true">
                         <p>Non esistono appartamenti disponibili in questa zona</p>
@@ -203,39 +192,39 @@
                 <div class="large-container">
                     <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
 
-                        <ul v-if="myApartmentsResults.length != []">
-                            <li v-for="apartment in myApartmentsResults" v-if="apartment.num_bed == selectedNumBed" class="card-apartment">
-                                <div class="card-apartment__info">
-                                    <img :src="apartment.image" :alt="apartment.name">
-                                    <div class="text">
-                                        <div class="text__info">
-                                            <span>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#076cf9"/>
-                                                </svg>
-                                            </span>
-                                            <span>4,91 (147)</span>
-                                            <div><h6>@{{apartment.name}}</h6></div>
-                                            <div><p>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</p></div>
-                                        </div> 
-                                        <ul class="text__services">
-                                            <li>@{{apartment.num_bed}} bed(s)</li>
-                                            <li>@{{apartment.mq}}m&#178;</li>
-                                        </ul>
-                                    </div>
+                    <ul v-if="myApartmentsResults.length != []">
+                        <li v-for="apartment in myApartmentsResults" v-if="apartment.num_bed == selectedNumBed" class="card-apartment">
+                            <div class="card-apartment__info">
+                                <img :src="apartment.image" :alt="apartment.name">
+                                <div class="text">
+                                    <div class="text__info">
+                                        <span>
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#076cf9"/>
+                                            </svg>
+                                        </span>
+                                        <span>4,91 (147)</span>
+                                        <div><h6>@{{apartment.name}}</h6></div>
+                                        <div><p>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</p></div>
+                                    </div> 
+                                    <ul class="text__services">
+                                        <li>@{{apartment.num_bed}} bed(s)</li>
+                                        <li>@{{apartment.mq}}m&#178;</li>
+                                    </ul>
                                 </div>
-                                <div class="card-apartment__price">
-                                    <div>
-                                        <h4>@{{apartment.price_day}}€</h4>
-                                        <p>/ per notte</p>
-                                    </div>
-                                    <div>
-                                        <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
-                                    </div>
+                            </div>
+                            <div class="card-apartment__price">
+                                <div>
+                                    <h4>@{{apartment.price_day}}€</h4>
+                                    <p>/ per notte</p>
                                 </div>
-                            </li>
-                        </ul> 
-                          
+                                <div>
+                                    <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul> 
+
                     <div v-else-if="isQueryActive == true">
                         <p>Non esistono appartamenti disponibili in questa zona</p>
                     </div>
@@ -246,38 +235,38 @@
                 <div class="large-container">
                     <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
 
-                        <ul v-if="myApartmentsResults.length != []">
-                            <li v-for="apartment in myApartmentsResults" v-if="apartment.mq == selectedMq" class="card-apartment">
-                                <div class="card-apartment__info">
-                                    <img :src="apartment.image" :alt="apartment.name">
-                                    <div class="text">
-                                        <div class="text__info">
-                                            <span>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#076cf9"/>
-                                                </svg>
-                                            </span>
-                                            <span>4,91 (147)</span>
-                                            <div><h6>@{{apartment.name}}</h6></div>
-                                            <div><p>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</p></div>
-                                        </div> 
-                                        <ul class="text__services">
-                                            <li>@{{apartment.num_bed}} bed(s)</li>
-                                            <li>@{{apartment.mq}}m&#178;</li>
-                                        </ul>
-                                    </div>
+                    <ul v-if="myApartmentsResults.length != []">
+                        <li v-for="apartment in myApartmentsResults" v-if="apartment.mq == selectedMq" class="card-apartment">
+                            <div class="card-apartment__info">
+                                <img :src="apartment.image" :alt="apartment.name">
+                                <div class="text">
+                                    <div class="text__info">
+                                        <span>
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#076cf9"/>
+                                            </svg>
+                                        </span>
+                                        <span>4,91 (147)</span>
+                                        <div><h6>@{{apartment.name}}</h6></div>
+                                        <div><p>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</p></div>
+                                    </div> 
+                                    <ul class="text__services">
+                                        <li>@{{apartment.num_bed}} bed(s)</li>
+                                        <li>@{{apartment.mq}}m&#178;</li>
+                                    </ul>
                                 </div>
-                                <div class="card-apartment__price">
-                                    <div>
-                                        <h4>@{{apartment.price_day}}€</h4>
-                                        <p>/ per notte</p>
-                                    </div>
-                                    <div>
-                                        <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
-                                    </div>
+                            </div>
+                            <div class="card-apartment__price">
+                                <div>
+                                    <h4>@{{apartment.price_day}}€</h4>
+                                    <p>/ per notte</p>
                                 </div>
-                            </li>
-                        </ul> 
+                                <div>
+                                    <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul> 
                           
                     <div v-else-if="isQueryActive == true">
                         <p>Non esistono appartamenti disponibili in questa zona</p>
@@ -289,38 +278,38 @@
                 <div class="large-container">
                     <h3 v-if="isQueryActive">Results for @{{lastQuery}}</h3>
 
-                        <ul v-if="myApartmentsResults.length != []">
-                            <li v-for="apartment in myApartmentsResults" v-if="apartment.mq == selectedMq && apartment.num_bed == selectedNumBed" class="card-apartment">
-                                <div class="card-apartment__info">
-                                    <img :src="apartment.image" :alt="apartment.name">
-                                    <div class="text">
-                                        <div class="text__info">
-                                            <span>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#076cf9"/>
-                                                </svg>
-                                            </span>
-                                            <span>4,91 (147)</span>
-                                            <div><h6>@{{apartment.name}}</h6></div>
-                                            <div><p>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</p></div>
-                                        </div> 
-                                        <ul class="text__services">
-                                            <li>@{{apartment.num_bed}} bed(s)</li>
-                                            <li>@{{apartment.mq}}m&#178;</li>
-                                        </ul>
-                                    </div>
+                    <ul v-if="myApartmentsResults.length != []">
+                        <li v-for="apartment in myApartmentsResults" v-if="apartment.mq == selectedMq && apartment.num_bed == selectedNumBed" class="card-apartment">
+                            <div class="card-apartment__info">
+                                <img :src="apartment.image" :alt="apartment.name">
+                                <div class="text">
+                                    <div class="text__info">
+                                        <span>
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 0.322876L6.12257 3.98523H9.75528L6.81636 6.24869L7.93893 9.91104L5 7.64758L2.06107 9.91104L3.18364 6.24869L0.244718 3.98523H3.87743L5 0.322876Z" fill="#076cf9"/>
+                                            </svg>
+                                        </span>
+                                        <span>4,91 (147)</span>
+                                        <div><h6>@{{apartment.name}}</h6></div>
+                                        <div><p>@{{apartment.street}}, @{{apartment.city}}, @{{apartment.region}}</p></div>
+                                    </div> 
+                                    <ul class="text__services">
+                                        <li>@{{apartment.num_bed}} bed(s)</li>
+                                        <li>@{{apartment.mq}}m&#178;</li>
+                                    </ul>
                                 </div>
-                                <div class="card-apartment__price">
-                                    <div>
-                                        <h4>@{{apartment.price_day}}€</h4>
-                                        <p>/ per notte</p>
-                                    </div>
-                                    <div>
-                                        <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
-                                    </div>
+                            </div>
+                            <div class="card-apartment__price">
+                                <div>
+                                    <h4>@{{apartment.price_day}}€</h4>
+                                    <p>/ per notte</p>
                                 </div>
-                            </li>
-                        </ul> 
+                                <div>
+                                    <a class="btn btn-full" :href="'apartment/' + apartment.id">Book now</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul> 
                           
                     <div v-else-if="isQueryActive == true">
                         <p>Non esistono appartamenti disponibili in questa zona</p>
@@ -348,6 +337,5 @@
 {{-- Vue cdn --}}
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 {{-- Custom script --}}
-<script src="{{asset('js\custom\navigation.js')}}"></script>
 <script src="{{asset('js\custom\search.js')}}"></script>
 @endsection

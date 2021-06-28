@@ -1,20 +1,20 @@
-.container{
+#apartment-main {
+    margin: 25px 0;
+    container {
         @media (max-width: 1200px) {
             padding: 0px 80px;
         }
-}
-
-h1{
-    margin-bottom: 30px;
-    @media (max-width: 1200px) {
-        font-size: $title-sm;
     }
-    @media (max-width: 576px) {
-        font-size: $title-xs;
+    h1 {
+        margin-bottom: 30px;
+        @media (max-width: 1200px) {
+            font-size: $title-sm;
+        }
+        @media (max-width: 576px) {
+            font-size: $title-xs;
+        }
     }
-}
-
-    h5{
+    h5 {
         margin-bottom: 20px;
         font-weight: bold;
         color: #09244f;
@@ -22,73 +22,73 @@ h1{
             font-size: $title-xs;
         }
     }
-
-    .apt-info{
+    .apt-info {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
         @media (max-width: 1200px) {
             display: block;
         }
-
-        .apt-img{
+        .apt-img {
             width: 500px;
             margin: 5px 50px 45px 0px;
             @media (max-width: 1200px) {
                 width: 100%;
             }
-    
-            img{
+            img {
                 width: 100%;
                 border-radius: 8px;
             }
         }
-
-        .side-info{
+        .side-info {
             height: 375px;
             width: 50%;
             background-color: white;
             padding: 30px;
             border-radius: 8px;
             overflow-y: auto;
+            box-shadow: 0 4px 15px rgba($gray-500, 0.15);
             @media (max-width: 1200px) {
                 width: 100%;
                 margin-bottom: 45px;
             }
-
-            .service-list{
+            .service-list {
                 height: 150px;
                 column-count: 2;
                 padding-bottom: 20px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 overflow: hidden;
             }
-
-            .apt-message{
+            .apt-message {
                 padding-top: 20px;
 
-                ul li{
+                ul li {
                     margin-bottom: 10px;
-                    
-                    p{
+
+                    p {
                         font-weight: bold;
-                        width: 410px; 
-                        white-space: nowrap; 
+                        width: 410px;
+                        white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
 
-                        span{
-                            font-weight: lighter; 
+                        span {
+                            font-weight: lighter;
                         }
                     }
                 }
             }
         }
     }
-
-    .btn-edit-apt{
+    button {
+        &:hover {
+            color: #fff;
+        }
+    }
+    .btn-edit-apt {
         @media (max-width: 992px) {
             display: flex;
             justify-content: space-between;
         }
     }
+}

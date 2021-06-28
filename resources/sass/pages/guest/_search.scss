@@ -2,10 +2,19 @@
     #search {
         display: flex;
         z-index: 100;
-        min-height: calc(100vh - 205px);
+        @include mq-large {
+            display: block;
+        }
         .search__results {
-            width: 60%;
-            @include mq-medium {
+            min-height: 100vh;
+            flex-basis: 60%;
+            @include mq-large {
+                width: 100%;
+            }
+        }
+        .search__map {
+            flex-basis: 40%;
+            @include mq-large {
                 width: 100%;
             }
         }
@@ -16,7 +25,7 @@
             input:not([type="range"]) {
                 height: 45px;
                 border: none;
-                padding-left: 8px;
+                padding: 8px 10px;
                 background: $gray-200;
                 border-radius: 10px;
                 color: grey;
@@ -27,14 +36,25 @@
                 height: 100%;
             }
             .main-searchbar {
+                flex-basis: 60%;
                 position: relative;
-            }
-            .range {
                 @include flex-center-vert;
-                gap: 10px;
-                label {
-                    display: block;
+                justify-content: space-between;
+                gap: 30px;
+                .search-form {
+                    flex-basis: calc(70% - 15px);
                 }
+                .range {
+                    flex-basis: 20%;
+                    @include flex-center-vert;
+                    gap: 10px;
+                }
+            }
+
+            .date {
+                flex-basis: 40%;
+                @include flex-center;
+                gap: 30px;
             }
             button {
                 border: 1px solid $primary;
@@ -150,15 +170,17 @@
                 }
             }
         }
-        .search-map{
-            // height: 500px;
-            // width: 700px;
-            // border-radius: 8px;
-
-            #map {
-                position: fixed;
-                height: 70%;
-                width: 39%;
+        #map {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            @include mq-large {
+                display: block;
+                position: relative;
+                height: 600px;
+                border-radius: 20px;
+                width: 75%;
+                margin: 25px auto;
             }
         }
     }

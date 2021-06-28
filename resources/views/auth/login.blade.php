@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('pageTitle')
+    Boolbnb | Login
+@endsection
+
 @section('content')
 <main id="login">
     <div class="large-container">

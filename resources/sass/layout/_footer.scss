@@ -1,10 +1,18 @@
 footer {
+    position: relative;
     background-color: $primaryLighter;
     padding-bottom: 75px;
     padding-top: 40px;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    h3 {
+        font-family: "Mulish";
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+        font-weight: 700;
+    }
 
-    .row{
+    .row {
         display: flex;
         flex-wrap: wrap;
         margin-right: -15px;
@@ -18,7 +26,7 @@ footer {
             font-size: $title-xs;
         }
 
-        div[class^="col"]{
+        div[class^="col"] {
             display: block;
         }
 
@@ -27,7 +35,7 @@ footer {
                 color: $primaryDark;
                 font-size: $body-sm;
                 font-weight: 600;
-    
+
                 &.joinCommunity {
                     font-size: $body-xs;
                     font-weight: 800;

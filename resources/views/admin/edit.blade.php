@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
+@section('pageTitle')
+Boolbnb | Edit -> {{$apartment->name}}
+@endsection
+
 @section('content')
-<main>
+<main id="main-edit">
     <div class="container">
         @if ($errors->any())
             <div class="alert alert-danger">
