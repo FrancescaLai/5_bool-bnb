@@ -140,7 +140,7 @@ Boolbnb | Dashboard
             {{-- /apartments section --}}
     
             {{-- messages section --}}
-            <section class="messages col-lg-7">
+            <section class="messages col-12">
                 <div class="card">
                     <div class="card__header">                    
                         <div class="col-lg-7">
@@ -174,64 +174,6 @@ Boolbnb | Dashboard
                 </div>
             </section>
             {{-- /messages section --}}
-    
-            {{-- sponsorization --}}
-            <section class="sponsorization col-lg-5">
-                <div class="card">
-                    <div class="card__header">                  
-                        <div class="col-lg-7">
-                            <h3>Sponsorizzazioni</h3>
-                        </div>
-                    </div>
-                    <div class="card__main">
-                        <ul>
-    
-                            @foreach ($apartments as $apartment)
-                            <li>
-                                <div class="apartment">
-                                    <p>{{$apartment->name}}</p>
-                                </div>
-                                <div class="isSponsor">
-                                    <p>Sponsorizzazione attiva?</p>
-                                </div>
-                                <div class="days">
-                                    <p>Giorni mancanti</p>
-                                </div>
-                            </li>
-                            @endforeach
-    
-                            {{-- @for ($i = 0; $i < 10; $i++)
-                                <li>
-                                    <div class="guest">
-                                        <img src="https://via.placeholder.com/25" alt="#">
-                                        <p>Nome cognome</p>
-                                    </div>
-                                    <div class="apartment">
-                                        <p>Nome appartament0</p>
-                                    </div>
-                                    <div class="days">
-                                        <p>n notti</p>
-                                    </div>
-                                </li>
-                            @endfor --}}
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            {{-- /sponsorization section --}}
-    
-            {{-- stats section --}}
-            {{-- <section class="stats col-12">
-                <div class="card">
-                    <div class="card__header">
-                        <h3>Statistiche</h3>
-                    </div>
-                    <div class="card__main">
-        
-                    </div>
-                </div>
-            </section> --}}
-            {{-- /stats section --}}
         </div>
     </div>    
 </main>

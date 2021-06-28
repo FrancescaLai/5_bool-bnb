@@ -167,22 +167,20 @@
                 }
             }
         }
-        .sponsorization {
-            ul {
-                overflow-y: auto;
+        .media {
+            .glide__slides {
                 height: 100%;
             }
-            li {
-                @include flex-center;
-                justify-content: space-between;
-                background: $primaryLighter;
-                color: $primaryDark;
-                padding: 10px 20px;
-                border-radius: 10px;
-                margin-bottom: 15px;
-
-                div {
-                    width: 30%;
+            .glide__slide {
+                height: 100%;
+                line-height: 100px;
+                margin: 0;
+                text-align: center;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 20px;
                 }
             }
         }
