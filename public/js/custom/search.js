@@ -64,6 +64,7 @@ var app = new Vue({
         checked: {
             service: [],
         },
+        expanded: false,
     },
 
     methods: {
@@ -259,7 +260,6 @@ var app = new Vue({
             }
             return [...categorySet];
         },
-
         visible: function(service) {
             const services = this.checked.service.length ? _.intersection(service, this.checked.service).length : true;
             if (services) {
@@ -268,6 +268,24 @@ var app = new Vue({
                 return false;
             }
         },
+
+                 /**
+         * 
+         * @description Funzione per espandere il dropdwon menu dei servizi
+         * 
+         */
+        showCheckboxes: function() {
+            var checkboxes = document.getElementById("checkboxes");
+            if (!this.expanded) {
+              checkboxes.style.display = "flex";
+              this.expanded = true;
+            } else {
+              checkboxes.style.display = "none";
+              this.expanded = false;
+            }
+        }
+
+
     },
 
     mounted: function () {
