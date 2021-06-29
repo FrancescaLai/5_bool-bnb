@@ -83,7 +83,6 @@ var app = new Vue({
             .then((response) => {
                 this.searchResults = response.data.results;
                 this.lastQuery = this.query;
-                this.query = '';
                 this.myApartmentsResults = [];
                 this.radiusResults = [];
                 this.dropdownResults = false;
